@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import "@fontsource/roboto";
 import "@fontsource/merriweather";
@@ -6,16 +6,25 @@ import "@fontsource/merriweather";
 import TheCursor from "@components/global/TheCursor"
 import TheHeader from "@components/global/TheHeader"
 
+import { classNames } from '@utils'
+
 function Base(props) {
+	const [theme] = useState(localStorage.getItem('xmtheme'))
+
 	return (
-		<main className="bg-xm-black-dark text-white h-full w-full">
+		<main className={classNames(
+			theme === 'dark' ? "bg-xm-black-dark text-white" : "bg-white text-xm-black-dark",
+			" h-full w-full",
+		)}>
 			<Helmet>
 				<title>Xian Malik - A Front-End Engineer</title>
 			</Helmet>
+			<article>
 
-			<TheHeader />
+				<TheHeader />
+				{props.children}
 
-			{props.children}
+			</article>
 
 			<TheCursor />
 		</main>

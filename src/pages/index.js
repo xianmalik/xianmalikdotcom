@@ -3,6 +3,7 @@ import Base from '@layouts/Base'
 import { Link } from "react-scroll"
 
 import dp from '../images/dp.jpg'
+import placeholder from '../images/placeholder.png'
 
 function Index() {
 	return (
@@ -13,9 +14,9 @@ function Index() {
 						Hello, I'm<br />
 						Malik Zubayer Ul Haider.
 					</h1>
-					<h4 className="text-lg tracking-wide text-gray-400 mb-4">A Javascript Developer with undying ❤ for JavaScript & Coffee ☕</h4>
+					<h4 className="text-lg tracking-wide text-gray-400 mb-4">Front-End Developer with an undying <span role="img" aria-label="Heart">❤</span> for JavaScript & Coffee <span role="img" aria-label="Coffee">☕</span></h4>
 					<Link
-						to="about"
+						to="projects"
 						spy={true}
 						smooth={true}
 						duration={300}
@@ -31,11 +32,23 @@ function Index() {
 					</div>
 				</div>
 			</section>
-			<section className="w-full h-screen bg-xm-black-dark text-white grid items-center p-8" id="projects">
+
+			{/* Projects Section */}
+			<section className="w-full h-screen bg-xm-black bg-opacity-20 text-white grid items-center p-8" id="projects">
 				<div className="text-left mx-auto p-8 max-w-5xl">
-					<h1 className="font-serif text-5xl font-black mb-4">
+					<h2 className="font-serif text-5xl font-black mb-8 text-center">
 						Projects
-					</h1>
+					</h2>
+					<div className="grid grid-cols-3 gap-4 relative">
+						<img src={placeholder} alt="placeholder" />
+						<img src={placeholder} alt="placeholder" />
+						<img src={placeholder} alt="placeholder" />
+						<img src={placeholder} alt="placeholder" />
+						<img src={placeholder} alt="placeholder" />
+						<img src={placeholder} alt="placeholder" />
+						<img src={placeholder} alt="placeholder" />
+						<img src={placeholder} alt="placeholder" />
+					</div>
 				</div>
 			</section>
 		</Base>
