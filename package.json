@@ -3,7 +3,9 @@
   "name": "gatsby",
   "version": "1.0.0",
   "dependencies": {
+    "@fontsource/archivo": "^4.5.1",
     "@fontsource/merriweather": "^4.5.1",
+    "@fontsource/montserrat": "^4.5.1",
     "@fontsource/roboto": "^4.5.0",
     "@iconscout/react-unicons": "^1.1.6",
     "autoprefixer": "^10.3.4",
@@ -18,6 +20,7 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-scroll": "^1.8.4",
+    "react-spring": "^9.2.4",
     "tailwindcss": "^2.2.15",
     "yarn": "^1.22.11"
   },

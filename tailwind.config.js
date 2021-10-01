@@ -11,12 +11,17 @@ module.exports = {
 			fontFamily: {
 				sans: ['Roboto', 'sans-serif'],
 				serif: ['Merriweather', 'serif'],
+				montserrat: ['Montserrat', 'serif'],
+				archivo: ['Archivo', 'sans-serif'],
 			},
 			cursor: {
 				none: 'none'
 			},
 			letterSpacing: {
 				widester: '6px'
+			},
+			padding: {
+
 			}
 		},
 	},

@@ -7,6 +7,8 @@ import {
 
 import { classNames } from '@utils'
 
+import XMLogo from '../../images/xm-logo.svg'
+
 const main_menu = [
 	{ name: "ME", href: "me" },
 	{ name: "PROJECTS", href: "projects" },
@@ -18,11 +20,11 @@ const main_menu = [
 function TheHeader(props) {
 	const [theme, setTheme] = useState('dark')
 
-	const changeTheme = () => {
-		const _t = theme === 'dark' ? 'light' : 'dark'
-		setTheme(_t)
-		localStorage.setItem('xmtheme', _t)
-	}
+	// const changeTheme = () => {
+	// 	const _t = theme === 'dark' ? 'light' : 'dark'
+	// 	setTheme(_t)
+	// 	localStorage.setItem('xmtheme', _t)
+	// }
 
 	useEffect(() => {
 		setTheme(localStorage.getItem('xmtheme'))
@@ -34,7 +36,7 @@ function TheHeader(props) {
 			"border-r border-gray-700 border-opacity-75 fixed left-0 top-0 h-screen w-20 flex flex-col transition-colors",
 		)}>
 			<div className="w-20 h-20 border-b border-gray-700 border-opacity-75 self-start flex items-center justify-center text-center text-lg font-serif">
-				XM
+				<img src={XMLogo} alt="Xian Malik" className="opacity-75" />
 			</div>
 			<nav className="w-20 flex flex-1 items-center px-4">
 				<ul className="h-full min-w-max flex flex-col items-start justify-center gap-6 relative">

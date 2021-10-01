@@ -10,10 +10,10 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: 'Gatsby + Node.js (TypeScript) API',
-				short_name: 'Gatsby + Node.js (TypeScript)',
+				name: 'Malik Zubayer Ul Haider',
+				short_name: 'Malik Zubayer Ul Haider',
 				start_url: '/',
-				icon: 'src/images/gatsby-icon.png',
+				icon: 'src/images/xm-logo.svg',
 			},
 		},
 		{
@@ -25,6 +25,7 @@ module.exports = {
 					"@images": path.resolve(__dirname, 'src/images'),
 					"@utils": path.resolve(__dirname, 'src/utils'),
 					"@hooks": path.resolve(__dirname, 'src/hooks'),
+					"@data": path.resolve(__dirname, 'src/data'),
 				},
 				extensions: []
 			}

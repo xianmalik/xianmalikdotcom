@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { Helmet } from 'react-helmet';
-import "@fontsource/roboto";
-import "@fontsource/merriweather";
+import React, { useState } from 'react'
+import { Helmet } from 'react-helmet'
 
 import TheCursor from "@components/global/TheCursor"
 import TheHeader from "@components/global/TheHeader"

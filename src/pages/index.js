@@ -2,8 +2,11 @@ import React from 'react'
 import Base from '@layouts/Base'
 import { Link } from "react-scroll"
 
+// Sections
+import Projects from '@components/Projects'
+
+// Images
 import dp from '../images/dp.jpg'
-import placeholder from '../images/placeholder.png'
 
 function Index() {
 	return (
@@ -34,23 +37,7 @@ function Index() {
 			</section>
 
 			{/* Projects Section */}
-			<section className="w-full h-screen bg-xm-black bg-opacity-20 text-white grid items-center p-8" id="projects">
-				<div className="text-left mx-auto p-8 max-w-5xl">
-					<h2 className="font-serif text-5xl font-black mb-8 text-center">
-						Projects
-					</h2>
-					<div className="grid grid-cols-3 gap-4 relative">
-						<img src={placeholder} alt="placeholder" />
-						<img src={placeholder} alt="placeholder" />
-						<img src={placeholder} alt="placeholder" />
-						<img src={placeholder} alt="placeholder" />
-						<img src={placeholder} alt="placeholder" />
-						<img src={placeholder} alt="placeholder" />
-						<img src={placeholder} alt="placeholder" />
-						<img src={placeholder} alt="placeholder" />
-					</div>
-				</div>
-			</section>
+			<Projects />
 		</Base>
 	);
 }
