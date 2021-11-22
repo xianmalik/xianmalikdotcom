@@ -1163,6 +1163,11 @@
     native-url "^0.2.6"
     schema-utils "^2.6.5"
 
+"@purpled/utils@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@purpled/utils/-/utils-1.0.0.tgz#aee98176170bb76b52cc8a07135499f91c5ac1a4"
+  integrity sha512-RwYaYfN9bU5fDI5juz5QMt3zrCjNDmOaTc/4eBtwIxiNx8AGnlxFbmhwhw8cYKnRMAsCXX+0/hYpg36qpWoi4w==
+
 "@reach/router@^1.3.4":
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.3.4.tgz#d2574b19370a70c80480ed91f3da840136d10f8c"
@@ -9760,6 +9765,11 @@ react-hot-loader@^4.12.21:
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.1.0"
     source-map "^0.7.3"
+
+react-icons@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.3.1.tgz#2fa92aebbbc71f43d2db2ed1aed07361124e91ca"
+  integrity sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==
 
 react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"

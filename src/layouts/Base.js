@@ -3,15 +3,17 @@ import { Helmet } from 'react-helmet'
 
 import TheCursor from "@components/global/TheCursor"
 import TheHeader from "@components/global/TheHeader"
+import TheBackToTop from '@components/global/TheBackToTop'
 
-import { classNames } from '@utils'
+import { classNames } from '@purpled/utils'
 
 function Base(props) {
-	const [theme] = useState(localStorage.getItem('xmtheme'))
+	// const [theme] = useState(localStorage.getItem('xmtheme'))
+	const [theme] = 'light'
 
 	return (
 		<main className={classNames(
-			theme === 'dark' ? "bg-xm-black-dark text-white" : "bg-white text-xm-black-dark",
+			theme !== 'dark' ? "bg-white text-xm-black-dark" : "bg-xm-black-dark text-white",
 			" h-full w-full",
 		)}>
 			<Helmet>
@@ -24,7 +26,9 @@ function Base(props) {
 
 			</article>
 
-			<TheCursor />
+			{/* <TheCursor /> */}
+
+			<TheBackToTop />
 		</main>
 	);
 }

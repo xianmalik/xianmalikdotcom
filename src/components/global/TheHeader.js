@@ -5,7 +5,7 @@ import {
 	UilMoon,
 } from '@iconscout/react-unicons'
 
-import { classNames } from '@utils'
+import { classNames } from '@purpled/utils'
 
 import XMLogo from '../../images/xm-logo.svg'
 
@@ -18,7 +18,7 @@ const main_menu = [
 ]
 
 function TheHeader(props) {
-	const [theme, setTheme] = useState('dark')
+	const [theme, setTheme] = useState('light')
 
 	// const changeTheme = () => {
 	// 	const _t = theme === 'dark' ? 'light' : 'dark'
@@ -26,16 +26,20 @@ function TheHeader(props) {
 	// 	localStorage.setItem('xmtheme', _t)
 	// }
 
-	useEffect(() => {
-		setTheme(localStorage.getItem('xmtheme'))
-	}, [])
+	// useEffect(() => {
+	// 	if ( localStorage.getItem('xmtheme') ) {
+	// 		setTheme(localStorage.getItem('xmtheme'))
+	// 	} else {
+	// 		localStorage.setItem('xmtheme', 'dark')
+	// 	}
+	// }, [])
 
 	return (
 		<header className={classNames(
-			theme === 'dark' ? "bg-xm-black-dark text-white" : "bg-white text-xm-black-dark",
+			theme !== 'dark' ? "bg-white text-xm-black-dark" : "bg-xm-black-dark text-white",
 			"border-r border-gray-700 border-opacity-75 fixed left-0 top-0 h-screen w-20 flex flex-col transition-colors",
 		)}>
-			<div className="w-20 h-20 border-b border-gray-700 border-opacity-75 self-start flex items-center justify-center text-center text-lg font-serif">
+			<div className="w-20 h-20 bg-xm-black-dark p-1 border-b border-xm-black-dark border-opacity-75 self-start flex items-center justify-center text-center text-lg font-serif">
 				<img src={XMLogo} alt="Xian Malik" className="opacity-75" />
 			</div>
 			<nav className="w-20 flex flex-1 items-center px-4">
@@ -56,11 +60,11 @@ function TheHeader(props) {
 			</nav>
 			<button
 				// onClick={changeTheme}
-				className="w-full h-20 border-t border-gray-700 border-opacity-75 self-end flex items-center justify-center text-center">
-				{theme === 'dark' ? (
-					<UilMoon size="28" className="text-opacity-75" />
+				className="w-full h-20 border-t border-gray-700 border-opacity-75 self-end flex items-center justify-center text-center text-opacity-75">
+				{(theme === 'dark') ? (
+					<UilMoon size="28" />
 				) : (
-					<UilSun size="28" className="text-opacity-75" />
+					<UilSun size="28" />
 				)}
 			</button>
 		</header>

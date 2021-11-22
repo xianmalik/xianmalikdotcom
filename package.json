@@ -1,6 +1,5 @@
 {
-  "private": true,
-  "name": "gatsby",
+  "name": "xianmalik",
   "version": "1.0.0",
   "dependencies": {
     "@fontsource/archivo": "^4.5.1",
@@ -8,6 +7,7 @@
     "@fontsource/montserrat": "^4.5.1",
     "@fontsource/roboto": "^4.5.0",
     "@iconscout/react-unicons": "^1.1.6",
+    "@purpled/utils": "^1.0.0",
     "autoprefixer": "^10.3.4",
     "gatsby": "^2.18.14",
     "gatsby-image": "^2.0.15",
@@ -19,6 +19,7 @@
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
+    "react-icons": "^4.3.1",
     "react-scroll": "^1.8.4",
     "react-spring": "^9.2.4",
     "tailwindcss": "^2.2.15",
@@ -28,6 +29,7 @@
     "@vercel/node": "1.9.0"
   },
   "scripts": {
+    "start": "gatsby develop",
     "dev": "gatsby develop",
     "build": "gatsby build"
   }
