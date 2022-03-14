@@ -1,9 +1,13 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
-	purge: [],
-	darkMode: false, // or 'media' or 'class'
+	content: [],
 	theme: {
 		extend: {
 			colors: {
+				green: colors.emerald,
+				yellow: colors.amber,
+				purple: colors.violet,
 				'xm-black': '#150c21',
 				'xm-black-dark': '#16161F',
 				'xm-purple': '#562FFF',
@@ -23,11 +27,6 @@ module.exports = {
 			padding: {
 
 			}
-		},
-	},
-	variants: {
-		extend: {
-			width: ["responsive", "hover", "focus"]
 		},
 	},
 	plugins: [],

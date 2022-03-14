@@ -33,6 +33,19 @@ module.exports = {
 		{
 			resolve: "gatsby-plugin-prettier-eslint",
 			options: {
+				cwd: process.cwd(),
+				watch: true, // format/lint on save
+				initialScan: true, // if true, will format/lint the whole project on Gatsby startup
+				onChangeFullScanLint: false, // if true, on file save always perform full scan lint
+				onChangeFullScanFormat: false, // if true, on file save always perform full scan format
+				prettierLast: false, // if true, will run Prettier after ESLint
+				ignorePatterns: [
+					"**/node_modules/**/*",
+					"**/.git/**/*",
+					"**/dist/**/*",
+					".cache/**/*",
+					"public/**/*",
+				], // string or array of paths/files/globs to ignore
 				prettier: {
 					patterns: [
 						// the pattern "**/*.{js,jsx,ts,tsx}" is not used because we will rely on `eslint --fix`
