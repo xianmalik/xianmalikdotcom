@@ -8,7 +8,7 @@
 import './src/styles/index.css';
 
 // Fonts
-import "@fontsource/roboto"
-import "@fontsource/archivo"
-import "@fontsource/montserrat/900.css"
-import "@fontsource/merriweather"
+import '@fontsource/roboto';
+import '@fontsource/archivo';
+import '@fontsource/montserrat/900.css';
+import '@fontsource/merriweather';

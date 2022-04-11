@@ -4,6 +4,10 @@
   "scripts": {
     "start": "gatsby develop",
     "dev": "gatsby develop",
+    "lint": "eslint . --fix",
+    "lint:nofix": "eslint .",
+		"format": "prettier --plugin=./node_modules/prettier --check .",
+		"format-fix": "prettier --plugin=./node_modules/prettier --write .",
     "build": "gatsby build",
     "prepare": "husky install"
   },
@@ -14,6 +18,8 @@
     "@fontsource/roboto": "^4.5.3",
     "@iconscout/react-unicons": "^1.1.6",
     "@purpled/utils": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
     "autoprefixer": "^10.4.2",
     "gatsby": "^4.9.1",
     "gatsby-image": "^3.11.0",
@@ -25,7 +31,7 @@
     "gatsby-plugin-react-helmet": "^5.9.0",
     "gatsby-plugin-sharp": "^4.9.0",
     "postcss": "^8.4.8",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
@@ -36,9 +42,9 @@
   },
   "devDependencies": {
     "@vercel/node": "1.13.0",
-    "eslint": "^8.10.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-import": "^2.25.2",
     "husky": "^7.0.0"
   }
 }

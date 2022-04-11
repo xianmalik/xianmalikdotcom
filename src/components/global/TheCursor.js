@@ -1,9 +1,9 @@
-import React from 'react'
-import useMousePosition from "@hooks/useMousePosition"
+import React from 'react';
+import useMousePosition from '@hooks/useMousePosition';
 
 const TheCursor = () => {
-	const { x, y } = useMousePosition();
-	return (
+  const { x, y } = useMousePosition();
+  return (
 		<>
 			{/* <span
 				style={{ left: `${x}px`, top: `${y}px` }}
@@ -22,7 +22,7 @@ const TheCursor = () => {
 				style={{ left: `${x}px`, top: `${y}px` }}
 			></span>
 		</>
-	);
+  );
 };
 
 export default TheCursor;

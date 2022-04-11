@@ -1,19 +1,19 @@
-import React from 'react'
-import Base from '@layouts/Base'
-import { Link } from "react-scroll"
+import React from 'react';
+import Base from '@layouts/Base';
+import { Link } from 'react-scroll';
 
 // Comopnents
-import Button from '@components/core/Button'
-import Divider from '@components/core/Divider'
+import Button from '@components/core/Button';
+import Divider from '@components/core/Divider';
 
 // Sections
-import Projects from '@components/Projects'
+import Projects from '@components/Projects';
 
 // Images
-import dp from '../images/dp.jpg'
+import dp from '../images/dp.jpg';
 
 function Index() {
-	return (
+  return (
 		<Base>
 			<section className="h-screen w-full grid grid-cols-2 max-w-screen-2xl mx-auto items-center p-8" id="me">
 				<div className="text-left mx-auto p-8 max-w-5xl">
@@ -48,7 +48,7 @@ function Index() {
 			{/* Projects Section */}
 			<Projects />
 		</Base>
-	);
+  );
 }
 
 export default Index;
