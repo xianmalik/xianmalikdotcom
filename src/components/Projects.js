@@ -14,6 +14,7 @@ export default function Projects() {
         <h2 className="font-serif text-5xl font-black mb-8 text-left">
           Selected Works
         </h2>
+        // carousel goes here
         <div className="relative">
           {ProjectsList.map((prj, idx) => (
             <div className="grid grid-cols-2" key={idx}>

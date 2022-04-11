@@ -4,7 +4,7 @@ import React from "react";
 import { classNames } from "@purpled/utils";
 
 export default function Button(props) {
-  const { children, className, light, ...rest } = props;
+  const { className, light, ...rest } = props;
 
   return (
     <hr
