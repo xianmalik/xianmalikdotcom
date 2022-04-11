@@ -1,24 +1,15 @@
 import React from 'react'
-// import { useSpring, animated } from 'react-spring'
 
 // Utils | Data
 import { classNames } from '@purpled/utils'
 import { ProjectsList } from '@data/projects'
 
 export default function Projects() {
-	// const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
-	// const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 0, tension: 0, friction: 0 } }))
 
 	return (
 		<section
 			id="projects"
-			// onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
 			className="w-full min-h-screen bg-black bg-opacity-20 text-white grid items-center p-8">
-			{/* <animated.div
-				className="text-9xl -ml-8 font-black font-montserrat"
-				style={{ transform: props.xy.interpolate((x, y) => `translate3d(${x / 50}px,${y / 50}px,0)`) }}>
-				DAWN GROUP
-			</animated.div> */}
 			<div className="text-left mx-auto p-8 max-w-5xl">
 				<h2 className="font-serif text-5xl font-black mb-8 text-left">
 					Selected Works
