@@ -5,9 +5,9 @@
     "start": "gatsby develop",
     "dev": "gatsby develop",
     "lint": "eslint . --fix",
+    "format": "prettier --plugin=./node_modules/prettier --write .",
     "lint:nofix": "eslint .",
-		"format": "prettier --plugin=./node_modules/prettier --check .",
-		"format-fix": "prettier --plugin=./node_modules/prettier --write .",
+    "format:nofix": "prettier --plugin=./node_modules/prettier --check .",
     "build": "gatsby build",
     "prepare": "husky install"
   },

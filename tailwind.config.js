@@ -1,34 +1,30 @@
-const colors = require('tailwindcss/colors');
+const colors = require("tailwindcss/colors");
 
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
         green: colors.emerald,
         yellow: colors.amber,
         purple: colors.violet,
-        'xm-black': '#150c21',
-        'xm-black-dark': '#16161F',
-        'xm-purple': '#562FFF',
+        "xm-black": "#150c21",
+        "xm-black-dark": "#16161F",
+        "xm-purple": "#562FFF",
       },
       fontFamily: {
-        sans: ['Roboto', 'sans-serif'],
-        serif: ['Merriweather', 'serif'],
-        montserrat: ['Montserrat', 'serif'],
-        archivo: ['Archivo', 'sans-serif'],
+        sans: ["Roboto", "sans-serif"],
+        serif: ["Merriweather", "serif"],
+        montserrat: ["Montserrat", "serif"],
+        archivo: ["Archivo", "sans-serif"],
       },
       cursor: {
-        none: 'none',
+        none: "none",
       },
       letterSpacing: {
-        widester: '6px',
+        widester: "6px",
       },
-      padding: {
-
-      },
+      padding: {},
     },
   },
   plugins: [],
