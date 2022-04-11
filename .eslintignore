@@ -3,3 +3,6 @@ node_modules
 dist
 .husky/*
 .vscode/*
+.eslintrc.js
+*.config.js
+gatsby-config.js
