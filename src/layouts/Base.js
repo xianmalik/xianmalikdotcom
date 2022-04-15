@@ -7,28 +7,21 @@ import TheBackToTop from "@components/global/TheBackToTop";
 
 import { classNames } from "@purpled/utils";
 
+import { nav_menu } from "@data";
+
 function Base(props) {
-  // const [theme] = useState(localStorage.getItem('xmtheme'))
-  const [theme] = "light";
 
   return (
-    <main
-      className={classNames(
-        theme !== "dark"
-          ? "bg-white text-xm-black-dark"
-          : "bg-xm-black-dark text-white",
-        " h-full w-full"
-      )}
-    >
+    <main className="bg-xm-black-dark text-white h-full w-full font-montserrat">
       <Helmet>
         <title>Xian Malik - A Front-End Engineer</title>
       </Helmet>
       <article>
-        <TheHeader />
+        <TheHeader menu={nav_menu} />
         {props.children}
       </article>
 
-      {/* <TheCursor /> */}
+      <TheCursor />
 
       <TheBackToTop />
     </main>
