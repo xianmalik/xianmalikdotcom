@@ -1,0 +1,15 @@
+.progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  background: var(--background-primary);
+  z-index: 99999;
+}
+
+.progress__inner {
+  height: 5px;
+  width: 100%;
+  background: var(--accent-primary);
+}
