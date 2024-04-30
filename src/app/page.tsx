@@ -7,8 +7,8 @@ import {
 } from "framer-motion";
 
 import styles from "./page.module.css";
-import Summary from "./views/Summary";
-import Projects from "./views/Projects";
+import Summary from "../views/Summary";
+import Projects from "../views/Projects";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
