@@ -4,7 +4,7 @@ import React from "react";
 import { classNames } from "@purpled/utils";
 import { ProjectsList } from "@data/projects";
 
-export default function Projects() {
+function ProjectsBlock() {
   return (
     <section
       id="projects"
@@ -52,3 +52,5 @@ export default function Projects() {
     </section>
   );
 }
+
+export default ProjectsBlock;

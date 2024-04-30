@@ -6,6 +6,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-postcss",
+    "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-manifest",
@@ -22,6 +23,7 @@ module.exports = {
         alias: {
           "@components": path.resolve(__dirname, "src/components"),
           "@layouts": path.resolve(__dirname, "src/layouts"),
+          "@blocks": path.resolve(__dirname, "src/blocks"),
           "@images": path.resolve(__dirname, "src/images"),
           "@utils": path.resolve(__dirname, "src/utils"),
           "@hooks": path.resolve(__dirname, "src/hooks"),

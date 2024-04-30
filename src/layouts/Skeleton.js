@@ -10,14 +10,18 @@ import { classNames } from "@purpled/utils";
 import { nav_menu } from "@data";
 
 function Base(props) {
+  const [darkMode, setDarkMode] = useState(false); // eslint-disable-line
 
   return (
-    <main className="bg-xm-black-dark text-white h-full w-full font-montserrat">
+    <main className={classNames(
+      darkMode && "bg-xm-black-dark text-white",
+      "h-full w-full font-montserrat"
+    )}>
       <Helmet>
-        <title>Xian Malik - A Front-End Engineer</title>
+        <title>Xian Malik - A Senior Front-End Engineer</title>
       </Helmet>
       <article>
-        <TheHeader menu={nav_menu} />
+        {/* <TheHeader menu={nav_menu} /> */}
         {props.children}
       </article>
 
