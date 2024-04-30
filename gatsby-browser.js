@@ -10,5 +10,5 @@ import "./src/styles/index.scss";
 // Fonts
 import "@fontsource/roboto";
 import "@fontsource/archivo";
-import "@fontsource/montserrat";
+import "@fontsource/montserrat/variable.css";
 import "@fontsource/merriweather";
