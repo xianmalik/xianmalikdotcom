@@ -1,34 +1,35 @@
 import React from "react";
-import Base from "@layouts/Base";
+import Skeleton from "@layouts/Skeleton";
 
 // Comopnents
 import Button from "@components/core/Button";
 import Divider from "@components/core/Divider";
 
 // Sections
-import Projects from "@components/Projects";
+import ProjectsBlock from "@blocks/ProjectsBlock";
 
 // Images
 // import dp from "../images/dp.jpg";
 
 function Index() {
   return (
-    <Base>
+    <Skeleton>
       <section
         className="h-screen w-full grid grid-cols-1 max-w-screen-2xl mx-auto items-center p-8"
         id="me"
       >
-        <div className="mx-auto p-8 max-w-5xl text-center">
-          <h1 className="font-serif text-5xl leading-relaxed font-thin mb-0">
+        <div className="mx-auto p-8 max-w-5xl">
+          <h1 className="font-montserrat uppercase text-5xl leading-relaxed font-black mb-0">
+            <span class="font-serif tracking-widester text-sm block">HELLO, I'M</span>
             Malik Zubayer Ul Haider.
           </h1>
           <Divider className="mx-auto" />
           <h4 className="text-md font-montserrat font-thin tracking-wide text-gray-400 mb-4 pt-2">
-            Front-End Developer with an undying{" "}
+            Front-End Engineer with an undying{" "}
             <span role="img" aria-label="Heart">
               ❤
             </span>{" "}
-            for JavaScript & Coffee{" "}
+            for JavaScript & Tea{" "}
             <span role="img" aria-label="Coffee">
               ☕
             </span>
@@ -45,16 +46,12 @@ function Index() {
       </section>
 
       {/* Projects Section */}
-      <Projects />
+      {/* <ProjectsBlock /> */}
 
-      <section>
+      {/* <section>
         // footer + social + copyright
-      </section>
-
-      <section>
-        // footer + social + copyright
-      </section>
-    </Base>
+      </section> */}
+    </Skeleton>
   );
 }
 
