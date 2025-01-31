@@ -4,7 +4,7 @@
   right: 0;
   bottom: 0;
   height: 5px;
-  background: var(--background-primary);
+  background: var(--background-dark);
   z-index: 99999;
 }
 
