@@ -1,8 +1,8 @@
 'use client';
 
 // Section Views
-import Summary from "@/blocks/Summary/Summary";
-import Projects from "@/blocks/Projects/Projects";
+import Summary from "@/blocks/Summary";
+import Projects from "@/blocks/Projects";
 import Skills from "@/blocks/Skills/Skills";
 
 export default function Home() {

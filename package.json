@@ -11,13 +11,16 @@
   "dependencies": {
     "@react-three/drei": "^9.105.5",
     "@react-three/fiber": "^8.16.3",
+    "@tailwindcss/postcss": "^4.1.11",
     "@types/three": "^0.164.0",
     "aos": "^2.3.4",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.1.7",
-    "next": "^15.1.6",
-    "popmotion": "^11.0.5",
-    "react": "^18",
+    "next": "^15.4.6",
+    "postcss": "^8.5.6",
+    "react": "^19.1.1",
     "react-dom": "^18",
+    "tailwindcss": "^4.1.11",
     "three": "^0.164.1"
   },
   "devDependencies": {
