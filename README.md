@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <img src="./ascii-logo.png" />
+  Personal portfolio website
+</p>
 
-## Getting Started
+## About
 
-First, run the development server:
+Portfolio website showcasing 10+ years of experience in building scalable web products. Built with modern web technologies for optimal performance and developer experience.
+
+## Tech Stack
+
+<p align="center">
+	<a href="https://svelte.dev/"><img src="https://img.shields.io/badge/Svelte-302D41?style=for-the-badge&logo=svelte&logoColor=FF3E00" /></a>
+	<a href="https://kit.svelte.dev/"><img src="https://img.shields.io/badge/SvelteKit-302D41?style=for-the-badge&logo=svelte&logoColor=FF3E00" /></a>
+	<a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-302D41?style=for-the-badge&logo=tailwind-css&logoColor=38B2AC"/></a>
+	<a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-302D41?logo=typescript&logoColor=3178C6&style=for-the-badge"/></a>
+	<a href="https://vercel.com/"><img src="https://img.shields.io/badge/Vercel-302D41.svg?logo=vercel&logoColor=white&style=for-the-badge" /></a>
+	<a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-302D41?style=for-the-badge&logo=vite&logoColor=646CFF" /></a>
+</p>
+
+## Features
+
+- ⚡ Built with SvelteKit for optimal performance
+- 🎨 Styled with TailwindCSS v4
+- 📱 Fully responsive design
+- 🔧 TypeScript for type safety
+- 📦 Modern build tools with Vite
+- 🚀 Deployed on Vercel
+
+## Development
+
+### Prerequisites
+
+- Node.js 18+ or Bun
+- npm, yarn, pnpm, or bun
+
+### Getting Started
 
 ```bash
+# Clone the repository
+git clone https://github.com/xianmalik/xianmalikdotcom.git
+cd xianmalikdotcom
+
+# Install dependencies
+npm install
+# or
+bun install
+
+# Start development server
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Available Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `dev` - Start development server
+- `build` - Build for production
+- `preview` - Preview production build
+- `check` - Run Svelte type checking
+- `check:watch` - Run type checking in watch mode
+- `lint` - Run ESLint and Prettier checks
+- `format` - Format code with Prettier
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Project Structure
 
-## Learn More
+```
+src/
+├── app.html          # HTML template
+├── app.css           # Global styles
+├── content/          # Content data
+│   └── summary.json  # Personal information
+├── lib/              # Reusable components and utilities
+│   ├── assets/       # Static assets
+│   └── components/   # Svelte components
+└── routes/           # SvelteKit routes
+    ├── +layout.svelte
+    └── +page.svelte
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is configured for deployment on Vercel with the `@sveltejs/adapter-vercel` adapter.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is private and not licensed for public use.

@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@import "./lib/assets/css/font.css";
+
+:root {
+  --canvas-backdrop: #f1f5f9;
+
+  /* Font Families */
+  --font-display: 'BluuNext', serif;
+  --font-sans: 'Metropolis', system-ui, -apple-system, sans-serif;
+  --font-handwriting: 'ReenieBeanie', cursive;
+}
+
+/* Font Utility Classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+/* BG Canvas Artboard */
+html,
+body {
+  background: var(--canvas-backdrop);
+}
+
+main {
+  z-index: 5;
+  position: relative;
+  padding: 24px;
+}
+
+.canvas--top,
+.canvas--bottom {
+  background-color: var(--canvas-backdrop);
+  flex: none;
+  height: 24px;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.canvas--top { @apply top-0; }
+.canvas--bottom { @apply bottom-0; }
+
+.canvas--wrapper {
+  @apply flex content-center items-center flex-none flex-col justify-start inset-0 overflow-hidden p-6 pointer-events-none fixed z-0;
+}
+
+.canvas--inner {
+  @apply bg-white rounded-xl size-full relative;
+  flex: 1 0 0px;
+}
+
+.canvas--lines {
+  @apply h-full w-[calc(840px)] border-l border-r border-[#00002D]/10 absolute;
+}
