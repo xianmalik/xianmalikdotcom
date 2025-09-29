@@ -1,6 +1,5 @@
 <p align="center">
   <img src="./ascii-logo.png" />
-  Personal portfolio website
 </p>
 
 ## About
