@@ -3,6 +3,10 @@
 
 @import "./lib/assets/css/font.css";
 
+@theme {
+  --color-shade: #80808D;
+}
+
 :root {
   --canvas-backdrop: #f1f5f9;
 
@@ -63,5 +67,5 @@ main {
 }
 
 .canvas--lines {
-  @apply h-full w-[calc(840px)] border-l border-r border-[#00002D]/10 absolute;
+  @apply h-full w-[calc(842px)] border-l border-r border-[#00002D]/10 absolute;
 }
