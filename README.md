@@ -1,13 +1,6 @@
 <p align="center">
   <img src="./ascii-logo.png" />
 </p>
-
-## About
-
-Portfolio website showcasing 10+ years of experience in building scalable web products. Built with modern web technologies for optimal performance and developer experience.
-
-## Tech Stack
-
 <p align="center">
 	<a href="https://svelte.dev/"><img src="https://img.shields.io/badge/Svelte-302D41?style=for-the-badge&logo=svelte&logoColor=FF3E00" /></a>
 	<a href="https://kit.svelte.dev/"><img src="https://img.shields.io/badge/SvelteKit-302D41?style=for-the-badge&logo=svelte&logoColor=FF3E00" /></a>
