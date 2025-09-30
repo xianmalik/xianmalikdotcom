@@ -1,4 +1,5 @@
 <script lang="ts">
+  import emblaCarouselSvelte from 'embla-carousel-svelte';
 	import ProjectSingleton from './ProjectSingleton.svelte';
 
 	interface Project {
@@ -9,14 +10,18 @@
 		stack: string[];
 	}
 
-	let { projects, maxItems = 4 }: { projects: Project[]; maxItems?: number } = $props();
+	let { projects }: { projects: Project[] } = $props();
 
 	// Limit projects to maxItems for 2x2 grid
-	const displayProjects = projects.slice(0, maxItems);
+  let options = { loop: true }
 </script>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-	{#each displayProjects as project, i}
-		<ProjectSingleton {project} />
-	{/each}
+<div class="embla overflow-visible" use:emblaCarouselSvelte="{{ options, plugins: [] }}">
+	<div class="embla__container flex">
+		{#each projects as project, i}
+			<div class="embla__slide p-4 min-w-0 flex-none basis-1/4">
+				<ProjectSingleton {project} />
+			</div>
+		{/each}
+	</div>
 </div>

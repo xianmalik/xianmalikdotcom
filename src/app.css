@@ -13,6 +13,7 @@
   /* Font Families */
   --font-display: 'BluuNext', serif;
   --font-sans: 'Metropolis', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrainsMono', monospace;
   --font-handwriting: 'ReenieBeanie', cursive;
 }
 
@@ -27,6 +28,10 @@
 
 .font-handwriting {
   font-family: var(--font-handwriting);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
 }
 
 /* BG Canvas Artboard */

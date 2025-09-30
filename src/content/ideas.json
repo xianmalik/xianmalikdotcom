@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Keys and Quests",
+        "tagline": "Blog website",
+        "excerpt": "Incididunt aliquip sit reprehenderit do labore labore labore consectetur exercitation ipsum laborum incididunt velit qui.",
+        "link": "https://keysandquests.com",
+        "image": "/projects/project--keys-and-quests.jpg",
+        "stack": ["TailwindCSS", "NextJS"]
+    },
+    {
+        "name": "Portfolio Site",
+        "tagline": "Personal portfolio",
+        "excerpt": "Veniam veniam dolore mollit aute proident consectetur est magna ad sit. Nulla mollit voluptate Lorem in excepteur reprehenderit magna cupidatat adipisicing proident non.",
+        "link": "https://portfolio.dev",
+        "image": "/projects/project--keys-and-quests.jpg",
+        "stack": ["SvelteKit", "TypeScript"]
+    },
+    {
+        "name": "Luna Watches",
+        "tagline": "E-Commerce Platform",
+        "excerpt": "Nostrud culpa excepteur veniam reprehenderit officia cupidatat tempor Lorem. Excepteur ullamco cupidatat cillum aliqua consectetur consequat magna sit officia laboris esse.",
+        "link": "https://shop.example.com",
+        "image": "/projects/project--keys-and-quests.jpg",
+        "stack": ["React", "Node.js"]
+    },
+    {
+        "name": "Task Manager",
+        "tagline": "Productivity app",
+        "excerpt": "Ex velit minim amet occaecat dolor velit irure minim aliqua nostrud sint aliqua. Dolore laborum qui excepteur officia minim labore aliqua et non tempor ex deserunt.",
+        "link": "https://tasks.app",
+        "image": "/projects/project--keys-and-quests.jpg",
+        "stack": ["Vue.js", "Firebase"]
+    }
+]

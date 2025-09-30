@@ -2,36 +2,50 @@
     {
         "name": "Keys and Quests",
         "excerpt": "Blog for keyboard enthusiasts",
-        "link": "https://keysandquests.com",
-        "image": "/projects/keyboard-blog.jpg",
+        "link": "https://keysandquests.vercel.app",
+        "image": "/projects/project--keys-and-quests.jpg",
         "stack": ["TailwindCSS", "NextJS"]
     },
     {
         "name": "Portfolio Site",
         "excerpt": "Personal developer portfolio",
         "link": "https://portfolio.dev",
-        "image": "/projects/portfolio.jpg",
+        "image": "/projects/project--keys-and-quests-2.jpg",
         "stack": ["SvelteKit", "TypeScript"]
     },
     {
         "name": "E-Commerce App",
         "excerpt": "Modern shopping experience",
         "link": "https://shop.example.com",
-        "image": "/projects/ecommerce.jpg",
+        "image": "/projects/project--keys-and-quests-3.jpg",
         "stack": ["React", "Node.js"]
     },
     {
         "name": "Task Manager",
         "excerpt": "Productivity app for teams",
         "link": "https://tasks.app",
-        "image": "/projects/tasks.jpg",
+        "image": "/projects/project--keys-and-quests-2.jpg",
         "stack": ["Vue.js", "Firebase"]
     },
     {
         "name": "Weather Dashboard",
         "excerpt": "Real-time weather insights",
         "link": "https://weather.app",
-        "image": "/projects/weather.jpg",
+        "image": "/projects/project--keys-and-quests-3.jpg",
+        "stack": ["Angular", "Charts.js"]
+    },
+    {
+        "name": "Task Manager",
+        "excerpt": "Productivity app for teams",
+        "link": "https://tasks.app",
+        "image": "/projects/project--keys-and-quests-2.jpg",
+        "stack": ["Vue.js", "Firebase"]
+    },
+    {
+        "name": "Weather Dashboard",
+        "excerpt": "Real-time weather insights",
+        "link": "https://weather.app",
+        "image": "/projects/project--keys-and-quests-3.jpg",
         "stack": ["Angular", "Charts.js"]
     }
 ]

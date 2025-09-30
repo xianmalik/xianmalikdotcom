@@ -1,5 +1,5 @@
 <script lang="ts">
-	import data from '$content/summary.json';
+	import { summary } from '$content/sections.json';
 </script>
 
 <!-- <div class="py-8 mx-auto min-h-[calc(100svh-48px)] flex flex-col"> -->
@@ -8,20 +8,20 @@
 		<div class="w-full max-w-[840px] h-full mx-auto">
 			<div class="flex flex-col items-center justify-center text-center font-sans py-12">
 				<div class="font-handwriting text-3xl text-gray-500 mb-6 -rotate-2">
-					Hi I'm {data.name}
+					Hi I'm {summary.name}
 				</div>
 				<div class="mb-8">
 					<img
-						src={data.avatar}
-						alt={data.name}
+						src={summary.avatar}
+						alt={summary.name}
 						class="w-32 h-32 rounded-full object-cover border-4 border-gray-200"
 					/>
 				</div>
 				<h3 class="font-display text-4xl font-bold mb-6 text-black leading-tight whitespace-pre-line">
-					{data.tagline}
+					{summary.tagline}
 				</h3>
 				<p class="font-handwriting text-3xl text-shade leading-none font-light rotate-1 whitespace-pre-line">
-					{data.description}
+					{summary.description}
 				</p>
 			</div>
 		</div>
