@@ -20,5 +20,13 @@
       "text": "View Projects",
       "link": "/projects"
     }
+  },
+  "about": {
+    "title": "about.",
+    "subtitle": "Who am I? or, What am I?",
+    "cta": {
+      "text": "More About Me",
+      "link": "/about"
+    }
   }
 }
