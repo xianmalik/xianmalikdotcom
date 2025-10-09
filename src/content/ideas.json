@@ -1,34 +1,50 @@
 [
     {
         "name": "Keys and Quests",
-        "tagline": "Blog website",
-        "excerpt": "Incididunt aliquip sit reprehenderit do labore labore labore consectetur exercitation ipsum laborum incididunt velit qui.",
+        "tagline": "Blog Website",
+        "excerpt": "Boosted blog performance and engagement for creators with a lightning-fast Next.js setup.",
         "link": "https://keysandquests.com",
-        "image": "/projects/project--keys-and-quests.jpg",
-        "stack": ["TailwindCSS", "NextJS"]
+        "image": "/ideas/idea-knq.png",
+        "impact": [
+            "↑ 30% SPEED INCREASE",
+            "↑ 30% ENGAGEMENT"
+        ],
+        "stack": [
+            "Next.js",
+            "Sanity",
+            "TailwindCSS"
+        ]
     },
     {
-        "name": "Portfolio Site",
-        "tagline": "Personal portfolio",
-        "excerpt": "Veniam veniam dolore mollit aute proident consectetur est magna ad sit. Nulla mollit voluptate Lorem in excepteur reprehenderit magna cupidatat adipisicing proident non.",
-        "link": "https://portfolio.dev",
-        "image": "/projects/project--keys-and-quests.jpg",
-        "stack": ["SvelteKit", "TypeScript"]
+        "name": "Skipper Hospitality",
+        "tagline": "Booking & Management Platform",
+        "excerpt": "Transformed hotel bookings with a real-time platform that drives speed and conversion.",
+        "link": "https://skipper.io",
+        "image": "/ideas/idea-knq.png",
+        "impact": [
+            "↑ 40% FASTER BOOKING LOADS",
+            "↑ 25% CONVERSION RATE"
+        ],
+        "stack": [
+            "React",
+            "Node.js",
+            "PostgreSQL"
+        ]
     },
     {
-        "name": "Luna Watches",
-        "tagline": "E-Commerce Platform",
-        "excerpt": "Nostrud culpa excepteur veniam reprehenderit officia cupidatat tempor Lorem. Excepteur ullamco cupidatat cillum aliqua consectetur consequat magna sit officia laboris esse.",
-        "link": "https://shop.example.com",
-        "image": "/projects/project--keys-and-quests.jpg",
-        "stack": ["React", "Node.js"]
-    },
-    {
-        "name": "Task Manager",
-        "tagline": "Productivity app",
-        "excerpt": "Ex velit minim amet occaecat dolor velit irure minim aliqua nostrud sint aliqua. Dolore laborum qui excepteur officia minim labore aliqua et non tempor ex deserunt.",
-        "link": "https://tasks.app",
-        "image": "/projects/project--keys-and-quests.jpg",
-        "stack": ["Vue.js", "Firebase"]
+        "name": "Plume CMS",
+        "tagline": "Headless CMS & Blog Engine",
+        "excerpt": "Empowered content teams with a headless CMS that doubled publishing speed and SEO reach.",
+        "link": "https://plume.dev",
+        "image": "/ideas/idea-knq.png",
+        "impact": [
+            "↑ 2× PUBLISHING SPEED",
+            "↑ 35% SEO IMPROVEMENT"
+        ],
+        "stack": [
+            "Netlify",
+            "Sanity",
+            "TypeScript"
+        ]
     }
 ]

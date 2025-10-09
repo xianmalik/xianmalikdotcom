@@ -167,3 +167,60 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Bianco';
+  src: url('/fonts/BiancoSerif-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bianco';
+  src: url('/fonts/BiancoSerif-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bianco';
+  src: url('/fonts/BiancoSerif-HeavyItalic.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bianco';
+  src: url('/fonts/BiancoSerif-Heavy.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bianco';
+  src: url('/fonts/BiancoSerif-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bianco';
+  src: url('/fonts/BiancoSerif-BoldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bianco';
+  src: url('/fonts/BiancoSerif-ExtraBoldItalic.woff2') format('woff2');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bianco';
+  src: url('/fonts/BiancoSerif-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+

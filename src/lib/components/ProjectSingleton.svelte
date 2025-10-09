@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Button from './Button.svelte';
-
 	interface Project {
 		name: string;
 		excerpt: string;
@@ -26,10 +24,10 @@
 	<div class="relative h-full flex flex-col justify-between p-6 text-white">
 		<!-- Header Content -->
 		<div class="flex-1">
-			<h2 class="font-display text-2xl md:text-3xl font-bold mb-1 leading-tight">
+			<h2 class="font-serif text-2xl md:text-3xl font-medium mb-1 leading-tight">
 				{project.name}
 			</h2>
-			<p class="font-sans text-xs md:text-sm uppercase tracking-wider text-gray-200 mb-6">
+			<p class="font-mono uppercase text-xs md:text-sm tracking-wider text-gray-200 mb-6">
 				{project.excerpt}
 			</p>
 		</div>

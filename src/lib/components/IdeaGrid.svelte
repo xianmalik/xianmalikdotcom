@@ -1,5 +1,5 @@
 <script lang="ts">
-import IdeaSingleton from './IdeaSingleton.svelte';
+	import IdeaSingleton from './IdeaSingleton.svelte';
 
 	interface Project {
 		name: string;
@@ -7,6 +7,7 @@ import IdeaSingleton from './IdeaSingleton.svelte';
 		excerpt: string;
 		link: string;
 		image: string;
+		impact: string[];
 		stack: string[];
 	}
 
@@ -16,7 +17,8 @@ import IdeaSingleton from './IdeaSingleton.svelte';
 	const displayProjects = projects.slice(0, maxItems);
 </script>
 
-<div class="grid grid-cols-1 md:grid-cols-2 mx-auto gap-6">
+<!-- <div class="grid grid-cols-1 md:grid-cols-2 mx-auto gap-6"> -->
+<div class="mx-auto grid grid-cols-1 gap-6">
 	{#each displayProjects as project, i}
 		<IdeaSingleton {project} />
 	{/each}

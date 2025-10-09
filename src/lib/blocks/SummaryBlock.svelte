@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { summary } from '$content/sections.json';
+	import Button from '$lib/components/Button.svelte';
 </script>
 
 <!-- <div class="py-8 mx-auto min-h-[calc(100svh-48px)] flex flex-col"> -->
@@ -20,9 +21,12 @@
 				<h3 class="font-display text-4xl font-bold mb-6 text-black leading-tight whitespace-pre-line">
 					{summary.tagline}
 				</h3>
-				<p class="font-handwriting text-3xl text-shade leading-none font-light rotate-1 whitespace-pre-line">
+				<p class="font-handwriting text-3xl text-shade leading-none font-light rotate-1 whitespace-pre-line mb-8">
 					{summary.description}
 				</p>
+				<Button href="#" class="bg-shade/10 uppercase text-black px-3 py-1 font-mono text-sm leading-4 font-medium hover:bg-shade/10 transition-all duration-300 inline-flex items-center gap-2 hover:gap-3">
+					Let's talk
+				</Button>
 			</div>
 		</div>
 	</div>
