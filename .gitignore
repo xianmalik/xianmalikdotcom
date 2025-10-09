@@ -24,3 +24,4 @@ vite.config.ts.timestamp-*
 
 *-lock.json
 bun.lockb
+bun.lock

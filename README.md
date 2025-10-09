@@ -23,7 +23,7 @@
 
 ### Prerequisites
 
-- Node.js 18+ or Bun
+- Node.js 22+ or Bun
 - npm, yarn, pnpm, or bun
 
 ### Getting Started

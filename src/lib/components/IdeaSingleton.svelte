@@ -57,11 +57,11 @@
 				</a>
 			</div>
 		</div>
-		<div class="bg-shade px-10 pt-10 transition-all duration-300 hover:p-0">
+		<div class="bg-shade transition-all duration-300 p-0 relative">
 			<img
 				src={project.image}
 				alt="Keys & Quests"
-				class="h-full max-w-full object-cover opacity-90"
+				class="h-full w-full object-cover object-center absolute"
 			/>
 		</div>
 	</div>

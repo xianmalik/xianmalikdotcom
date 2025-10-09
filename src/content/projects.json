@@ -3,49 +3,49 @@
         "name": "Keys and Quests",
         "excerpt": "Blog for keyboard enthusiasts",
         "link": "https://keysandquests.vercel.app",
-        "image": "/projects/project--keys-and-quests.jpg",
+        "image": "/projects/knq-mockup.png",
         "stack": ["TailwindCSS", "NextJS"]
     },
     {
-        "name": "Portfolio Site",
-        "excerpt": "Personal developer portfolio",
-        "link": "https://portfolio.dev",
-        "image": "/projects/project--keys-and-quests-2.jpg",
+        "name": "Hazard County Shuttle",
+        "excerpt": "Bike Shuttle Service",
+        "link": "https://hazardcountyshuttle.com",
+        "image": "/projects/hazard-mockup.png",
         "stack": ["SvelteKit", "TypeScript"]
     },
     {
         "name": "E-Commerce App",
         "excerpt": "Modern shopping experience",
         "link": "https://shop.example.com",
-        "image": "/projects/project--keys-and-quests-3.jpg",
+        "image": "/projects/hazard-mockup.png",
         "stack": ["React", "Node.js"]
     },
     {
         "name": "Task Manager",
         "excerpt": "Productivity app for teams",
         "link": "https://tasks.app",
-        "image": "/projects/project--keys-and-quests-2.jpg",
+        "image": "/projects/hazard-mockup.png",
         "stack": ["Vue.js", "Firebase"]
     },
     {
         "name": "Weather Dashboard",
         "excerpt": "Real-time weather insights",
         "link": "https://weather.app",
-        "image": "/projects/project--keys-and-quests-3.jpg",
+        "image": "/projects/hazard-mockup.png",
         "stack": ["Angular", "Charts.js"]
     },
     {
         "name": "Task Manager",
         "excerpt": "Productivity app for teams",
         "link": "https://tasks.app",
-        "image": "/projects/project--keys-and-quests-2.jpg",
+        "image": "/projects/hazard-mockup.png",
         "stack": ["Vue.js", "Firebase"]
     },
     {
         "name": "Weather Dashboard",
         "excerpt": "Real-time weather insights",
         "link": "https://weather.app",
-        "image": "/projects/project--keys-and-quests-3.jpg",
+        "image": "/projects/hazard-mockup.png",
         "stack": ["Angular", "Charts.js"]
     }
 ]
