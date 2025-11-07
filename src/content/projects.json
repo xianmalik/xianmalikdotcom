@@ -4,7 +4,7 @@
         "excerpt": "Blog for keyboard enthusiasts",
         "link": "https://keysandquests.vercel.app",
         "image": "/projects/knq-mockup.png",
-        "stack": ["TailwindCSS", "NextJS"]
+        "stack": ["NextJS", "TailwindCSS"]
     },
     {
         "name": "Hazard County Shuttle",

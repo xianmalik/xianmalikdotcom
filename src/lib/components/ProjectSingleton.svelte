@@ -25,7 +25,7 @@
 	<div class="relative h-full flex bg-[#1F1D2B] flex-col justify-between p-6 text-white">
 		<!-- Header Content -->
 		<div class="">
-			<h2 class="font-serif text-2xl md:text-3xl font-medium mb-0 leading-tight">
+			<h2 class="font-serif text-xl md:text-2xl font-medium mb-1 leading-tight">
 				{project.name}
 			</h2>
 			<p class="font-mono uppercase text-xs md:text-sm tracking-wider text-gray-200">
@@ -42,12 +42,13 @@
 		<div class="flex justify-between items-center">
 			<!-- Tech Stack -->
 			<div class="flex items-center space-x-2 text-xs uppercase font-mono text-white">
-				{#each project.stack as tech, i}
+				<span>{project.stack[0]}</span>
+				<!-- {#each project.stack as tech, i}
 					<span>{tech}</span>
 					{#if i < project.stack.length - 1}
 						<span class="text-gray-400">|</span>
 					{/if}
-				{/each}
+				{/each} -->
 			</div>
 
 			<!-- CTA Button -->

@@ -51,8 +51,9 @@ bun run dev
 - `preview` - Preview production build
 - `check` - Run Svelte type checking
 - `check:watch` - Run type checking in watch mode
-- `lint` - Run ESLint and Prettier checks
-- `format` - Format code with Prettier
+- `lint` - Run Biome linter checks
+- `format` - Format code with Biome
+- `format:check` - Check code formatting without modifying files
 
 ## Project Structure
 
