@@ -1,7 +1,7 @@
 @import 'tailwindcss';
-@plugin '@tailwindcss/typography';
-
 @import "./lib/assets/css/font.css";
+
+@plugin '@tailwindcss/typography';
 
 @theme {
   --color-shade: #80808D;
@@ -14,7 +14,7 @@
   --font-display: 'BluuNext', serif;
   --font-serif: 'Bianco', serif;
   --font-sans: 'Metropolis', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrainsMono', monospace;
+  --font-mono: 'IBM Plex Mono', monospace;
   --font-handwriting: 'ReenieBeanie', cursive;
 }
 
