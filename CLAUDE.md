@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal blog + portfolio site ("Paperhouse") built with SvelteKit, TypeScript, and TailwindCSS v4. It uses a CRT-terminal visual design (green/amber phosphor themes, scanline haze, boot-sequence typing text) and a content-driven architecture with JSON files. The site is deployed on Vercel.
+This is a personal portfolio website built with SvelteKit, TypeScript, and TailwindCSS v4. The site is deployed on Vercel and uses a content-driven architecture with JSON files.
 
 ## Development Commands
 
@@ -45,14 +45,18 @@ Always run `npm run format` before committing code.
 ## Architecture
 
 ### Content-Driven Design
-Site content lives in `src/content/`:
-- `posts.json` - Blog posts with slug, title, date, excerpt, tags, and body
-- `profile.json` - Bio summary, highlight bullets, and contact links rendered on the about page and footer; sourced from the resume YAMLs in `~/gh/folia/source/`
+The site is built around a content-first architecture where all site content is stored in JSON files in `src/content/`:
+- `sections.json` - Section metadata (summary, portfolio, case_studies, about)
+- `projects.json` - Portfolio projects with name, excerpt, link, image, and stack
+- `ideas.json` - Case studies and creative ideas
 
 ### Component Structure
-- **Routes** (`src/routes/`) - `/` (about/home), `/blog` (index with tag filtering), `/blog/[slug]` (post detail)
-- **Components** (`src/lib/components/`) - `Nav`, `Footer`, `CrtChrome` (bezel + SVG curvature filter, mounted once in `+layout.svelte`), `PostCard`, `Tag`
-- **Theme store** (`src/lib/theme.svelte.ts`) - runes-based singleton toggling `'green' | 'amber'`, read via `data-theme` on each page's `.crt-screen` container
+The architecture follows a block-based layout pattern:
+- **Blocks** (`src/lib/blocks/`) - Full-width page sections (SummaryBlock, ProjectBlock, IdeaBlock, AboutBlock)
+- **Components** (`src/lib/components/`) - Reusable UI components (Button, ProjectGrid, IdeaGrid, etc.)
+- **Routes** - Single-page application with `+page.svelte` composing blocks
+
+The main page (`src/routes/+page.svelte`) imports and renders blocks in sequence.
 
 ### Path Aliases
 Two custom path aliases are configured in `svelte.config.js`:
@@ -61,16 +65,16 @@ Two custom path aliases are configured in `svelte.config.js`:
 
 Use these aliases when importing:
 ```typescript
-import posts from '$content/posts.json';
-import Nav from '$lib/components/Nav.svelte';
+import { summary } from '$content/sections.json';
+import Button from '$lib/components/Button.svelte';
 ```
 
 ### Styling Architecture
-- **TailwindCSS v4** via Vite plugin (no separate config file needed), used for layout utilities
-- **Design tokens** in `src/lib/styles/tokens/` (colors, typography, spacing, effects, fonts), imported from `src/app.css`
-- **Single font**: Share Tech Mono (`--font-mono`) — thin technical-display strokes, terminal character without the pixel look. Loaded via `<link>` in `src/app.html`; external `@import` in bundled CSS gets dropped mid-file, so don't move it back into a CSS file. One weight (400); `font-synthesis: none` in `tokens/typography.css` disables fake bold — emphasis comes from bright color + glow
-- **Theming**: all colors are semantic CSS custom properties (`--text-primary`, `--text-bright`, `--bg-page`, etc.) that get swapped by `[data-theme="amber"]` in `tokens/colors.css`
-- **CRT effect classes** (`tokens/effects.css`): `.crt-screen` (fixed, internally-scrolling viewport with barrel-curve SVG filter + phosphor glow), `.crt-bezel` (fixed vignette/scanline overlay), `.crt-haze`, `.crt-glow-text` / `.crt-glow-title` (text bloom), `.cursor-blink`
+- **TailwindCSS v4** via Vite plugin (no separate config file needed)
+- **Global styles** in `src/app.css` with CSS custom properties
+- **Custom fonts**: BluuNext (display), Bianco (serif), Metropolis (sans), JetBrainsMono (mono), ReenieBeanie (handwriting)
+- **Custom color**: `--color-shade: #80808D` available as `text-shade` or `bg-shade`
+- **Canvas layout**: Fixed background canvas with centered content area (842px max width with border guides)
 
 ### Svelte 5 Features
 This project uses Svelte 5 with the new runes API:
@@ -99,20 +103,22 @@ Plugins in order:
 
 ## Adding Content
 
-### Adding a New Blog Post
-Edit `src/content/posts.json` and add an object with:
+### Adding a New Project
+Edit `src/content/projects.json` and add an object with:
 ```json
 {
-  "slug": "url-safe-slug",
-  "title": "Post Title",
-  "date": "YYYY.MM.DD",
-  "excerpt": "Short description shown on the blog index",
-  "tags": ["tag1", "tag2"],
-  "body": "Full post text, rendered with the boot-sequence typing effect"
+  "name": "Project Name",
+  "excerpt": "Short description",
+  "link": "https://example.com",
+  "image": "/projects/image.png",
+  "stack": ["Technology1", "Technology2"]
 }
 ```
 
-The post becomes reachable at `/blog/<slug>` automatically; no route changes needed.
+Images should be placed in `static/projects/`.
+
+### Modifying Section Content
+Edit `src/content/sections.json` to update section titles, subtitles, and CTAs for summary, portfolio, case_studies, and about sections.
 
 ## Deployment
 

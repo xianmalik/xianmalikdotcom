@@ -1,42 +1,81 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import "./lib/assets/css/font.css";
 
-@import "./lib/styles/tokens/fonts.css";
-@import "./lib/styles/tokens/colors.css";
-@import "./lib/styles/tokens/typography.css";
-@import "./lib/styles/tokens/spacing.css";
-@import "./lib/styles/tokens/effects.css";
+@plugin '@tailwindcss/typography';
 
+@theme {
+  --color-shade: #80808D;
+}
+
+:root {
+  --canvas-backdrop: #f1f5f9;
+
+  /* Font Families */
+  --font-display: 'BluuNext', serif;
+  --font-serif: 'Bianco', serif;
+  --font-sans: 'Metropolis', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-handwriting: 'ReenieBeanie', cursive;
+}
+
+/* Font Utility Classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* BG Canvas Artboard */
 html,
 body {
-	background: var(--bg-page);
-	margin: 0;
-	padding: 0;
+  background: var(--canvas-backdrop);
 }
 
-/* Boot intro: the site starts scaled down "inside" the monitor on the
-   overlay, then zooms to full screen as the camera flies into the CRT. */
-.site-frame {
-	position: fixed;
-	inset: 0;
+main {
+  z-index: 5;
+  position: relative;
+  padding: 24px;
 }
 
-.site-frame.boot-hidden {
-	transform: scale(0.88);
+.canvas--top,
+.canvas--bottom {
+  background-color: var(--canvas-backdrop);
+  flex: none;
+  height: 24px;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
-.site-frame.boot-zoom {
-	transform: scale(1);
-	transition: transform 1.2s cubic-bezier(0.33, 0, 0.2, 1);
+.canvas--top { @apply top-0; }
+.canvas--bottom { @apply bottom-0; }
+
+.canvas--wrapper {
+  @apply flex content-center items-center flex-none flex-col justify-start inset-0 overflow-hidden p-6 pointer-events-none fixed z-0;
 }
 
-@media (prefers-reduced-motion: reduce) {
-	.site-frame.boot-hidden,
-	.site-frame.boot-zoom {
-		transform: none;
-		transition: none;
-	}
+.canvas--inner {
+  @apply bg-white rounded-xl size-full relative;
+  flex: 1 0 0px;
 }
 
-a {
-	color: inherit;
+.canvas--lines {
+  @apply h-full w-[calc(842px)] border-l border-r border-[#00002D]/10 absolute;
 }

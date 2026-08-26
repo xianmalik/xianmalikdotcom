@@ -1,9 +1,0 @@
-/* Share Tech Mono — thin, clean technical-display strokes; terminal character
-   without the pixel look. Single weight (400); bold synthesis is disabled in
-   typography.css — emphasis comes from brightness + glow, like a real CRT.
-   Loaded via <link> in src/app.html — external @import gets dropped once the
-   CSS bundler inlines it mid-file, so it must not live here. */
-
-:root {
-	--font-mono: "Share Tech Mono", "Courier New", monospace;
-}
