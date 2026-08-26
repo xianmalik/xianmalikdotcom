@@ -65,15 +65,6 @@
 		}
 	],
 	"files": {
-		"ignore": [
-			"node_modules",
-			".svelte-kit",
-			"build",
-			".vercel",
-			".output",
-			"dist",
-			"**/*.d.ts"
-		]
+		"ignore": ["node_modules", ".svelte-kit", "build", ".vercel", ".output", "dist", "**/*.d.ts"]
 	}
 }
-

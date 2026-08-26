@@ -1,0 +1,65 @@
+/* Paperhouse — CRT terminal color system.
+   Default theme is green phosphor. [data-theme="amber"] on the screen
+   container (or any ancestor) swaps every semantic token to amber. */
+
+:root {
+	/* ---- base palette: green phosphor ---- */
+	--crt-black: #050805;
+	--crt-black-2: #0a100a;
+	--phosphor-1: #3dff6a; /* brightest text / cursor */
+	--phosphor-2: #29e057; /* primary text */
+	--phosphor-3: #1a9e3e; /* secondary / dimmer text */
+	--phosphor-4: #0e5c25; /* muted, borders */
+	--phosphor-glow: #6dffa0;
+	--danger: #ff5f56;
+	--warning: #ffd24d;
+	/* rgb tri: drives the on-screen radial phosphor glow */
+	--screen-tint: 61, 255, 106;
+
+	/* ---- semantic aliases (theme-independent names) ---- */
+	--bg-page: var(--crt-black);
+	--bg-panel: var(--crt-black-2);
+	--bg-raised: #0d150d;
+	--text-primary: var(--phosphor-2);
+	--text-bright: var(--phosphor-1);
+	--text-muted: var(--phosphor-3);
+	--text-dim: var(--phosphor-4);
+	--border-default: var(--phosphor-4);
+	--border-bright: var(--phosphor-3);
+	--accent: var(--phosphor-1);
+	--accent-glow: var(--phosphor-glow);
+	--link: var(--phosphor-1);
+	--selection-bg: var(--phosphor-4);
+	--scanline-color: rgba(61, 255, 106, 0.06);
+	--vignette-color: rgba(0, 0, 0, 0.55);
+}
+
+/* ---- amber phosphor theme ---- */
+[data-theme="amber"] {
+	--crt-black: #0a0503;
+	--crt-black-2: #120905;
+	--phosphor-1: #ffb347;
+	--phosphor-2: #ff9d2e;
+	--phosphor-3: #c97418;
+	--phosphor-4: #6b3c0f;
+	--phosphor-glow: #ffcf85;
+	--danger: #ff5f56;
+	--warning: #ffe066;
+	--screen-tint: 255, 179, 71;
+
+	--bg-page: var(--crt-black);
+	--bg-panel: var(--crt-black-2);
+	--bg-raised: #170b05;
+	--text-primary: var(--phosphor-2);
+	--text-bright: var(--phosphor-1);
+	--text-muted: var(--phosphor-3);
+	--text-dim: var(--phosphor-4);
+	--border-default: var(--phosphor-4);
+	--border-bright: var(--phosphor-3);
+	--accent: var(--phosphor-1);
+	--accent-glow: var(--phosphor-glow);
+	--link: var(--phosphor-1);
+	--selection-bg: var(--phosphor-4);
+	--scanline-color: rgba(255, 179, 71, 0.07);
+	--vignette-color: rgba(0, 0, 0, 0.55);
+}

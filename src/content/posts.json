@@ -1,0 +1,34 @@
+[
+	{
+		"slug": "cool-retro-term-daily-driver",
+		"title": "setting up cool-retro-term as a daily driver",
+		"date": "2026.03.06",
+		"excerpt": "a walkthrough of configuring a CRT terminal emulator for daily driving — scanlines, glow, and just enough curvature.",
+		"tags": ["linux", "terminal"],
+		"body": "i've used cool-retro-term as my primary terminal emulator for a few years now. every so often someone asks why — it's slower to render, it doesn't support every escape sequence, and it definitely doesn't look \"professional.\" none of that is the point.\n\nthe point is that a screen with a little curvature, a little glow, and a scanline or two feels like a place rather than a tool. it's a small, mostly cosmetic decision that makes the hours I spend in a shell more pleasant.\n\nif you want to try it: install cool-retro-term from your package manager, then tune the profile editor — rasterization strength, glow amount, and jitter are the three knobs worth touching. everything else is close enough to default.\n\nthis site borrows that same restraint: one phosphor color, hairline borders, and a haze overlay held under half opacity. anything louder starts to look like a filter instead of a screen."
+	},
+	{
+		"slug": "designing-for-a-screen-that-flickers",
+		"title": "notes on designing for a screen that flickers",
+		"date": "2026.02.18",
+		"excerpt": "thoughts on restraint — why a CRT interface should stay minimal instead of leaning on the effect.",
+		"tags": ["design"],
+		"body": "it's tempting to pile on every CRT cliche at once — heavy curvature, rolling scanlines, chromatic aberration, a constant flicker. the reference photos that inspire this look almost never look like that in person.\n\nwhat actually reads as \"CRT\" is subtler: a single phosphor color, a soft radial glow at screen center, and a barrel distortion so gentle you only notice it at the edges. everything else is noise.\n\nthe rule I keep coming back to: if an effect would survive a screenshot at half opacity, keep it. if it only works at full strength, cut it."
+	},
+	{
+		"slug": "ascii-art-but-useful",
+		"title": "ascii art, but make it useful",
+		"date": "2026.01.30",
+		"excerpt": "a small tool for turning screenshots into boot-sequence-friendly ascii banners.",
+		"tags": ["terminal", "tools"],
+		"body": "most ascii art generators optimize for density — cramming as much tonal detail as possible into a fixed character grid. that's the wrong goal for a boot banner, where you actually want something that reads clearly at a glance and types out character-by-character without looking like noise.\n\nso the tool trades density for legibility: fewer character classes, higher contrast thresholds, and a fixed aspect-corrected grid tuned for monospace terminals specifically.\n\nthe output is not going to win any ascii art contests. it's going to look right for half a second in a terminal before the prompt takes over — which is the actual job."
+	},
+	{
+		"slug": "bash-for-everything",
+		"title": "why i still use bash for everything",
+		"date": "2025.12.11",
+		"excerpt": "an unpopular opinion about shells, defended with more conviction than necessary.",
+		"tags": ["linux"],
+		"body": "every year someone tells me to switch to fish, or nushell, or zsh with the right plugins. every year I stay on bash, mostly out of spite at this point but also because portability still matters to me — a bash script runs on any box I'll ever ssh into without me installing anything first.\n\nthat's really the whole argument. it's not that bash is pleasant to write. it's that it's everywhere, and \"everywhere\" beats \"nice\" for the kind of scripts I actually end up writing at 2am on a server I don't own."
+	}
+]

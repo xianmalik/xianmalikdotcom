@@ -1,0 +1,126 @@
+/* CRT haze system: scanlines, screen glow, vignette, flicker.
+   Kept subtle — clean and minimal retro ambiance, not a heavy filter. */
+
+:root {
+	--glow-blur-sm: 4px;
+	--glow-blur-md: 10px;
+	--glow-blur-lg: 22px;
+	--scanline-size: 3px;
+	/* phosphor bloom applied to headings/prompts, like the source CRTs */
+	--title-bloom: 0 0 1.5px currentColor, 0 0 7px color-mix(in srgb, currentColor 70%, transparent), 0
+		0 17px color-mix(in srgb, var(--accent-glow) 60%, transparent);
+	--haze-opacity: 0.4;
+}
+
+@keyframes crt-flicker {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	92% {
+		opacity: 1;
+	}
+	93% {
+		opacity: 0.94;
+	}
+	94% {
+		opacity: 1;
+	}
+}
+
+@keyframes cursor-blink {
+	0%,
+	49% {
+		opacity: 1;
+	}
+	50%,
+	100% {
+		opacity: 0;
+	}
+}
+
+/* Reusable haze overlay — place an empty element with this class as the
+   last child of a full-viewport CRT container. */
+.crt-haze {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 50;
+	background: repeating-linear-gradient(
+		to bottom,
+		var(--scanline-color) 0,
+		var(--scanline-color) 1px,
+		transparent 1px,
+		transparent var(--scanline-size)
+	);
+	opacity: var(--haze-opacity);
+}
+
+.crt-glow-text {
+	text-shadow: 0 0 var(--glow-blur-sm) currentColor;
+}
+
+/* Heavy phosphor bloom for titles — the blurry glow in the reference CRTs. */
+.crt-glow-title {
+	text-shadow: var(--title-bloom);
+}
+
+.cursor-blink {
+	animation: cursor-blink 1s step-end infinite;
+}
+
+/* ============================================================
+   CONVEX CRT MONITOR
+   .crt-screen  = the viewport-fixed, internally-scrolling screen.
+                  Carries the themed phosphor glow + barrel curvature
+                  (so the bow re-computes against the viewport as you
+                  scroll, not against total page height).
+   .crt-bezel   = fixed, un-filtered overlay: vignette + scanlines +
+                  glare. Stays crisp and anchored while content scrolls.
+   ============================================================ */
+.crt-screen {
+	position: fixed;
+	inset: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background: radial-gradient(
+			ellipse 88% 72% at 50% 40%,
+			rgba(var(--screen-tint), 0.16) 0%,
+			rgba(var(--screen-tint), 0.05) 44%,
+			transparent 72%
+		), var(--bg-page);
+	filter: url(#crtCurve);
+	animation: crt-flicker 6s infinite steps(1);
+}
+
+.crt-bezel {
+	position: fixed;
+	inset: 0;
+	z-index: 80;
+	pointer-events: none;
+	border-radius: 22px;
+	/* soft screen glare, top */
+	background: radial-gradient(ellipse 55% 32% at 50% 8%, rgba(255, 255, 255, 0.04), transparent 70%),
+		/* vignette — gentle darkening toward the bowed corners */
+		radial-gradient(
+			ellipse 110% 108% at 50% 50%,
+			transparent 55%,
+			rgba(0, 0, 0, 0.24) 82%,
+			rgba(0, 0, 0, 0.62) 100%
+		), /* scanlines */
+		repeating-linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 0.14) 0,
+			rgba(0, 0, 0, 0.14) 1px,
+			transparent 1px,
+			transparent var(--scanline-size)
+		);
+	box-shadow: inset 0 0 120px 8px rgba(0, 0, 0, 0.4);
+}
+
+.crt-filter-def {
+	position: fixed;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
