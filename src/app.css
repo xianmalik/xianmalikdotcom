@@ -109,39 +109,91 @@ main {
 }
 
 /* ── Open sketchbook spread (About) ──────────────────────────────────
-   The paper lives on ::before so it can carry its own shadow and gutter
-   without affecting the text sitting above it. */
+   Two page halves rather than one panel, so they meet at a hard fold and
+   the left page can lift toward the viewer the way an open book does. */
 .book-spread {
 	position: relative;
 	isolation: isolate;
+	perspective: 2000px;
 }
 
-.book-spread::before {
+.book-spread::before,
+.book-spread::after {
 	content: "";
 	position: absolute;
-	inset: 0;
+	top: 0;
+	bottom: 0;
+	width: 50%;
 	z-index: -1;
 	background-color: #fbfcfe;
-	/* pages dipping into the centre gutter, plus a hint of outer-edge shading */
+	backface-visibility: hidden;
+}
+
+/* Left page — hinged at the spine and tipped up slightly */
+.book-spread::before {
+	left: 0;
+	transform-origin: right center;
+	transform: rotateY(1.9deg);
+	border-radius: 14px 1px 1px 13px;
+	/* crisp crease at the inner edge, faint shading at the outer one */
 	background-image: linear-gradient(
 		to right,
-		rgb(40 48 66 / 5%) 0%,
-		rgb(40 48 66 / 0%) 4%,
-		rgb(40 48 66 / 0%) 44%,
-		rgb(40 48 66 / 6%) 49.3%,
-		rgb(40 48 66 / 14%) 50%,
-		rgb(40 48 66 / 6%) 50.7%,
-		rgb(40 48 66 / 0%) 56%,
-		rgb(40 48 66 / 0%) 96%,
-		rgb(40 48 66 / 5%) 100%
+		rgb(40 48 66 / 6%) 0%,
+		rgb(40 48 66 / 0%) 5%,
+		rgb(40 48 66 / 0%) 88%,
+		rgb(40 48 66 / 7%) 98.5%,
+		rgb(40 48 66 / 20%) 100%
 	);
-	/* corners that don't quite match, but crisp */
-	border-radius: 14px 11px 15px 12px;
 	box-shadow:
 		0 0 0 1px rgb(40 48 66 / 6%),
-		0 1px 1px rgb(40 48 66 / 5%),
-		0 8px 16px -8px rgb(40 48 66 / 18%),
-		0 30px 60px -22px rgb(40 48 66 / 38%);
+		-1px 1px 2px rgb(40 48 66 / 6%),
+		-6px 14px 22px -10px rgb(40 48 66 / 22%),
+		-10px 34px 60px -24px rgb(40 48 66 / 40%);
+}
+
+/* Right page — lying flatter */
+.book-spread::after {
+	left: 50%;
+	transform-origin: left center;
+	transform: rotateY(-0.7deg);
+	border-radius: 1px 12px 15px 1px;
+	background-image: linear-gradient(
+		to right,
+		rgb(40 48 66 / 16%) 0%,
+		rgb(40 48 66 / 6%) 1.5%,
+		rgb(40 48 66 / 0%) 11%,
+		rgb(40 48 66 / 0%) 95%,
+		rgb(40 48 66 / 6%) 100%
+	);
+	box-shadow:
+		0 0 0 1px rgb(40 48 66 / 6%),
+		1px 1px 2px rgb(40 48 66 / 5%),
+		6px 12px 20px -10px rgb(40 48 66 / 18%),
+		10px 30px 56px -24px rgb(40 48 66 / 34%);
+}
+
+/* One page, not a spread, once the columns collapse */
+@media (max-width: 767px) {
+	.book-spread {
+		perspective: none;
+	}
+
+	.book-spread::before {
+		width: 100%;
+		transform: none;
+		border-radius: 13px;
+		background-image: linear-gradient(
+			to right,
+			rgb(40 48 66 / 6%) 0%,
+			rgb(40 48 66 / 0%) 6%,
+			rgb(40 48 66 / 0%) 94%,
+			rgb(40 48 66 / 6%) 100%
+		);
+	}
+
+	.book-spread::after {
+		display: none;
+	}
 }
 
 .book-page {
@@ -188,19 +240,6 @@ main {
 	text-align: center;
 	font-size: 13px;
 	line-height: 1;
-}
-
-/* One page, not a spread, once the columns collapse — drop the centre gutter */
-@media (max-width: 767px) {
-	.book-spread::before {
-		background-image: linear-gradient(
-			to right,
-			rgb(122 96 60 / 11%) 0%,
-			rgb(122 96 60 / 0%) 7%,
-			rgb(122 96 60 / 0%) 93%,
-			rgb(122 96 60 / 11%) 100%
-		);
-	}
 }
 
 /* Open-spread proportions (two portrait pages side by side) */
