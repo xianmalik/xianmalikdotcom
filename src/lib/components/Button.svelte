@@ -1,10 +1,10 @@
 <script>
-	let { children, ...props } = $props();
+let { children, ...props } = $props();
 </script>
 
 <button
 	{...props}
-	class="relative m-3 inline-block min-w-[200px] cursor-pointer overflow-visible border-2 border-shade py-4 font-mono text-xs font-light leading-none tracking-[2px] text-black uppercase transition-colors duration-300"
+	class="relative m-3 inline-block min-w-[200px] cursor-pointer overflow-visible border-2 border-ink py-4 font-mono text-xs font-light leading-none tracking-[2px] text-ink uppercase transition-colors duration-300"
 >
 	<!-- class="relative m-3 inline-block min-w-[200px] cursor-pointer overflow-visible border-2 border-shade py-5 font-sans text-xs leading-none font-medium tracking-[3.6px] text-black uppercase transition-colors duration-300" -->
 	{@render children()}

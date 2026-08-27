@@ -1,32 +1,61 @@
 {
-  "summary": {
-    "name": "Malik Zubayer",
-    "tagline": "Impact driven Software Engineer\n turning ideas into action",
-    "description": "Software Engineer with 10+ years of experience in\n building scalable web products.\n Based in Dhaka.",
-    "avatar": "/headshot-circle.png"
-  },
-  "portfolio": {
-    "title": "portfolio",
-    "subtitle": "Selection of recent Projects",
-    "cta": {
-      "text": "View Portfolio",
-      "link": "/portfolio"
-    }
-  },
-  "case_studies": {
-    "title": "case studies",
-    "subtitle": "of creative ideas & hobby projects",
-    "cta": {
-      "text": "View Projects",
-      "link": "/projects"
-    }
-  },
-  "about": {
-    "title": "about.",
-    "subtitle": "Who am I? or, What am I?",
-    "cta": {
-      "text": "More About Me",
-      "link": "/about"
-    }
-  }
+	"summary": {
+		"name": "Malik Zubayer",
+		"tagline": "Impact driven Software Engineer\n turning ideas into action",
+		"description": "Software Engineer with 10+ years of experience in\n building scalable web products.\n Based in Dhaka.",
+		"avatar": "/headshot-circle.png"
+	},
+	"portfolio": {
+		"title": "portfolio",
+		"subtitle": "Selection of recent Projects",
+		"cta": {
+			"text": "View Portfolio",
+			"link": "/portfolio"
+		}
+	},
+	"case_studies": {
+		"title": "case studies",
+		"subtitle": "of creative ideas & hobby projects",
+		"cta": {
+			"text": "View Projects",
+			"link": "/projects"
+		}
+	},
+	"about": {
+		"title": "about.",
+		"subtitle": "Who am I? or, What am I?",
+		"cta": {
+			"text": "More About Me",
+			"link": "/about"
+		},
+		"photos": [
+			{
+				"src": "/projects/project--keys-and-quests.jpg",
+				"caption": "late night builds",
+				"tilt": -5,
+				"x": 5.5,
+				"y": 3.5,
+				"w": 32,
+				"tape": true
+			},
+			{
+				"src": "/projects/project--keys-and-quests-2.jpg",
+				"caption": "the desk",
+				"tilt": 6,
+				"x": 47.5,
+				"y": 21.5,
+				"w": 30,
+				"tape": false
+			},
+			{
+				"src": "/projects/project--keys-and-quests-3.jpg",
+				"caption": "keebs & code",
+				"tilt": -3,
+				"x": 12.5,
+				"y": 58,
+				"w": 33,
+				"tape": true
+			}
+		]
+	}
 }
