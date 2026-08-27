@@ -147,13 +147,18 @@ main {
 		rgb(40 48 66 / 9%) 100%
 	);
 	/* the sheets underneath, showing past the fore-edge */
+	/* Three sheets underneath, each a hairline then its face. box-shadow paints
+	   front-to-back, so a layer only shows the gap to the previous offset:
+	   1px of edge line, then 2px of paper, repeating. */
 	box-shadow:
-		-2px 1px 0 #f1f3f6,
-		-4px 2px 0 #e9ecf1,
-		-6px 3px 0 #e2e5eb,
-		/* and the book resting on the surface */
-		-8px 6px 5px -3px rgb(40 48 66 / 9%),
-		-12px 24px 36px -18px rgb(40 48 66 / 24%);
+		-1px 0.5px 0 #dbe1e9,
+		-3px 1px 0 #f6f7fa,
+		-4px 1.5px 0 #dbe1e9,
+		-6px 2px 0 #f4f6f9,
+		-7px 2.5px 0 #d5dbe4,
+		-9px 3px 0 #f1f4f8,
+		-11px 7px 5px -3px rgb(40 48 66 / 9%),
+		-15px 24px 36px -18px rgb(40 48 66 / 24%);
 }
 
 /* Right page — lying flatter */
@@ -171,11 +176,14 @@ main {
 		rgb(40 48 66 / 6%) 100%
 	);
 	box-shadow:
-		2px 1px 0 #f1f3f6,
-		4px 2px 0 #e9ecf1,
-		6px 3px 0 #e2e5eb,
-		7px 6px 5px -3px rgb(40 48 66 / 8%),
-		10px 22px 32px -18px rgb(40 48 66 / 20%);
+		1px 0.5px 0 #dbe1e9,
+		3px 1px 0 #f6f7fa,
+		4px 1.5px 0 #dbe1e9,
+		6px 2px 0 #f4f6f9,
+		7px 2.5px 0 #d5dbe4,
+		9px 3px 0 #f1f4f8,
+		10px 7px 5px -3px rgb(40 48 66 / 8%),
+		13px 22px 32px -18px rgb(40 48 66 / 20%);
 }
 
 /* One page, not a spread, once the columns collapse */
@@ -196,7 +204,8 @@ main {
 			rgb(40 48 66 / 0%) 94%,
 			rgb(40 48 66 / 6%) 100%
 		);
-		box-shadow: -2px 2px 0 #f1f3f6, -4px 4px 0 #e9ecf1, -6px 16px 26px -16px rgb(40 48 66 / 24%);
+		box-shadow: -1px 1px 0 #dbe1e9, -3px 2px 0 #f6f7fa, -4px 3px 0 #dbe1e9, -6px 4px 0 #f4f6f9, -8px
+			16px 26px -16px rgb(40 48 66 / 24%);
 	}
 
 	.book-spread::after {
