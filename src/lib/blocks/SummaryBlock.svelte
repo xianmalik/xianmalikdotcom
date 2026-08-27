@@ -24,7 +24,7 @@ import Button from '$lib/components/Button.svelte';
 				<p class="font-handwriting text-2xl text-ink leading-snug rotate-1 whitespace-pre-line mb-8">
 					{summary.description}
 				</p>
-				<Button href="#" class="bg-ink/10 uppercase text-ink px-3 py-1 font-mono text-sm leading-4 font-medium hover:bg-ink/20 transition-all duration-300 inline-flex items-center gap-2 hover:gap-3">
+				<Button href="#">
 					Let's talk
 				</Button>
 			</div>

@@ -44,7 +44,7 @@ import Polaroid from '$lib/components/Polaroid.svelte';
 					your ideas are delivered efficiently and scalably.
 				</div>
 
-				<div class="mt-6 -ml-3">
+				<div class="mt-6">
 					<Button href={about.cta.link}>
 						{about.cta.text}
 					</Button>

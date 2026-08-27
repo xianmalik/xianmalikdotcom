@@ -418,3 +418,69 @@ main {
 .polaroid > figure {
 	margin: 0;
 }
+
+/* Text link underscored with a marker stroke */
+.marker-link {
+	position: relative;
+	display: inline-block;
+	padding: 0 1px 9px;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	font-family: var(--font-mono);
+	font-size: 12px;
+	line-height: 1;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--color-ink);
+	text-decoration: none;
+	transition: color 0.25s ease;
+}
+
+.marker-link:hover {
+	color: var(--color-marker);
+}
+
+.marker-link__stroke {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 9px;
+	overflow: visible;
+}
+
+.marker-link__pass {
+	fill: none;
+	stroke: var(--color-marker);
+	stroke-width: 1.6;
+	stroke-linecap: round;
+	/* keeps the nib an even weight however far the label stretches the viewBox */
+	vector-effect: non-scaling-stroke;
+}
+
+/* second pass is drawn in on hover, like going over it again */
+.marker-link__pass--second {
+	stroke-width: 1.3;
+	opacity: 0.75;
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	transition: stroke-dashoffset 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.2s ease;
+}
+
+.marker-link:hover .marker-link__pass--second,
+.marker-link:focus-visible .marker-link__pass--second {
+	stroke-dashoffset: 0;
+}
+
+.marker-link:focus-visible {
+	outline: 2px solid var(--color-marker);
+	outline-offset: 4px;
+	border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.marker-link__pass--second {
+		transition: none;
+	}
+}
