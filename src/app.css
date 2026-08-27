@@ -18,7 +18,7 @@
 	/* Font Families */
 	--font-display: "InstrumentSerif", serif;
 	--font-serif: "InstrumentSerif", serif;
-	--font-sans: "Inter", system-ui, -apple-system, sans-serif;
+	--font-sans: "Karla", system-ui, -apple-system, sans-serif;
 	--font-mono: "JetBrainsMono", monospace;
 	--font-handwriting: "ArchitectsDaughter", cursive;
 }
