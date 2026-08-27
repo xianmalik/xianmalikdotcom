@@ -409,24 +409,17 @@ main {
 		width: calc(var(--sw, 150px) + 18px);
 		height: calc(var(--sh, 185px) + 18px);
 		margin: -9px 0 0 -9px;
-		border: 2px dashed var(--color-marker);
+		border: 1px dashed var(--color-marker);
 		border-radius: 9px;
 		transform: rotate(var(--tilt, 0deg));
-		opacity: 0.42;
 		pointer-events: none;
 		z-index: 0;
-		transition: opacity 0.25s ease;
-	}
-
-	/* a touch clearer once its print has been dragged off it */
-	.photo-slot.vacated {
-		opacity: 0.72;
+		transition: background-color 0.2s ease;
 	}
 
 	/* release here and the print drops back into place */
 	.photo-slot.near {
-		opacity: 1;
-		background: --alpha(var(--color-marker) / 4%);
+		background-color: --alpha(var(--color-marker) / 4%);
 	}
 }
 

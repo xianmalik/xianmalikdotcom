@@ -134,7 +134,6 @@ function onKeyDown(e: KeyboardEvent) {
 <!-- Stationary slot marker: where the print belongs -->
 <div
 	class="photo-slot"
-	class:vacated={pos !== null}
 	class:near={dragging && nearHome}
 	style="--x: {x}%; --y: {y}%; --tilt: {tilt}deg; --sw: {slotW}px; --sh: {slotH}px"
 	aria-hidden="true"
