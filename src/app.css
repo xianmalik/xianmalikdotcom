@@ -109,8 +109,8 @@ main {
 }
 
 /* ── Open sketchbook spread (About) ──────────────────────────────────
-   The paper lives on ::before so the turbulence filter that wrinkles its
-   edges never touches the text sitting above it. */
+   The paper lives on ::before so it can carry its own shadow and gutter
+   without affecting the text sitting above it. */
 .book-spread {
 	position: relative;
 	isolation: isolate;
@@ -120,44 +120,28 @@ main {
 	content: "";
 	position: absolute;
 	inset: 0;
-	z-index: -2;
-	background-color: #efe9dc;
-	/* pages dipping into the centre gutter + a little outer-edge shading */
+	z-index: -1;
+	background-color: #fbfcfe;
+	/* pages dipping into the centre gutter, plus a hint of outer-edge shading */
 	background-image: linear-gradient(
 		to right,
-		rgb(122 96 60 / 11%) 0%,
-		rgb(122 96 60 / 0%) 5%,
-		rgb(122 96 60 / 0%) 43%,
-		rgb(122 96 60 / 12%) 49.2%,
-		rgb(90 68 40 / 26%) 50%,
-		rgb(122 96 60 / 12%) 50.8%,
-		rgb(122 96 60 / 0%) 57%,
-		rgb(122 96 60 / 0%) 95%,
-		rgb(122 96 60 / 11%) 100%
+		rgb(40 48 66 / 5%) 0%,
+		rgb(40 48 66 / 0%) 4%,
+		rgb(40 48 66 / 0%) 44%,
+		rgb(40 48 66 / 6%) 49.3%,
+		rgb(40 48 66 / 14%) 50%,
+		rgb(40 48 66 / 6%) 50.7%,
+		rgb(40 48 66 / 0%) 56%,
+		rgb(40 48 66 / 0%) 96%,
+		rgb(40 48 66 / 5%) 100%
 	);
-	/* corners that don't match each other, like a book that's been handled */
-	border-radius: 16px 9px 20px 11px / 11px 18px 10px 16px;
-	box-shadow: 0 1px 0 rgb(255 255 255 / 50%) inset, 0 4px 12px -6px rgb(40 48 66 / 22%), 0 26px 50px
-		-22px rgb(40 48 66 / 45%);
-	filter: url("#paper-warp");
-}
-
-/* Soft creases and age-toning, kept off the wrinkled layer so it stays cheap */
-.book-spread::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	z-index: -1;
-	pointer-events: none;
-	border-radius: inherit;
-	background-image: url("/paper-grain.png"),
-		linear-gradient(101deg, transparent 0 31%, rgb(120 96 62 / 8%) 31.4%, transparent 32%),
-		linear-gradient(-97deg, transparent 0 64%, rgb(120 96 62 / 7%) 64.5%, transparent 65%),
-		linear-gradient(88deg, transparent 0 78%, rgb(120 96 62 / 6%) 78.4%, transparent 79%),
-		radial-gradient(120% 85% at 50% 0%, rgb(120 96 62 / 10%) 0%, transparent 55%);
-	background-size: 200px 200px, auto, auto, auto, auto;
-	mix-blend-mode: multiply;
-	opacity: 0.7;
+	/* corners that don't quite match, but crisp */
+	border-radius: 14px 11px 15px 12px;
+	box-shadow:
+		0 0 0 1px rgb(40 48 66 / 6%),
+		0 1px 1px rgb(40 48 66 / 5%),
+		0 8px 16px -8px rgb(40 48 66 / 18%),
+		0 30px 60px -22px rgb(40 48 66 / 38%);
 }
 
 .book-page {
@@ -168,7 +152,7 @@ main {
 /* Polaroid prints on the left-hand page */
 .polaroid {
 	position: relative;
-	background: #fdfcf7;
+	background: #fdfefe;
 	padding: 7px 7px 22px;
 	border-radius: 2px;
 	width: var(--polaroid-w, 32%);
@@ -196,7 +180,7 @@ main {
 	width: 100%;
 	aspect-ratio: 1;
 	object-fit: cover;
-	background: #e4e0d6;
+	background: #e8edf2;
 }
 
 .polaroid figcaption {
@@ -273,11 +257,11 @@ main {
 	transform: translateX(-50%) rotate(-6deg);
 	background: linear-gradient(
 		to bottom,
-		rgb(236 228 200 / 52%),
-		rgb(228 218 186 / 66%) 45%,
-		rgb(236 228 200 / 52%)
+		rgb(226 232 240 / 62%),
+		rgb(212 220 232 / 74%) 45%,
+		rgb(226 232 240 / 62%)
 	);
-	box-shadow: 0 1px 2px rgb(60 45 25 / 16%);
+	box-shadow: 0 1px 2px rgb(40 48 66 / 14%);
 	border-left: 1px solid rgb(255 255 255 / 22%);
 	border-right: 1px solid rgb(255 255 255 / 22%);
 }

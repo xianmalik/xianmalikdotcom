@@ -4,14 +4,6 @@ import Button from '$lib/components/Button.svelte';
 import Polaroid from '$lib/components/Polaroid.svelte';
 </script>
 
-<!-- Warps the paper edge only; lives outside .book-spread so nothing else inherits it -->
-<svg width="0" height="0" aria-hidden="true" focusable="false" class="absolute">
-	<filter id="paper-warp">
-		<feTurbulence type="fractalNoise" baseFrequency="0.013 0.021" numOctaves="3" seed="7" result="noise" />
-		<feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G" />
-	</filter>
-</svg>
-
 <div class="py-8 mx-auto">
 	<div class="px-8 py-28 border-y border-ink/20 h-full">
 		<div class="book-spread w-full max-w-[840px] mx-auto grid grid-cols-1 md:grid-cols-2 px-7 py-12 md:px-10 md:py-12">
