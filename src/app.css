@@ -141,14 +141,14 @@ main {
 		rgb(40 48 66 / 6%) 0%,
 		rgb(40 48 66 / 0%) 5%,
 		rgb(40 48 66 / 0%) 88%,
-		rgb(40 48 66 / 7%) 98.5%,
-		rgb(40 48 66 / 20%) 100%
+		rgb(40 48 66 / 3.5%) 98.5%,
+		rgb(40 48 66 / 9%) 100%
 	);
 	box-shadow:
-		0 0 0 1px rgb(40 48 66 / 6%),
-		-1px 1px 2px rgb(40 48 66 / 6%),
-		-6px 14px 22px -10px rgb(40 48 66 / 22%),
-		-10px 34px 60px -24px rgb(40 48 66 / 40%);
+		0 0 0 1px rgb(40 48 66 / 5%),
+		-1px 1px 2px rgb(40 48 66 / 3%),
+		-5px 10px 18px -10px rgb(40 48 66 / 10%),
+		-8px 26px 48px -26px rgb(40 48 66 / 20%);
 }
 
 /* Right page — lying flatter */
@@ -159,17 +159,17 @@ main {
 	border-radius: 1px 12px 15px 1px;
 	background-image: linear-gradient(
 		to right,
-		rgb(40 48 66 / 16%) 0%,
-		rgb(40 48 66 / 6%) 1.5%,
+		rgb(40 48 66 / 7.5%) 0%,
+		rgb(40 48 66 / 3%) 1.5%,
 		rgb(40 48 66 / 0%) 11%,
 		rgb(40 48 66 / 0%) 95%,
 		rgb(40 48 66 / 6%) 100%
 	);
 	box-shadow:
-		0 0 0 1px rgb(40 48 66 / 6%),
-		1px 1px 2px rgb(40 48 66 / 5%),
-		6px 12px 20px -10px rgb(40 48 66 / 18%),
-		10px 30px 56px -24px rgb(40 48 66 / 34%);
+		0 0 0 1px rgb(40 48 66 / 5%),
+		1px 1px 2px rgb(40 48 66 / 3%),
+		5px 9px 16px -10px rgb(40 48 66 / 8%),
+		8px 22px 44px -26px rgb(40 48 66 / 17%);
 }
 
 /* One page, not a spread, once the columns collapse */
