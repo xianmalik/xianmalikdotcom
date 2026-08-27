@@ -134,7 +134,35 @@ main {
 	left: 0;
 	transform-origin: right center;
 	transform: rotateY(1.9deg);
-	border-radius: 14px 1px 1px 13px;
+	/* deckled outer edges; the spine edge stays dead straight */
+	clip-path: polygon(
+		2.4% 0.5%,
+		15.75% 0.28%,
+		27.5% 0.44%,
+		39.25% 0.99%,
+		51% 0.3%,
+		62.75% 0.36%,
+		74.5% 0.48%,
+		86.25% 0%,
+		100% 0%,
+		100% 100%,
+		86.25% 99.62%,
+		74.5% 99.79%,
+		62.75% 100%,
+		51% 98.99%,
+		39.25% 99.31%,
+		27.5% 98.99%,
+		15.75% 100%,
+		2.4% 99.5%,
+		0.7% 98.4%,
+		0.85% 83.57%,
+		0% 70.14%,
+		1.37% 56.71%,
+		1.34% 43.29%,
+		0.78% 29.86%,
+		0.71% 16.43%,
+		0.7% 1.6%
+	);
 	/* crisp crease at the inner edge, faint shading at the outer one */
 	background-image: linear-gradient(
 		to right,
@@ -144,11 +172,8 @@ main {
 		rgb(40 48 66 / 3.5%) 98.5%,
 		rgb(40 48 66 / 9%) 100%
 	);
-	box-shadow:
-		0 0 0 1px rgb(40 48 66 / 5%),
-		-1px 1px 2px rgb(40 48 66 / 3%),
-		-5px 10px 18px -10px rgb(40 48 66 / 10%),
-		-8px 26px 48px -26px rgb(40 48 66 / 20%);
+	filter: drop-shadow(-1px 1px 1px rgb(40 48 66 / 7%))
+		drop-shadow(-6px 16px 16px rgb(40 48 66 / 11%));
 }
 
 /* Right page — lying flatter */
@@ -156,7 +181,35 @@ main {
 	left: 50%;
 	transform-origin: left center;
 	transform: rotateY(-0.7deg);
-	border-radius: 1px 12px 15px 1px;
+	/* deckled outer edges; the spine edge stays dead straight */
+	clip-path: polygon(
+		0% 0%,
+		13.95% 0.42%,
+		25.9% 0.12%,
+		37.85% 0.87%,
+		49.8% 0.03%,
+		61.75% 0.37%,
+		73.7% 0.12%,
+		85.65% 0.22%,
+		97.6% 0.5%,
+		99.3% 1.6%,
+		100% 16.43%,
+		98.79% 29.86%,
+		99.4% 43.29%,
+		99% 56.71%,
+		99.23% 70.14%,
+		100% 83.57%,
+		99.3% 98.4%,
+		97.6% 99.5%,
+		85.65% 99.34%,
+		73.7% 99.76%,
+		61.75% 99.48%,
+		49.8% 99.95%,
+		37.85% 99.52%,
+		25.9% 99.11%,
+		13.95% 99.5%,
+		0% 100%
+	);
 	background-image: linear-gradient(
 		to right,
 		rgb(40 48 66 / 7.5%) 0%,
@@ -165,11 +218,7 @@ main {
 		rgb(40 48 66 / 0%) 95%,
 		rgb(40 48 66 / 6%) 100%
 	);
-	box-shadow:
-		0 0 0 1px rgb(40 48 66 / 5%),
-		1px 1px 2px rgb(40 48 66 / 3%),
-		5px 9px 16px -10px rgb(40 48 66 / 8%),
-		8px 22px 44px -26px rgb(40 48 66 / 17%);
+	filter: drop-shadow(1px 1px 1px rgb(40 48 66 / 6%)) drop-shadow(5px 14px 14px rgb(40 48 66 / 9%));
 }
 
 /* One page, not a spread, once the columns collapse */
@@ -181,7 +230,42 @@ main {
 	.book-spread::before {
 		width: 100%;
 		transform: none;
-		border-radius: 13px;
+		clip-path: polygon(
+			2% 0.5%,
+			15.5% 0.48%,
+			27% 0.78%,
+			38.5% 0.3%,
+			50% 0.58%,
+			61.5% 0.83%,
+			73% 0.37%,
+			84.5% 0.61%,
+			98% 0.5%,
+			99.4% 1.5%,
+			99.91% 16.43%,
+			100% 29.86%,
+			98.67% 43.29%,
+			98.9% 56.71%,
+			100% 70.14%,
+			99.94% 83.57%,
+			99.4% 98.5%,
+			98% 99.5%,
+			84.5% 99.34%,
+			73% 99.87%,
+			61.5% 99.24%,
+			50% 99.45%,
+			38.5% 99.54%,
+			27% 99.3%,
+			15.5% 99.2%,
+			2% 99.5%,
+			0.6% 98.5%,
+			0.51% 83.57%,
+			0.76% 70.14%,
+			0.17% 56.71%,
+			0.79% 43.29%,
+			1.37% 29.86%,
+			0% 16.43%,
+			0.6% 1.5%
+		);
 		background-image: linear-gradient(
 			to right,
 			rgb(40 48 66 / 6%) 0%,
