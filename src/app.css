@@ -114,7 +114,10 @@ main {
 .book-spread {
 	position: relative;
 	isolation: isolate;
-	perspective: 2000px;
+	/* closer viewpoint so the fold at the spine actually reads */
+	perspective: 1150px;
+	/* the whole book sits at a slight angle, left side lifted */
+	transform: rotate(-1.3deg);
 }
 
 .book-spread::before,
@@ -133,8 +136,8 @@ main {
 .book-spread::before {
 	left: 0;
 	transform-origin: right center;
-	transform: rotateY(3.4deg);
-	/* deckled edges, with the fore-edge bowed so the page reads as curved */
+	transform: rotateY(6deg);
+	/* deckled outer edges; the spine edge stays dead straight */
 	clip-path: polygon(
 		2.4% 0.5%,
 		15.75% 0.28%,
@@ -154,25 +157,20 @@ main {
 		27.5% 98.99%,
 		15.75% 100%,
 		2.4% 99.5%,
-		0.9% 98%,
-		1.7% 86.56%,
-		1.77% 76.11%,
-		3.38% 65.67%,
-		3.67% 55.22%,
-		3.33% 44.78%,
-		2.98% 34.33%,
-		1.89% 23.89%,
-		0.96% 13.44%,
-		0.9% 2%
+		0.7% 98.4%,
+		0.85% 83.57%,
+		0% 70.14%,
+		1.37% 56.71%,
+		1.34% 43.29%,
+		0.78% 29.86%,
+		0.71% 16.43%,
+		0.7% 1.6%
 	);
 	/* crisp crease at the inner edge, faint shading at the outer one */
 	background-image: linear-gradient(
 		to right,
-		rgb(40 48 66 / 11%) 0%,
-		rgb(40 48 66 / 6%) 3%,
-		rgb(40 48 66 / 2%) 9%,
-		rgb(255 255 255 / 55%) 19%,
-		rgb(40 48 66 / 0%) 34%,
+		rgb(40 48 66 / 7%) 0%,
+		rgb(40 48 66 / 0%) 5%,
 		rgb(40 48 66 / 0%) 88%,
 		rgb(40 48 66 / 3.5%) 98.5%,
 		rgb(40 48 66 / 9%) 100%
@@ -185,7 +183,7 @@ main {
 .book-spread::after {
 	left: 50%;
 	transform-origin: left center;
-	transform: rotateY(-0.7deg);
+	transform: rotateY(-1.6deg);
 	/* deckled outer edges; the spine edge stays dead straight */
 	clip-path: polygon(
 		0% 0%,
@@ -230,6 +228,7 @@ main {
 @media (max-width: 767px) {
 	.book-spread {
 		perspective: none;
+		transform: none;
 	}
 
 	.book-spread::before {
