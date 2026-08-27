@@ -104,10 +104,6 @@ main {
 		18px 45px -14px rgb(40 48 66 / 26%);
 }
 
-.canvas--lines {
-	@apply h-full w-[calc(842px)] border-l border-r border-ink/20 absolute;
-}
-
 /* ── Open sketchbook spread (About) ──────────────────────────────────
    Two page halves rather than one panel, so they meet at a hard fold and
    the left page can lift toward the viewer the way an open book does. */
