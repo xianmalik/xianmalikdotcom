@@ -97,7 +97,9 @@ main {
 	@apply flex content-center items-center flex-none flex-col justify-start inset-0 overflow-hidden p-6 pointer-events-none fixed z-0;
 }
 
+/* Hidden for now — restore by dropping the display line */
 .canvas--inner {
+	display: none;
 	@apply bg-paper rounded-xl size-full relative;
 	flex: 1 0 0px;
 	box-shadow: 0 0 0 1px --alpha(var(--color-ink) / 8%), 0 1px 0 0 rgb(255 255 255 / 70%) inset, 0
