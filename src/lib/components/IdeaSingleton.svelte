@@ -1,35 +1,35 @@
 <script lang="ts">
-	import Button from './Button.svelte';
+import Button from './Button.svelte';
 
-	interface Project {
-		name: string;
-		tagline: string;
-		excerpt: string;
-		link: string;
-		image: string;
-		impact: string[];
-		stack: string[];
-	}
+interface Project {
+	name: string;
+	tagline: string;
+	excerpt: string;
+	link: string;
+	image: string;
+	impact: string[];
+	stack: string[];
+}
 
-	let { project }: { project: Project } = $props();
+let { project }: { project: Project } = $props();
 </script>
 
 <!-- <div class="relative aspect-[3/2] bg-shade/10"> -->
-<div class="relative bg-shade/10">
+<div class="relative bg-ink/10">
 	<div class="grid grid-cols-2">
 		<!-- Content -->
-		<div class="relative flex h-full flex-col justify-between p-6 text-black">
+		<div class="relative flex h-full flex-col justify-between p-6 text-ink">
 			<!-- Header Content -->
 			<div class="mb-4">
 				<div class="flex-1">
-					<h2 class="mb-1 font-serif text-xl leading-tight font-medium md:text-3xl">
+					<h2 class="mb-1 font-serif text-xl leading-tight text-marker md:text-3xl">
 						{project.name}
 					</h2>
-					<p class="mb-2 font-sans text-sm tracking-[1px] text-black uppercase">
+					<p class="mb-2 font-sans text-sm tracking-[1px] text-ink uppercase">
 						{project.tagline}
 					</p>
 				</div>
-				<p class="mt-2 font-sans text-sm text-shade">
+				<p class="mt-2 font-sans text-sm text-ink/70">
 					{project.excerpt}
 				</p>
 			</div>
@@ -37,9 +37,9 @@
 			<!-- Footer Content -->
 			<div class="space-y-2">
 				<!-- Tech Stack -->
-				<div class="flex flex-col flex-wrap items-start font-mono text-sm text-black uppercase">
+				<div class="flex flex-col flex-wrap items-start font-mono text-sm text-ink uppercase">
 					{#each project.impact as copy}
-						<span class="px-2 py-1 font-mono text-sm leading-4 font-medium text-black">
+						<span class="px-2 py-1 font-mono text-sm leading-4 font-medium text-ink">
 							{copy}
 						</span>
 					{/each}
@@ -48,7 +48,7 @@
 				<a
 					href={project.link}
 					rel="noopener noreferrer"
-					class="group mt-2 inline-flex items-center gap-2 bg-white px-3 py-1 font-mono text-sm leading-4 font-medium text-black transition-all duration-300 hover:bg-shade/10"
+					class="group mt-2 inline-flex items-center gap-2 bg-ink px-3 py-1 font-mono text-sm leading-4 font-medium text-paper transition-all duration-300 hover:bg-ink/80"
 				>
 					<span>READ MORE</span>
 					<span class=" text-center transition-transform duration-300 group-hover:translate-x-0.5"
@@ -57,7 +57,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="bg-shade transition-all duration-300 p-0 relative">
+		<div class="bg-ink/20 transition-all duration-300 p-0 relative">
 			<img
 				src={project.image}
 				alt="Keys & Quests"

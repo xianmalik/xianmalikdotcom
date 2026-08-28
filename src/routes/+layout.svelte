@@ -49,5 +49,4 @@
 <div class="canvas--bottom"></div>
 <div class="canvas--wrapper">
 	<div class="canvas--inner"></div>
-	<div class="canvas--lines"></div>
 </div>

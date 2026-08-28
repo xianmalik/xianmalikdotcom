@@ -1,14 +1,14 @@
 <script lang="ts">
-	interface Project {
-		name: string;
-		excerpt: string;
-		link: string;
-		image: string;
-		stack: string[];
-		bg?: string;
-	}
+interface Project {
+	name: string;
+	excerpt: string;
+	link: string;
+	image: string;
+	stack: string[];
+	bg?: string;
+}
 
-	let { project }: { project: Project } = $props();
+let { project }: { project: Project } = $props();
 </script>
 
 <div class="relative bg-cover bg-center rounded-xl overflow-hidden group transition-transform duration-300 aspect-square">
@@ -22,13 +22,13 @@
 	<!-- <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent transition-colors duration-300"></div> -->
 	
 	<!-- Content -->
-	<div class="relative h-full flex bg-[#1F1D2B] flex-col justify-between p-6 text-white">
+	<div class="relative h-full flex bg-ink/5 flex-col justify-between p-6 text-ink">
 		<!-- Header Content -->
 		<div class="">
-			<h2 class="font-serif text-xl md:text-2xl font-medium mb-1 leading-tight">
+			<h2 class="font-serif text-xl md:text-2xl mb-1 leading-tight text-marker">
 				{project.name}
 			</h2>
-			<p class="font-mono uppercase text-xs md:text-sm tracking-wider text-gray-200">
+			<p class="font-mono uppercase text-xs md:text-sm tracking-wider text-ink/70">
 				{project.excerpt}
 			</p>
 		</div>
@@ -41,12 +41,12 @@
 		<!-- Footer Content -->
 		<div class="flex justify-between items-center">
 			<!-- Tech Stack -->
-			<div class="flex items-center space-x-2 text-xs uppercase font-mono text-white">
+			<div class="flex items-center space-x-2 text-xs uppercase font-mono text-ink">
 				<span>{project.stack[0]}</span>
 				<!-- {#each project.stack as tech, i}
 					<span>{tech}</span>
 					{#if i < project.stack.length - 1}
-						<span class="text-gray-400">|</span>
+						<span class="text-ink/50">|</span>
 					{/if}
 				{/each} -->
 			</div>
@@ -56,7 +56,7 @@
 				href={project.link} 
 				target="_blank" 
 				rel="noopener noreferrer"
-				class="bg-white text-black px-3 py-1 font-mono text-sm leading-4 font-medium hover:bg-gray-100 transition-colors duration-200"
+				class="bg-ink text-paper px-3 py-1 font-mono text-sm leading-4 font-medium hover:bg-ink/80 transition-colors duration-200"
 			>
 				<span>VIEW PROJECT →</span>
 				<!-- <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

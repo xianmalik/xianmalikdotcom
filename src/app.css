@@ -1,81 +1,438 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @import "./lib/assets/css/font.css";
 
 @plugin '@tailwindcss/typography';
 
 @theme {
-  --color-shade: #80808D;
+	/* Paper is the page; ink is body copy and rules; marker is titles and display type. */
+	--color-paper: #f2f2ef;
+	--color-ink: #212121;
+	--color-marker: #be3a18;
+	--color-shade: #80808d;
 }
 
 :root {
-  --canvas-backdrop: #f1f5f9;
+	/* Cool pale ground the off-white page rests on, sketchbook-on-a-desk */
+	--canvas-backdrop: #e8ebf1;
 
-  /* Font Families */
-  --font-display: 'BluuNext', serif;
-  --font-serif: 'Bianco', serif;
-  --font-sans: 'Metropolis', system-ui, -apple-system, sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-  --font-handwriting: 'ReenieBeanie', cursive;
+	/* Font Families */
+	--font-display: "InstrumentSerif", serif;
+	--font-serif: "InstrumentSerif", serif;
+	--font-sans: "Karla", system-ui, -apple-system, sans-serif;
+	--font-mono: "JetBrainsMono", monospace;
+	--font-handwriting: "ArchitectsDaughter", cursive;
 }
 
 /* Font Utility Classes */
 .font-display {
-  font-family: var(--font-display);
+	font-family: var(--font-display);
 }
 
 .font-sans {
-  font-family: var(--font-sans);
+	font-family: var(--font-sans);
 }
 
 .font-handwriting {
-  font-family: var(--font-handwriting);
+	font-family: var(--font-handwriting);
+	font-weight: 400;
 }
 
 .font-mono {
-  font-family: var(--font-mono);
+	font-family: var(--font-mono);
 }
 
 .font-serif {
-  font-family: var(--font-serif);
+	font-family: var(--font-serif);
+	font-weight: 400;
 }
 
 /* BG Canvas Artboard */
 html,
 body {
-  background: var(--canvas-backdrop);
+	background: var(--canvas-backdrop);
+	color: var(--color-ink);
+}
+
+/* Film grain overlay */
+body::before {
+	content: "";
+	background-image: url("/noise.png");
+	background-repeat: repeat;
+	background-size: 256px 256px;
+	mix-blend-mode: soft-light;
+	opacity: 0.05;
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 1;
 }
 
 main {
-  z-index: 5;
-  position: relative;
-  padding: 24px;
+	z-index: 5;
+	position: relative;
+	padding: 24px;
 }
 
 .canvas--top,
 .canvas--bottom {
-  background-color: var(--canvas-backdrop);
-  flex: none;
-  height: 24px;
-  left: 0;
-  overflow: hidden;
-  pointer-events: none;
-  position: fixed;
-  width: 100%;
-  z-index: 10;
+	background-color: var(--canvas-backdrop);
+	flex: none;
+	height: 24px;
+	left: 0;
+	overflow: hidden;
+	pointer-events: none;
+	position: fixed;
+	width: 100%;
+	z-index: 10;
 }
 
-.canvas--top { @apply top-0; }
-.canvas--bottom { @apply bottom-0; }
+.canvas--top {
+	@apply top-0;
+}
+.canvas--bottom {
+	@apply bottom-0;
+}
 
 .canvas--wrapper {
-  @apply flex content-center items-center flex-none flex-col justify-start inset-0 overflow-hidden p-6 pointer-events-none fixed z-0;
+	@apply flex content-center items-center flex-none flex-col justify-start inset-0 overflow-hidden p-6 pointer-events-none fixed z-0;
 }
 
+/* Hidden for now — restore by dropping the display line */
 .canvas--inner {
-  @apply bg-white rounded-xl size-full relative;
-  flex: 1 0 0px;
+	display: none;
+	@apply bg-paper rounded-xl size-full relative;
+	flex: 1 0 0px;
+	box-shadow: 0 0 0 1px --alpha(var(--color-ink) / 8%), 0 1px 0 0 rgb(255 255 255 / 70%) inset, 0
+		18px 45px -14px rgb(40 48 66 / 26%);
 }
 
-.canvas--lines {
-  @apply h-full w-[calc(842px)] border-l border-r border-[#00002D]/10 absolute;
+/* ── Open sketchbook spread (About) ──────────────────────────────────
+   Two page halves rather than one panel, so they meet at a hard fold and
+   the left page can lift toward the viewer the way an open book does. */
+.book-spread {
+	position: relative;
+	isolation: isolate;
+	/* closer viewpoint so the fold at the spine actually reads */
+	perspective: 1150px;
+	/* the whole book sits at a slight angle, left side lifted */
+	transform: rotate(-1.3deg);
+}
+
+.book-spread::before,
+.book-spread::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 50%;
+	z-index: -1;
+	background-color: #fbfcfe;
+	backface-visibility: hidden;
+}
+
+/* Left page — hinged at the spine and tipped up slightly */
+.book-spread::before {
+	left: 0;
+	transform-origin: right center;
+	transform: rotateY(6deg);
+	/* rounded at the fore-edge, square where it meets the spine */
+	border-radius: 11px 2px 2px 11px;
+	/* crisp crease at the inner edge, faint shading at the outer one */
+	background-image: linear-gradient(
+		to right,
+		rgb(40 48 66 / 7%) 0%,
+		rgb(40 48 66 / 0%) 5%,
+		rgb(40 48 66 / 0%) 88%,
+		rgb(40 48 66 / 3.5%) 98.5%,
+		rgb(40 48 66 / 9%) 100%
+	);
+	/* the sheets underneath, showing past the fore-edge */
+	/* Three sheets underneath, each a hairline then its face. box-shadow paints
+	   front-to-back, so a layer only shows the gap to the previous offset:
+	   1px of edge line, then 2px of paper, repeating. */
+	box-shadow:
+		-1px 0.5px 0 #dbe1e9,
+		-3px 1px 0 #f6f7fa,
+		-4px 1.5px 0 #dbe1e9,
+		-6px 2px 0 #f4f6f9,
+		-7px 2.5px 0 #d5dbe4,
+		-9px 3px 0 #f1f4f8,
+		-11px 7px 5px -3px rgb(40 48 66 / 9%),
+		-15px 24px 36px -18px rgb(40 48 66 / 24%);
+}
+
+/* Right page — lying flatter */
+.book-spread::after {
+	left: 50%;
+	transform-origin: left center;
+	transform: rotateY(-1.6deg);
+	border-radius: 2px 11px 11px 2px;
+	background-image: linear-gradient(
+		to right,
+		rgb(40 48 66 / 7.5%) 0%,
+		rgb(40 48 66 / 3%) 1.5%,
+		rgb(40 48 66 / 0%) 11%,
+		rgb(40 48 66 / 0%) 95%,
+		rgb(40 48 66 / 6%) 100%
+	);
+	box-shadow:
+		1px 0.5px 0 #dbe1e9,
+		3px 1px 0 #f6f7fa,
+		4px 1.5px 0 #dbe1e9,
+		6px 2px 0 #f4f6f9,
+		7px 2.5px 0 #d5dbe4,
+		9px 3px 0 #f1f4f8,
+		10px 7px 5px -3px rgb(40 48 66 / 8%),
+		13px 22px 32px -18px rgb(40 48 66 / 20%);
+}
+
+/* One page, not a spread, once the columns collapse */
+@media (max-width: 767px) {
+	.book-spread {
+		perspective: none;
+		transform: none;
+	}
+
+	.book-spread::before {
+		width: 100%;
+		transform: none;
+		border-radius: 11px;
+		background-image: linear-gradient(
+			to right,
+			rgb(40 48 66 / 6%) 0%,
+			rgb(40 48 66 / 0%) 6%,
+			rgb(40 48 66 / 0%) 94%,
+			rgb(40 48 66 / 6%) 100%
+		);
+		box-shadow: -1px 1px 0 #dbe1e9, -3px 2px 0 #f6f7fa, -4px 3px 0 #dbe1e9, -6px 4px 0 #f4f6f9, -8px
+			16px 26px -16px rgb(40 48 66 / 24%);
+	}
+
+	.book-spread::after {
+		display: none;
+	}
+}
+
+.book-page {
+	position: relative;
+	z-index: 1;
+}
+
+/* Polaroid prints on the left-hand page */
+.polaroid {
+	position: relative;
+	background: #fdfefe;
+	padding: 7px 7px 22px;
+	border-radius: 2px;
+	width: var(--polaroid-w, 32%);
+	transform: rotate(var(--tilt, 0deg));
+	box-shadow: 0 0 0 1px rgb(60 45 25 / 7%), 0 2px 3px rgb(40 48 66 / 12%), 0 12px 22px -10px
+		rgb(40 48 66 / 38%);
+	transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), left 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+		top 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
+	cursor: grab;
+	touch-action: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.polaroid.dragging {
+	cursor: grabbing;
+	transition: none;
+	transform: rotate(calc(var(--tilt, 0deg) * 0.4)) scale(1.03);
+	box-shadow: 0 0 0 1px rgb(60 45 25 / 7%), 0 3px 5px rgb(40 48 66 / 14%), 0 22px 34px -12px
+		rgb(40 48 66 / 45%);
+}
+
+.polaroid img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1;
+	object-fit: cover;
+	background: #e8edf2;
+}
+
+.polaroid figcaption {
+	margin-top: 7px;
+	text-align: center;
+	font-size: 13px;
+	line-height: 1;
+}
+
+/* Open-spread proportions (two portrait pages side by side) */
+@media (min-width: 768px) {
+	.book-spread {
+		aspect-ratio: 1.35;
+	}
+}
+
+/* Prints glued onto the left page — placed by hand, not on a grid */
+.photo-scatter {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Below md the pages stack: prints stay in flow, loosely piled */
+@media (max-width: 767px) {
+	.photo-scatter .polaroid {
+		width: min(200px, 68%);
+		margin-top: calc(min(var(--i, 0), 1) * -20px);
+		margin-left: calc((var(--i, 0) - 1) * 14px);
+	}
+}
+
+@media (min-width: 768px) {
+	.photo-scatter .polaroid {
+		position: absolute;
+		top: var(--y, 0);
+		left: var(--x, 0);
+		margin: 0;
+	}
+}
+
+.photo-scatter .polaroid {
+	z-index: calc(var(--i, 0) + 1);
+}
+
+.photo-scatter .polaroid:hover,
+.photo-scatter .polaroid:focus-visible,
+.photo-scatter .polaroid.dragging {
+	z-index: 10;
+}
+
+/* A strip of tape holding the print down */
+.polaroid.taped::before {
+	content: "";
+	position: absolute;
+	top: -11px;
+	left: 50%;
+	width: 56px;
+	height: 21px;
+	transform: translateX(-50%) rotate(-6deg);
+	background: linear-gradient(
+		to bottom,
+		rgb(226 232 240 / 62%),
+		rgb(212 220 232 / 74%) 45%,
+		rgb(226 232 240 / 62%)
+	);
+	box-shadow: 0 1px 2px rgb(40 48 66 / 14%);
+	border-left: 1px solid rgb(255 255 255 / 22%);
+	border-right: 1px solid rgb(255 255 255 / 22%);
+}
+
+.polaroid.taped:nth-child(3)::before {
+	transform: translateX(-50%) rotate(5deg);
+	left: 32%;
+	width: 48px;
+}
+
+/* Stationary dashed marker showing where each print belongs */
+.photo-slot {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.photo-slot {
+		display: block;
+		position: absolute;
+		top: var(--y, 0);
+		left: var(--x, 0);
+		width: calc(var(--sw, 150px) + 18px);
+		height: calc(var(--sh, 185px) + 18px);
+		margin: -9px 0 0 -9px;
+		border: 1px dashed var(--color-marker);
+		border-radius: 9px;
+		transform: rotate(var(--tilt, 0deg));
+		pointer-events: none;
+		z-index: 0;
+		transition: background-color 0.2s ease;
+	}
+
+	/* release here and the print drops back into place */
+	.photo-slot.near {
+		background-color: --alpha(var(--color-marker) / 4%);
+	}
+}
+
+.polaroid:focus-visible {
+	outline: 2px solid var(--color-marker);
+	outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.polaroid {
+		transition: none;
+	}
+}
+
+.polaroid > figure {
+	margin: 0;
+}
+
+/* Text link underscored with a marker stroke */
+.marker-link {
+	position: relative;
+	display: inline-block;
+	padding: 0 1px 9px;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	font-family: var(--font-mono);
+	font-size: 12px;
+	line-height: 1;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--color-ink);
+	text-decoration: none;
+	transition: color 0.25s ease;
+}
+
+.marker-link:hover {
+	color: var(--color-marker);
+}
+
+.marker-link__stroke {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 9px;
+	overflow: visible;
+}
+
+.marker-link__pass {
+	fill: none;
+	stroke: var(--color-marker);
+	stroke-width: 1.6;
+	stroke-linecap: round;
+	/* keeps the nib an even weight however far the label stretches the viewBox */
+	vector-effect: non-scaling-stroke;
+}
+
+/* second pass is drawn in on hover, like going over it again */
+.marker-link__pass--second {
+	stroke-width: 1.3;
+	opacity: 0.75;
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	transition: stroke-dashoffset 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.2s ease;
+}
+
+.marker-link:hover .marker-link__pass--second,
+.marker-link:focus-visible .marker-link__pass--second {
+	stroke-dashoffset: 0;
+}
+
+.marker-link:focus-visible {
+	outline: 2px solid var(--color-marker);
+	outline-offset: 4px;
+	border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.marker-link__pass--second {
+		transition: none;
+	}
 }
