@@ -72,8 +72,8 @@ import Button from '$lib/components/Button.svelte';
 ### Styling Architecture
 - **TailwindCSS v4** via Vite plugin (no separate config file needed)
 - **Global styles** in `src/app.css` with CSS custom properties
-- **Custom fonts**: BluuNext (display), Bianco (serif), Metropolis (sans), JetBrainsMono (mono), ReenieBeanie (handwriting)
-- **Custom color**: `--color-shade: #80808D` available as `text-shade` or `bg-shade`
+- **Custom fonts**: InstrumentSerif (display + serif), Karla (sans, variable), JetBrainsMono (mono), ArchitectsDaughter (handwriting)
+- **Custom colors**: `--color-surface: #212121` (site background, `bg-surface`), `--color-ink: #f5e1cd` (text and borders, `text-ink` / `border-ink`), `--color-shade: #80808D` (`text-shade` / `bg-shade`)
 - **Canvas layout**: Fixed background canvas with centered content area (842px max width with border guides)
 
 ### Svelte 5 Features
