@@ -9,6 +9,8 @@
 	--color-ink: #212121;
 	--color-marker: #be3a18;
 	--color-shade: #80808d;
+	/* Highlighter pen, behind black type */
+	--color-highlight: #fcd34d;
 }
 
 :root {
@@ -21,6 +23,12 @@
 	--font-sans: "Karla", system-ui, -apple-system, sans-serif;
 	--font-mono: "JetBrainsMono", monospace;
 	--font-handwriting: "ArchitectsDaughter", cursive;
+	--font-wordmark: "XianWordmark", var(--font-display);
+}
+
+.font-wordmark {
+	font-family: var(--font-wordmark);
+	font-weight: 400;
 }
 
 /* Font Utility Classes */
@@ -70,27 +78,7 @@ body::before {
 main {
 	z-index: 5;
 	position: relative;
-	padding: 24px;
-}
-
-.canvas--top,
-.canvas--bottom {
-	background-color: var(--canvas-backdrop);
-	flex: none;
-	height: 24px;
-	left: 0;
-	overflow: hidden;
-	pointer-events: none;
-	position: fixed;
-	width: 100%;
-	z-index: 10;
-}
-
-.canvas--top {
-	@apply top-0;
-}
-.canvas--bottom {
-	@apply bottom-0;
+	padding-inline: 24px;
 }
 
 .canvas--wrapper {
