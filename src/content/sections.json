@@ -58,6 +58,16 @@
 			}
 		]
 	},
+	"menu": {
+		"name": "xianmalik",
+		"items": [
+			{ "label": "home", "href": "#top" },
+			{ "label": "portfolio", "href": "#portfolio" },
+			{ "label": "case studies", "href": "#case-studies" },
+			{ "label": "about", "href": "#about" },
+			{ "label": "say hello", "href": "#contact" }
+		]
+	},
 	"footer": {
 		"title": "xianmalik",
 		"subtitle": "thanks for flipping through",

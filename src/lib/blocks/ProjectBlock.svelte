@@ -5,7 +5,7 @@ import Button from '$lib/components/Button.svelte';
 import ProjectGrid from '$lib/components/ProjectGrid.svelte';
 </script>
 
-<div class="py-8 mx-auto overflow-hidden">
+<div id="portfolio" class="py-8 mx-auto overflow-hidden">
 	<div class="px-8">
 		<div class="w-full py-12 h-full mx-auto">
 			<!-- Section Heading -->

@@ -5,7 +5,7 @@ import IdeaGrid from '$lib/components/IdeaGrid.svelte';
 import Button from '$lib/components/Button.svelte';
 </script>
 
-<div class="py-8 mx-auto">
+<div id="case-studies" class="py-8 mx-auto">
 	<div class="px-8">
 		<div class="w-full max-w-[840px] bg-[url('/gray-bg.jpg')] bg-cover py-12 h-full mx-auto">
 			<!-- Section Heading -->

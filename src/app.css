@@ -11,6 +11,8 @@
 	--color-shade: #80808d;
 	/* Brighter signal red, for accents that need to pop */
 	--color-red: oklch(63.7% 0.237 25.331);
+	/* Off-white notepad paper the menu is written on */
+	--color-notepad: #fcfcfd;
 	/* Highlighter pen, behind black type */
 	--color-highlight: #fcd34d;
 }

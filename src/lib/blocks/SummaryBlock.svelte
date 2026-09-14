@@ -4,7 +4,7 @@ import Button from '$lib/components/Button.svelte';
 </script>
 
 <!-- <div class="py-8 mx-auto min-h-[calc(100svh-48px)] flex flex-col"> -->
-<div class="py-8 mx-auto">
+<div id="top" class="py-8 mx-auto">
 	<div class="px-8 py-28 h-full">
 		<div class="w-full max-w-[840px] h-full mx-auto">
 			<div class="flex flex-col items-center justify-center text-center font-sans py-12">

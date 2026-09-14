@@ -4,7 +4,7 @@ import Button from '$lib/components/Button.svelte';
 import Polaroid from '$lib/components/Polaroid.svelte';
 </script>
 
-<div class="py-8 mx-auto">
+<div id="about" class="py-8 mx-auto">
 	<div class="px-8 py-28 h-full">
 		<div class="book-spread w-full max-w-[840px] mx-auto grid grid-cols-1 md:grid-cols-2 px-7 py-12 md:px-10 md:py-12">
 			<!-- Left page — photos -->

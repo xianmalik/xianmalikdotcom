@@ -5,6 +5,8 @@ import Lenis from 'lenis';
 import { onMount } from 'svelte';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SiteMenu from '$lib/components/SiteMenu.svelte';
+import { scroller } from '$lib/scroll';
 
 let { children } = $props();
 
@@ -18,6 +20,7 @@ onMount(() => {
 		orientation: 'vertical',
 		smoothWheel: true
 	});
+	scroller.lenis = lenis;
 
 	// Integrate Lenis with GSAP ScrollTrigger
 	lenis.on('scroll', ScrollTrigger.update);
@@ -29,6 +32,7 @@ onMount(() => {
 	gsap.ticker.lagSmoothing(0);
 
 	return () => {
+		scroller.lenis = null;
 		lenis.destroy();
 		gsap.ticker.remove((time) => {
 			lenis.raf(time * 1000);
@@ -40,6 +44,8 @@ onMount(() => {
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
+
+<SiteMenu />
 
 <main>
 	{@render children?.()}
