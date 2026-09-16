@@ -428,3 +428,412 @@ main {
 		transition: none;
 	}
 }
+
+/* ── Portfolio: a visual archive ─────────────────────────────────────
+   Prints pinned across an empty sheet, placed by hand rather than on a
+   grid, each with a line of small print for a label. */
+.archive-sheet {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 44px;
+	padding-block: 8px 24px;
+}
+
+@media (min-width: 768px) {
+	.archive-sheet {
+		display: block;
+		aspect-ratio: 1.17;
+		padding: 0;
+	}
+}
+
+.archive-print {
+	display: block;
+	width: min(320px, 74%);
+	text-decoration: none;
+	color: inherit;
+	transform: rotate(var(--tilt, 0deg));
+	transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Below md the prints drop into flow, nudged off-centre so the column
+   still reads as a scatter rather than a stack. Scoped to the stacked
+   layout — :nth-child outranks the absolute placement below, so left
+   unscoped these offsets shove the desktop scatter sideways. */
+@media (max-width: 767px) {
+	.archive-print:nth-child(even) {
+		align-self: flex-end;
+		margin-right: 4%;
+	}
+
+	.archive-print:nth-child(odd) {
+		align-self: flex-start;
+		margin-left: 4%;
+	}
+}
+
+@media (min-width: 768px) {
+	.archive-print {
+		position: absolute;
+		top: var(--y, 0);
+		left: var(--x, 0);
+		width: var(--print-w, 24%);
+		margin: 0;
+		z-index: calc(var(--i, 0) + 1);
+	}
+
+	/* A vertical label hangs off the side, outside the frame, so --print-w
+	   always describes the print itself rather than the print plus its label */
+	.archive-print--side > figure {
+		position: relative;
+	}
+}
+
+.archive-print > figure {
+	margin: 0;
+}
+
+.archive-print:hover,
+.archive-print:focus-visible {
+	transform: rotate(var(--tilt, 0deg)) translateY(-4px);
+	z-index: 20;
+}
+
+.archive-print:focus-visible {
+	outline: none;
+}
+
+/* The mat the print is mounted on — a hair wider than the image itself */
+.archive-print__mat {
+	display: block;
+	background: #fbfaf7;
+	padding: 9px;
+	box-shadow: 0 0 0 1px rgb(60 45 25 / 6%), 0 1px 2px rgb(40 48 66 / 10%), 0 10px 20px -12px
+		rgb(40 48 66 / 28%);
+	transition: box-shadow 0.35s ease;
+}
+
+.archive-print:hover .archive-print__mat,
+.archive-print:focus-visible .archive-print__mat {
+	box-shadow: 0 0 0 1px rgb(60 45 25 / 8%), 0 2px 4px rgb(40 48 66 / 12%), 0 20px 32px -14px
+		rgb(40 48 66 / 38%);
+}
+
+.archive-print:focus-visible .archive-print__mat {
+	outline: 1.5px solid var(--color-marker);
+	outline-offset: 5px;
+}
+
+.archive-print__mat img {
+	display: block;
+	width: 100%;
+	object-fit: cover;
+	background: #e8edf2;
+}
+
+/* Small print: the label under, or beside, each frame */
+.archive-print__label {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	margin-top: 12px;
+	text-align: center;
+	font-size: 9.5px;
+	line-height: 1.45;
+	letter-spacing: 0.13em;
+	text-transform: uppercase;
+}
+
+.archive-print__name {
+	font-weight: 700;
+	color: var(--color-ink);
+	transition: color 0.25s ease;
+}
+
+.archive-print__note {
+	color: var(--color-ink);
+	opacity: 0.45;
+	letter-spacing: 0.1em;
+}
+
+.archive-print:hover .archive-print__name,
+.archive-print:focus-visible .archive-print__name {
+	color: var(--color-marker);
+}
+
+/* Set on its side, reading bottom-to-top, alongside the frame */
+@media (min-width: 768px) {
+	.archive-print--side .archive-print__label {
+		position: absolute;
+		bottom: 2px;
+		left: 100%;
+		margin: 0 0 0 11px;
+		writing-mode: vertical-rl;
+		transform: rotate(180deg);
+		flex-direction: row;
+		gap: 8px;
+		text-align: left;
+	}
+
+	.archive-print--side-left .archive-print__label {
+		left: auto;
+		right: 100%;
+		margin: 0 11px 0 0;
+	}
+
+	.archive-print--side .archive-print__note {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.archive-print,
+	.archive-print__mat {
+		transition: none;
+	}
+}
+
+/* ── The reel: a wall of prints from a life ──────────────────────────
+   Dense and photo-led, the opposite of the portfolio's sparse archive.
+   Every photo runs at its own size and proportion — nothing is cropped to
+   a slot, so the wall's unevenness comes from the pictures themselves. */
+.photo-wall {
+	columns: 1;
+	column-gap: 30px;
+}
+
+@media (min-width: 640px) {
+	.photo-wall {
+		columns: 2;
+	}
+}
+
+@media (min-width: 1024px) {
+	.photo-wall {
+		columns: 3;
+		column-gap: 34px;
+	}
+}
+
+.vintage-print {
+	position: relative;
+	/* A print must not be split across two columns */
+	break-inside: avoid;
+	/* Prints run a little under the column, at their own sizes, and the even
+	   ones hang to the right, so no two edges line up down the wall */
+	width: calc(var(--size, 1) * 100%);
+	margin: 0 0 36px;
+	transform: rotate(var(--tilt, 0deg));
+	transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (min-width: 640px) {
+	.vintage-print:nth-child(even) {
+		margin-left: auto;
+	}
+}
+
+.vintage-print:hover {
+	transform: rotate(var(--tilt, 0deg)) scale(1.014);
+	z-index: 3;
+}
+
+/* The print itself — a warm border, the way a 70s drugstore print was cut */
+.vintage-print__frame {
+	position: relative;
+	display: block;
+	background: #fdfbf4;
+	padding: 5px;
+	border-radius: 2px;
+	overflow: hidden;
+	box-shadow: 0 0 0 1px rgb(60 45 25 / 8%), 0 1px 2px rgb(40 48 66 / 10%), 0 10px 20px -14px
+		rgb(40 48 66 / 40%);
+	transition: box-shadow 0.4s ease;
+}
+
+.vintage-print:hover .vintage-print__frame {
+	box-shadow: 0 0 0 1px rgb(60 45 25 / 10%), 0 2px 4px rgb(40 48 66 / 12%), 0 18px 30px -16px
+		rgb(40 48 66 / 50%);
+}
+
+.vintage-print__frame img {
+	display: block;
+	width: 100%;
+	/* The photo sets its own height — nothing is cropped to fit a slot */
+	height: auto;
+	border-radius: 1px;
+	/* Faded dye and a warm cast — film that has sat in a drawer a while */
+	filter: sepia(0.3) saturate(0.8) contrast(1.06) brightness(1.03);
+}
+
+/* Lifted blacks and a soft vignette, painted over the photo but under the
+   caption. Two layers: warm haze, then darkened corners. */
+.vintage-print__frame::after {
+	content: "";
+	position: absolute;
+	inset: 5px;
+	pointer-events: none;
+	border-radius: 1px;
+	background: radial-gradient(
+			115% 95% at 50% 45%,
+			rgb(255 244 222 / 0%) 52%,
+			rgb(74 52 30 / 26%) 100%
+		),
+		linear-gradient(
+			200deg,
+			rgb(255 228 176 / 16%) 0%,
+			rgb(255 214 168 / 4%) 42%,
+			rgb(120 84 160 / 7%) 100%
+		);
+}
+
+/* Quartz date-back, burnt into the emulsion bottom-right */
+.vintage-print__date {
+	position: absolute;
+	right: 12px;
+	bottom: 10px;
+	z-index: 2;
+	font-size: 10px;
+	letter-spacing: 0.08em;
+	color: #ff8a3d;
+	text-shadow: 0 0 5px rgb(255 122 40 / 75%), 0 0 1px rgb(255 190 130 / 90%);
+	pointer-events: none;
+}
+
+/* Written under the print in ballpoint, the way you'd label one on the back */
+.vintage-print__caption {
+	margin-top: 9px;
+	padding-left: 1px;
+	font-size: 10.5px;
+	line-height: 1.4;
+	letter-spacing: 0.07em;
+	color: --alpha(var(--color-ink) / 65%);
+	transition: color 0.3s ease;
+}
+
+.vintage-print:hover .vintage-print__caption {
+	color: var(--color-marker);
+}
+
+/* ── A cut of 35mm, running clear off both edges of the screen ───────
+   The wrapper cancels main's inline padding to reach the viewport edge and
+   clips the overscan, so the strip can be wider than the screen and sit at
+   an angle without ever opening a horizontal scrollbar. */
+.film-strip-bleed {
+	margin-inline: -24px;
+	padding-block: 16px;
+	overflow: hidden;
+}
+
+.film-strip {
+	display: flex;
+	/* Wider than the screen at both ends: the film is cut, not centred */
+	margin-inline: -48px;
+	/* The gaps between frames are the clear film base showing through */
+	gap: 9px;
+	/* The base of a developed negative is translucent, not black — this is
+	   the light grey of a B&W strip held up against the page */
+	background-color: #c6c1b4;
+	/* Perforations, KS-1870 proportions. They are the brightest thing on
+	   the strip: clear holes with the light coming through. */
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='9'%3E%3Crect x='4' y='0.5' width='11' height='8' rx='1.9' fill='%23fbfaf6'/%3E%3C/svg%3E"),
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='9'%3E%3Crect x='4' y='0.5' width='11' height='8' rx='1.9' fill='%23fbfaf6'/%3E%3C/svg%3E"),
+		/* base density: a touch heavier at the edges, like film against light */
+		linear-gradient(
+			to bottom,
+			rgb(70 64 50 / 13%) 0%,
+			rgb(70 64 50 / 0%) 18%,
+			rgb(70 64 50 / 0%) 82%,
+			rgb(70 64 50 / 11%) 100%
+		);
+	background-position: 6px 5px, 6px calc(100% - 5px), 0 0;
+	background-repeat: repeat-x, repeat-x, no-repeat;
+	transform: rotate(-0.45deg);
+	box-shadow: 0 14px 30px -18px rgb(40 48 66 / 55%);
+}
+
+/* One frame plus the margins above and below it, so the edge print can sit
+   in the perforation rows the way it does on real stock */
+.film-strip__cell {
+	flex: 0 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Edge print: stock name along the top, frame number along the bottom,
+   latent-image dark against the base */
+.film-strip__edge {
+	display: flex;
+	height: 24px;
+	padding-inline: 4px;
+	font-size: 6.5px;
+	line-height: 1;
+	letter-spacing: 0.16em;
+	white-space: nowrap;
+	color: rgb(52 46 35 / 72%);
+	pointer-events: none;
+}
+
+/* Tucked against the frame so it clears the perforation row above it */
+.film-strip__edge--stock {
+	align-items: flex-end;
+	padding-bottom: 2px;
+}
+
+.film-strip__edge--num {
+	align-items: flex-start;
+	justify-content: flex-end;
+	padding-top: 2px;
+	font-size: 8px;
+	letter-spacing: 0.06em;
+	color: rgb(52 46 35 / 85%);
+}
+
+.film-strip__frame {
+	position: relative;
+	flex: 0 0 auto;
+	height: 78px;
+	aspect-ratio: 3 / 2;
+	overflow: hidden;
+	/* Negatives carry a rounded corner where the gate masks the frame */
+	border-radius: 3.5px;
+	background: #8e8879;
+}
+
+@media (max-width: 767px) {
+	.film-strip__frame {
+		height: 62px;
+	}
+
+	.film-strip__edge {
+		height: 20px;
+	}
+}
+
+.film-strip__frame img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/* Undeveloped: a black and white negative. Negatives are flatter than
+	   prints, hence the softened contrast. Hover prints it — the filter
+	   lists match function for function so the browser interpolates
+	   between them instead of cutting. */
+	filter: invert(1) grayscale(1) contrast(0.9) brightness(1.02);
+	transition: filter 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.film-strip__cell:hover img {
+	filter: invert(0) grayscale(0) contrast(1) brightness(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.vintage-print,
+	.vintage-print__frame,
+	.vintage-print__caption,
+	.film-strip__frame img {
+		transition: none;
+	}
+}

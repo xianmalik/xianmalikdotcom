@@ -1,51 +1,42 @@
 [
-    {
-        "name": "Keys and Quests",
-        "excerpt": "Blog for keyboard enthusiasts",
-        "link": "https://keysandquests.vercel.app",
-        "image": "/projects/knq-mockup.png",
-        "stack": ["NextJS", "TailwindCSS"]
-    },
-    {
-        "name": "Hazard County Shuttle",
-        "excerpt": "Bike Shuttle Service",
-        "link": "https://hazardcountyshuttle.com",
-        "image": "/projects/hazard-mockup.png",
-        "stack": ["SvelteKit", "TypeScript"]
-    },
-    {
-        "name": "E-Commerce App",
-        "excerpt": "Modern shopping experience",
-        "link": "https://shop.example.com",
-        "image": "/projects/hazard-mockup.png",
-        "stack": ["React", "Node.js"]
-    },
-    {
-        "name": "Task Manager",
-        "excerpt": "Productivity app for teams",
-        "link": "https://tasks.app",
-        "image": "/projects/hazard-mockup.png",
-        "stack": ["Vue.js", "Firebase"]
-    },
-    {
-        "name": "Weather Dashboard",
-        "excerpt": "Real-time weather insights",
-        "link": "https://weather.app",
-        "image": "/projects/hazard-mockup.png",
-        "stack": ["Angular", "Charts.js"]
-    },
-    {
-        "name": "Task Manager",
-        "excerpt": "Productivity app for teams",
-        "link": "https://tasks.app",
-        "image": "/projects/hazard-mockup.png",
-        "stack": ["Vue.js", "Firebase"]
-    },
-    {
-        "name": "Weather Dashboard",
-        "excerpt": "Real-time weather insights",
-        "link": "https://weather.app",
-        "image": "/projects/hazard-mockup.png",
-        "stack": ["Angular", "Charts.js"]
-    }
+	{
+		"name": "Keys and Quests",
+		"excerpt": "Blog for keyboard enthusiasts",
+		"link": "https://keysandquests.vercel.app",
+		"image": "/projects/knq-mockup.png",
+		"stack": ["NextJS", "TailwindCSS"],
+		"frame": { "x": 8.5, "y": 5.5, "w": 30, "ratio": "16 / 10", "caption": "below", "tilt": -0.5 }
+	},
+	{
+		"name": "Hazard County Shuttle",
+		"excerpt": "Bike shuttle service",
+		"link": "https://hazardcountyshuttle.com",
+		"image": "/projects/hazard-mockup.png",
+		"stack": ["SvelteKit", "TypeScript"],
+		"frame": { "x": 62.5, "y": 16, "w": 28, "ratio": "16 / 10", "caption": "side-right", "tilt": 0.6 }
+	},
+	{
+		"name": "E-Commerce App",
+		"excerpt": "Modern shopping experience",
+		"link": "https://shop.example.com",
+		"image": "/projects/project--keys-and-quests.jpg",
+		"stack": ["React", "Node.js"],
+		"frame": { "x": 5.2, "y": 48, "w": 21, "ratio": "3 / 4", "caption": "below", "tilt": 0.4 }
+	},
+	{
+		"name": "Task Manager",
+		"excerpt": "Productivity app for teams",
+		"link": "https://tasks.app",
+		"image": "/projects/project--keys-and-quests-2.jpg",
+		"stack": ["Vue.js", "Firebase"],
+		"frame": { "x": 31, "y": 44, "w": 25, "ratio": "4 / 3", "caption": "side-right", "tilt": -0.7 }
+	},
+	{
+		"name": "Weather Dashboard",
+		"excerpt": "Real-time weather insights",
+		"link": "https://weather.app",
+		"image": "/projects/project--keys-and-quests-3.jpg",
+		"stack": ["Angular", "Charts.js"],
+		"frame": { "x": 70.5, "y": 61.5, "w": 21, "ratio": "3 / 4", "caption": "side-left", "tilt": 0.5 }
+	}
 ]

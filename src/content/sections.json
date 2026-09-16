@@ -21,6 +21,14 @@
 			"link": "/projects"
 		}
 	},
+	"life": {
+		"title": "the reel",
+		"subtitle": "a life, mostly off the clock",
+		"cta": {
+			"text": "See More Frames",
+			"link": "/life"
+		}
+	},
 	"about": {
 		"title": "about.",
 		"subtitle": "Who am I? or, What am I?",
@@ -61,11 +69,30 @@
 	"menu": {
 		"name": "xianmalik",
 		"items": [
-			{ "label": "home", "href": "#top" },
-			{ "label": "portfolio", "href": "#portfolio" },
-			{ "label": "case studies", "href": "#case-studies" },
-			{ "label": "about", "href": "#about" },
-			{ "label": "say hello", "href": "#contact" }
+			{
+				"label": "home",
+				"href": "#top"
+			},
+			{
+				"label": "portfolio",
+				"href": "#portfolio"
+			},
+			{
+				"label": "case studies",
+				"href": "#case-studies"
+			},
+			{
+				"label": "the reel",
+				"href": "#life"
+			},
+			{
+				"label": "about",
+				"href": "#about"
+			},
+			{
+				"label": "say hello",
+				"href": "#contact"
+			}
 		]
 	},
 	"footer": {

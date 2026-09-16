@@ -1,68 +1,34 @@
 <script lang="ts">
-interface Project {
-	name: string;
-	excerpt: string;
-	link: string;
-	image: string;
-	stack: string[];
-	bg?: string;
-}
+import type { Project } from '$lib/types';
 
-let { project }: { project: Project } = $props();
+let { project, i = 0 }: { project: Project; i?: number } = $props();
+
+const f = $derived(project.frame ?? {});
+const place = $derived(f.caption ?? 'below');
 </script>
 
-<div class="relative bg-cover bg-center rounded-xl overflow-hidden group transition-transform duration-300 aspect-square">
-	<!-- Background Image -->
-	<!-- <div 
-		class="absolute inset-0 bg-cover bg-center"
-		style="background-image: url('{project.image}')"
-	></div> -->
-	
-	<!-- Dark Overlay -->
-	<!-- <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent transition-colors duration-300"></div> -->
-	
-	<!-- Content -->
-	<div class="relative h-full flex bg-ink/5 flex-col justify-between p-6 text-ink">
-		<!-- Header Content -->
-		<div class="">
-			<h2 class="font-serif text-xl md:text-2xl mb-1 leading-tight text-marker">
-				{project.name}
-			</h2>
-			<p class="font-mono uppercase text-xs md:text-sm tracking-wider text-ink/70">
-				{project.excerpt}
-			</p>
-		</div>
-		
-		<!-- Image -->
-		<div class="w-full relative">
-			<img src="{project.image}" alt="{project.name}" class="max-w-full" />
-		</div>
-		
-		<!-- Footer Content -->
-		<div class="flex justify-between items-center">
-			<!-- Tech Stack -->
-			<div class="flex items-center space-x-2 text-xs uppercase font-mono text-ink">
-				<span>{project.stack[0]}</span>
-				<!-- {#each project.stack as tech, i}
-					<span>{tech}</span>
-					{#if i < project.stack.length - 1}
-						<span class="text-ink/50">|</span>
-					{/if}
-				{/each} -->
-			</div>
-
-			<!-- CTA Button -->
-			<a 
-				href={project.link} 
-				target="_blank" 
-				rel="noopener noreferrer"
-				class="bg-ink text-paper px-3 py-1 font-mono text-sm leading-4 font-medium hover:bg-ink/80 transition-colors duration-200"
-			>
-				<span>VIEW PROJECT →</span>
-				<!-- <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-				</svg> -->
-			</a>
-		</div>
-	</div>
-</div>
+<a
+	class="archive-print"
+	class:archive-print--side={place !== 'below'}
+	class:archive-print--side-left={place === 'side-left'}
+	href={project.link}
+	target="_blank"
+	rel="noopener noreferrer"
+	style="--x: {f.x ?? 0}%; --y: {f.y ?? 0}%; --print-w: {f.w ?? 24}%; --tilt: {f.tilt ??
+		0}deg; --i: {i}"
+>
+	<figure>
+		<span class="archive-print__mat">
+			<img
+				src={project.image}
+				alt={project.name}
+				loading="lazy"
+				style="aspect-ratio: {f.ratio ?? '3 / 4'}"
+			/>
+		</span>
+		<figcaption class="archive-print__label font-mono">
+			<span class="archive-print__name">{project.name}</span>
+			<span class="archive-print__note">{project.excerpt}</span>
+		</figcaption>
+	</figure>
+</a>
