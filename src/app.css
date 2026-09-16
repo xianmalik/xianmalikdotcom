@@ -635,7 +635,7 @@ main {
 	}
 }
 
-.vintage-print:hover {
+.vintage-print:not(.vintage-print--open):hover {
 	z-index: 3;
 }
 
@@ -643,6 +643,14 @@ main {
 .vintage-print__frame {
 	position: relative;
 	display: block;
+	/* it is a button now — reset the chrome the UA gives it */
+	width: 100%;
+	border: 0;
+	margin: 0;
+	font: inherit;
+	color: inherit;
+	text-align: inherit;
+	appearance: none;
 	/* the picture is the thing you point at, not the label under it */
 	cursor: pointer;
 	transform: scale(1);
@@ -666,12 +674,6 @@ main {
 	overflow: hidden;
 	box-shadow: 0 0 0 1px rgb(60 45 25 / 8%), 0 1px 2px rgb(40 48 66 / 10%), 0 10px 20px -14px
 		rgb(40 48 66 / 40%);
-}
-
-.vintage-print:hover .vintage-print__frame {
-	transform: scale(1.018);
-	box-shadow: 0 0 0 1px rgb(60 45 25 / 10%), 0 2px 4px rgb(40 48 66 / 12%), 0 18px 30px -16px
-		rgb(40 48 66 / 50%);
 }
 
 .vintage-print__frame img {
@@ -720,8 +722,8 @@ main {
 
 /* Written under the print in ballpoint, the way you'd label one on the back */
 .vintage-print__caption {
-	margin-top: 8px;
-	padding-left: 1px;
+	margin-bottom: 9px;
+	text-align: center;
 	font-size: 14px;
 	line-height: 1.25;
 	letter-spacing: 0.01em;
@@ -731,6 +733,113 @@ main {
 
 .vintage-print:hover .vintage-print__caption {
 	color: var(--color-marker);
+}
+
+/* ── A pile of prints ────────────────────────────────────────────────
+   Each card is a stack: the labelled print on top, the rest underneath
+   with their corners showing. Click the top one and the pile spreads. */
+.vintage-stack {
+	position: relative;
+}
+
+.vintage-stack__top {
+	position: relative;
+	z-index: 20;
+	--lift: 0px;
+	--sc: 1;
+	transform: translateY(var(--lift)) scale(var(--sc));
+}
+
+/* Underneath: matched to the print on top, because prints from one batch
+   come back the same size. Only the top print keeps its own proportions —
+   these are backing, and left at their own heights a portrait under a
+   landscape hangs half out of the pile. */
+.vintage-stack__under {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: calc(10 - var(--depth, 1));
+	cursor: default;
+	--tx: var(--rx, 4px);
+	--ty: var(--ry, 6px);
+	--tr: var(--rr, 2deg);
+	--lift: 0px;
+	--sc: 1;
+	transform: translate(var(--tx), calc(var(--ty) + var(--lift))) rotate(var(--tr)) scale(var(--sc));
+	transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.vintage-print--open {
+	z-index: 60;
+}
+
+.vintage-stack__under img {
+	height: 100%;
+	object-fit: cover;
+}
+
+.vintage-print--open .vintage-stack__under {
+	--tx: var(--ox, 50%);
+	--ty: var(--oy, 20%);
+	--tr: var(--or, 6deg);
+	cursor: pointer;
+	box-shadow: 0 0 0 1px rgb(60 45 25 / 10%), 0 3px 6px rgb(40 48 66 / 14%), 0 26px 40px -18px
+		rgb(40 48 66 / 55%);
+}
+
+/* On a phone there is no gutter to throw prints into, so the pile opens
+   mostly downward instead of sideways */
+@media (max-width: 639px) {
+	.vintage-print--open .vintage-stack__under {
+		--tx: calc(var(--ox, 30%) * 0.5);
+		--ty: calc(var(--oy, 20%) * 1.1);
+	}
+}
+
+/* the top print lifts a touch so the pile reads as opened, not just messy */
+.vintage-print--open .vintage-stack__top {
+	--sc: 1.03;
+}
+
+/* Once the pile is spread, hovering one print floats it clear of the
+   others: up, a shade larger, a deeper shadow, and above everything else
+   in the pile. A closed pile stays put — there is nothing to pick out of
+   it yet, and the whole thing is one click target. */
+.vintage-print--open .vintage-stack__top:hover,
+.vintage-print--open .vintage-stack__under:hover {
+	--lift: -13px;
+	--sc: 1.045;
+	z-index: 30;
+	box-shadow: 0 0 0 1px rgb(60 45 25 / 12%), 0 6px 10px -4px rgb(40 48 66 / 20%), 0 30px 44px -16px
+		rgb(40 48 66 / 55%);
+}
+
+.vintage-print--open .vintage-stack__top:hover {
+	--sc: 1.075;
+}
+
+.vintage-print--open .vintage-print__caption {
+	color: var(--color-marker);
+}
+
+/* Everything that is not the open pile goes soft behind it */
+.stack-scrim {
+	position: fixed;
+	inset: 0;
+	z-index: 40;
+	opacity: 0;
+	pointer-events: none;
+	background: rgb(232 235 241 / 40%);
+	backdrop-filter: blur(7px);
+	-webkit-backdrop-filter: blur(7px);
+	transition: opacity 0.4s ease;
+}
+
+.stack-scrim--lit {
+	opacity: 1;
+	pointer-events: auto;
+	cursor: zoom-out;
 }
 
 /* ── A cut of 35mm, running clear off both edges of the screen ───────
@@ -902,7 +1011,9 @@ main {
 	.vintage-print,
 	.vintage-print__frame,
 	.vintage-print__caption,
-	.vintage-print__frame {
+	.vintage-print__frame,
+	.vintage-stack__under,
+	.stack-scrim {
 		transition: none;
 	}
 

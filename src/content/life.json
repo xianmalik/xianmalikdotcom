@@ -20,65 +20,185 @@
 	"photos": [
 		{
 			"src": "/life/river-crossing.jpg",
-			"caption": "monsoon on the river",
+			"caption": "on the water",
 			"width": 1932,
-			"height": 2576
-		},
-		{
-			"src": "/life/mangrove-channel.jpg",
-			"caption": "up the narrow channel",
-			"width": 2576,
-			"height": 1450
-		},
-		{
-			"src": "/projects/project--keys-and-quests-2.jpg",
-			"caption": "the desk, 2am",
-			"date": "'19 04 12",
-			"width": 2048,
-			"height": 1537
-		},
-		{
-			"src": "/life/red-curry.jpg",
-			"caption": "red curry, long lunch",
-			"width": 1932,
-			"height": 2576
-		},
-		{
-			"src": "/life/low-tide-sunset.jpg",
-			"caption": "low tide, last light",
-			"width": 2576,
-			"height": 1450
-		},
-		{
-			"src": "/projects/project--keys-and-quests.jpg",
-			"caption": "first board I ever soldered",
-			"width": 1536,
-			"height": 2048
+			"height": 2576,
+			"stack": [
+				{
+					"src": "/life/mangrove-channel.jpg",
+					"width": 2576,
+					"height": 1450
+				},
+				{
+					"src": "/life/low-tide-sunset.jpg",
+					"width": 2576,
+					"height": 1450
+				}
+			]
 		},
 		{
 			"src": "/life/switch-collection.jpg",
 			"caption": "the whole switch drawer",
 			"width": 2576,
-			"height": 1932
+			"height": 1932,
+			"stack": [
+				{
+					"src": "/projects/project--keys-and-quests-2.jpg",
+					"width": 2048,
+					"height": 1537
+				},
+				{
+					"src": "/projects/project--keys-and-quests-3.jpg",
+					"width": 1537,
+					"height": 2048
+				}
+			]
+		},
+		{
+			"src": "/life/red-curry.jpg",
+			"caption": "red curry, long lunch",
+			"width": 1932,
+			"height": 2576,
+			"stack": [
+				{
+					"src": "/projects/project--keys-and-quests.jpg",
+					"width": 1536,
+					"height": 2048
+				},
+				{
+					"src": "/life/mangrove-channel.jpg",
+					"width": 2576,
+					"height": 1450
+				}
+			]
+		},
+		{
+			"src": "/projects/knq-mockup.png",
+			"caption": "work in progress",
+			"date": "'23 02 27",
+			"width": 6291,
+			"height": 3346,
+			"stack": [
+				{
+					"src": "/projects/hazard-mockup.png",
+					"width": 6291,
+					"height": 3346
+				},
+				{
+					"src": "/projects/project--keys-and-quests-2.jpg",
+					"width": 2048,
+					"height": 1537
+				}
+			]
+		},
+		{
+			"src": "/life/mangrove-channel.jpg",
+			"caption": "up the narrow channel",
+			"width": 2576,
+			"height": 1450,
+			"stack": [
+				{
+					"src": "/life/low-tide-sunset.jpg",
+					"width": 2576,
+					"height": 1450
+				},
+				{
+					"src": "/life/river-crossing.jpg",
+					"width": 1932,
+					"height": 2576
+				}
+			]
 		},
 		{
 			"src": "/projects/project--keys-and-quests-3.jpg",
 			"caption": "sunday tinkering",
 			"width": 1537,
-			"height": 2048
+			"height": 2048,
+			"stack": [
+				{
+					"src": "/projects/project--keys-and-quests.jpg",
+					"width": 1536,
+					"height": 2048
+				},
+				{
+					"src": "/life/switch-collection.jpg",
+					"width": 2576,
+					"height": 1932
+				}
+			]
+		},
+		{
+			"src": "/life/low-tide-sunset.jpg",
+			"caption": "low tide, last light",
+			"date": "'19 04 12",
+			"width": 2576,
+			"height": 1450,
+			"stack": [
+				{
+					"src": "/life/river-crossing.jpg",
+					"width": 1932,
+					"height": 2576
+				},
+				{
+					"src": "/life/mangrove-channel.jpg",
+					"width": 2576,
+					"height": 1450
+				}
+			]
+		},
+		{
+			"src": "/projects/project--keys-and-quests.jpg",
+			"caption": "first board I ever soldered",
+			"width": 1536,
+			"height": 2048,
+			"stack": [
+				{
+					"src": "/projects/project--keys-and-quests-3.jpg",
+					"width": 1537,
+					"height": 2048
+				},
+				{
+					"src": "/projects/project--keys-and-quests-2.jpg",
+					"width": 2048,
+					"height": 1537
+				}
+			]
 		},
 		{
 			"src": "/projects/hazard-mockup.png",
 			"caption": "out of office",
-			"date": "'23 02 27",
 			"width": 6291,
-			"height": 3346
+			"height": 3346,
+			"stack": [
+				{
+					"src": "/projects/knq-mockup.png",
+					"width": 6291,
+					"height": 3346
+				},
+				{
+					"src": "/life/low-tide-sunset.jpg",
+					"width": 2576,
+					"height": 1450
+				}
+			]
 		},
 		{
-			"src": "/projects/knq-mockup.png",
-			"caption": "the blog goes live",
-			"width": 6291,
-			"height": 3346
+			"src": "/projects/project--keys-and-quests-2.jpg",
+			"caption": "the desk, 2am",
+			"width": 2048,
+			"height": 1537,
+			"stack": [
+				{
+					"src": "/life/switch-collection.jpg",
+					"width": 2576,
+					"height": 1932
+				},
+				{
+					"src": "/projects/project--keys-and-quests.jpg",
+					"width": 1536,
+					"height": 2048
+				}
+			]
 		}
 	]
 }

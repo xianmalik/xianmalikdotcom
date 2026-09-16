@@ -33,6 +33,16 @@ export interface LifePhoto {
 	height?: number;
 	/** Overrides the tilt the wall would pick for this print. */
 	tilt?: number;
+	/** Prints sitting underneath this one in the pile, top-most first. */
+	stack?: StackPhoto[];
+}
+
+/** A print underneath the top one. It carries no caption of its own — the
+    pile is labelled once, by the print on top. */
+export interface StackPhoto {
+	src: string;
+	width?: number;
+	height?: number;
 }
 
 export interface FilmFrame {
