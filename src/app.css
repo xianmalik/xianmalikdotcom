@@ -599,6 +599,10 @@ main {
    Dense and photo-led, the opposite of the portfolio's sparse archive.
    Every photo runs at its own size and proportion — nothing is cropped to
    a slot, so the wall's unevenness comes from the pictures themselves. */
+.photo-wall-wrap {
+	position: relative;
+}
+
 .photo-wall {
 	columns: 1;
 	column-gap: 30px;
@@ -821,6 +825,77 @@ main {
 
 .vintage-print--open .vintage-print__caption {
 	color: var(--color-marker);
+}
+
+/* ── "click the image" ───────────────────────────────────────────────
+   A note in the side margin: one pencil stroke that loops round on itself
+   and points in at the piles. It fades out for good the first time a pile
+   is opened. */
+.click-hint {
+	display: flex;
+	width: max-content;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 0 auto 4px 2%;
+	transform: rotate(-3deg);
+	transition: opacity 0.5s ease, transform 0.5s ease;
+	pointer-events: none;
+	/* graphite, not the marker the headings are drawn in */
+	color: #6f6f78;
+}
+
+/* Wide enough for a margin: the note moves out of the wall and into the
+   gutter beside it, and the wall keeps its full width */
+@media (min-width: 1280px) {
+	.click-hint {
+		position: absolute;
+		top: 34px;
+		right: 100%;
+		margin: 0 14px 0 0;
+	}
+}
+
+.click-hint--done {
+	opacity: 0;
+	transform: rotate(-3deg) translateY(-6px);
+}
+
+.click-hint__label {
+	max-width: 116px;
+	font-size: 16px;
+	line-height: 1.15;
+	color: inherit;
+}
+
+.click-hint__arrow {
+	width: 108px;
+	height: 130px;
+	margin-top: 2px;
+	margin-left: 6px;
+	overflow: visible;
+}
+
+.click-hint__stroke {
+	fill: none;
+	stroke: currentcolor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	/* keeps the nib an even weight however the arrow is scaled */
+	vector-effect: non-scaling-stroke;
+}
+
+@media (max-width: 639px) {
+	.click-hint__arrow {
+		width: 84px;
+		height: 101px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.click-hint {
+		transition: opacity 0.5s ease;
+	}
 }
 
 /* Everything that is not the open pile goes soft behind it */
