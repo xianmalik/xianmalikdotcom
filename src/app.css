@@ -905,9 +905,10 @@ main {
 	z-index: 40;
 	opacity: 0;
 	pointer-events: none;
-	background: rgb(232 235 241 / 40%);
-	backdrop-filter: blur(7px);
-	-webkit-backdrop-filter: blur(7px);
+	/* a black wash dims the page while a heavier blur pushes it back */
+	background: rgb(0 0 0 / 60%);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
 	transition: opacity 0.4s ease;
 }
 
