@@ -18,8 +18,9 @@ function seeded(key: string): number {
 const key = $derived(`${photo.src}|${photo.caption}|${i}`);
 /** Off the level by up to 1.6°, never square to the page. */
 const tilt = $derived(photo.tilt ?? +((seeded(key) * 2 - 1) * 1.6).toFixed(2));
-/** Hung between 84% and 100% of the column, so sizes stay uneven. */
-const size = $derived(+(0.84 + seeded(`w${key}`) * 0.16).toFixed(3));
+/** Hung between 72% and 88% of the column: uneven sizes, and enough air
+ *  left over that the wall reads as pinned up rather than tiled. */
+const size = $derived(+(0.72 + seeded(`w${key}`) * 0.16).toFixed(3));
 </script>
 
 <figure class="vintage-print" style="--tilt: {tilt}deg; --size: {size}">
@@ -35,5 +36,5 @@ const size = $derived(+(0.84 + seeded(`w${key}`) * 0.16).toFixed(3));
 			<span class="vintage-print__date font-mono" aria-hidden="true">{photo.date}</span>
 		{/if}
 	</span>
-	<figcaption class="vintage-print__caption font-mono">{photo.caption}</figcaption>
+	<figcaption class="vintage-print__caption font-handwriting">{photo.caption}</figcaption>
 </figure>

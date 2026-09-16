@@ -624,7 +624,7 @@ main {
 	/* Prints run a little under the column, at their own sizes, and the even
 	   ones hang to the right, so no two edges line up down the wall */
 	width: calc(var(--size, 1) * 100%);
-	margin: 0 0 36px;
+	margin: 0 0 40px;
 	transform: rotate(var(--tilt, 0deg));
 	transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -636,7 +636,6 @@ main {
 }
 
 .vintage-print:hover {
-	transform: rotate(var(--tilt, 0deg)) scale(1.014);
 	z-index: 3;
 }
 
@@ -644,16 +643,33 @@ main {
 .vintage-print__frame {
 	position: relative;
 	display: block;
-	background: #fdfbf4;
-	padding: 5px;
+	/* the picture is the thing you point at, not the label under it */
+	cursor: pointer;
+	transform: scale(1);
+	transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+	/* Photo paper: warm stock under a fine grain, with the sheen of a
+	   semi-gloss print falling across it */
+	background-color: #fdfbf4;
+	background-image: url("/noise.png"),
+		linear-gradient(
+			152deg,
+			rgb(255 255 255 / 75%) 0%,
+			rgb(250 245 234 / 0%) 44%,
+			rgb(228 219 201 / 40%) 100%
+		);
+	background-size: 170px 170px, 100% 100%;
+	background-repeat: repeat, no-repeat;
+	/* the grain sits in the paper rather than on top of it */
+	background-blend-mode: soft-light, normal;
+	padding: 11px;
 	border-radius: 2px;
 	overflow: hidden;
 	box-shadow: 0 0 0 1px rgb(60 45 25 / 8%), 0 1px 2px rgb(40 48 66 / 10%), 0 10px 20px -14px
 		rgb(40 48 66 / 40%);
-	transition: box-shadow 0.4s ease;
 }
 
 .vintage-print:hover .vintage-print__frame {
+	transform: scale(1.018);
 	box-shadow: 0 0 0 1px rgb(60 45 25 / 10%), 0 2px 4px rgb(40 48 66 / 12%), 0 18px 30px -16px
 		rgb(40 48 66 / 50%);
 }
@@ -673,7 +689,7 @@ main {
 .vintage-print__frame::after {
 	content: "";
 	position: absolute;
-	inset: 5px;
+	inset: 11px;
 	pointer-events: none;
 	border-radius: 1px;
 	background: radial-gradient(
@@ -692,8 +708,8 @@ main {
 /* Quartz date-back, burnt into the emulsion bottom-right */
 .vintage-print__date {
 	position: absolute;
-	right: 12px;
-	bottom: 10px;
+	right: 18px;
+	bottom: 16px;
 	z-index: 2;
 	font-size: 10px;
 	letter-spacing: 0.08em;
@@ -704,11 +720,11 @@ main {
 
 /* Written under the print in ballpoint, the way you'd label one on the back */
 .vintage-print__caption {
-	margin-top: 9px;
+	margin-top: 8px;
 	padding-left: 1px;
-	font-size: 10.5px;
-	line-height: 1.4;
-	letter-spacing: 0.07em;
+	font-size: 14px;
+	line-height: 1.25;
+	letter-spacing: 0.01em;
 	color: --alpha(var(--color-ink) / 65%);
 	transition: color 0.3s ease;
 }
@@ -724,7 +740,10 @@ main {
 .film-strip-bleed {
 	margin-inline: -24px;
 	padding-block: 16px;
-	overflow: hidden;
+	/* clip, not hidden, and only on the one axis that needs it: this stops
+	   the overscan opening a horizontal scrollbar while leaving the vertical
+	   axis visible, so nothing that overhangs the strip gets sheared off */
+	overflow-x: clip;
 }
 
 .film-strip {
@@ -752,7 +771,6 @@ main {
 	background-position: 6px 5px, 6px calc(100% - 5px), 0 0;
 	background-repeat: repeat-x, repeat-x, no-repeat;
 	transform: rotate(-0.45deg);
-	box-shadow: 0 14px 30px -18px rgb(48 18 8 / 65%);
 }
 
 /* One frame plus the margins above and below it, so the edge print can sit
@@ -883,7 +901,8 @@ main {
 @media (prefers-reduced-motion: reduce) {
 	.vintage-print,
 	.vintage-print__frame,
-	.vintage-print__caption {
+	.vintage-print__caption,
+	.vintage-print__frame {
 		transition: none;
 	}
 
