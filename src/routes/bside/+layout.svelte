@@ -1,12 +1,12 @@
 <script lang="ts">
-import '../app.css';
-import favicon from '$lib/assets/favicon.svg';
+import '$lib/bside/app.css';
+import favicon from '$lib/bside/assets/favicon.svg';
 import Lenis from 'lenis';
 import { onMount } from 'svelte';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import SiteMenu from '$lib/components/SiteMenu.svelte';
-import { scroller } from '$lib/scroll';
+import SiteMenu from '$lib/bside/components/SiteMenu.svelte';
+import { scroller } from '$lib/bside/scroll';
 
 let { children } = $props();
 

@@ -12,7 +12,6 @@ const config = {
 			handleHttpError: 'warn'
 		},
 		alias: {
-			$content: 'src/content',
 			$lib: 'src/lib'
 		}
 	}

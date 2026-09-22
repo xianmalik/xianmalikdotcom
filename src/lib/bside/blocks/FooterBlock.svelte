@@ -1,7 +1,7 @@
 <script lang="ts">
-import { footer } from '$content/sections.json';
-import CrowdCanvas from '$lib/components/CrowdCanvas.svelte';
-import HighlightSwipe from '$lib/components/HighlightSwipe.svelte';
+import { footer } from '$lib/bside/content/sections.json';
+import CrowdCanvas from '$lib/bside/components/CrowdCanvas.svelte';
+import HighlightSwipe from '$lib/bside/components/HighlightSwipe.svelte';
 
 const year = new Date().getFullYear();
 </script>

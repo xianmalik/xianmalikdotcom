@@ -1,6 +1,6 @@
 <script lang="ts">
-import { summary } from '$content/sections.json';
-import Button from '$lib/components/Button.svelte';
+import { summary } from '$lib/bside/content/sections.json';
+import Button from '$lib/bside/components/Button.svelte';
 </script>
 
 <!-- <div class="py-8 mx-auto min-h-[calc(100svh-48px)] flex flex-col"> -->

@@ -1,8 +1,8 @@
 <script lang="ts">
-import { case_studies } from '$content/sections.json';
-import ideas from '$content/ideas.json';
-import IdeaGrid from '$lib/components/IdeaGrid.svelte';
-import Button from '$lib/components/Button.svelte';
+import { case_studies } from '$lib/bside/content/sections.json';
+import ideas from '$lib/bside/content/ideas.json';
+import IdeaGrid from '$lib/bside/components/IdeaGrid.svelte';
+import Button from '$lib/bside/components/Button.svelte';
 </script>
 
 <div id="case-studies" class="py-8 mx-auto">

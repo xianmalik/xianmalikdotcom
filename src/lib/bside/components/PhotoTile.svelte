@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { LifePhoto } from '$lib/types';
+import type { LifePhoto } from '$lib/bside/types';
 
 let {
 	photo,

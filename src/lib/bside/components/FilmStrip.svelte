@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { FilmFrame } from '$lib/types';
+import type { FilmFrame } from '$lib/bside/types';
 
 let { frames }: { frames: FilmFrame[] } = $props();
 

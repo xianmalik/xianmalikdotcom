@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Project } from '$lib/types';
+import type { Project } from '$lib/bside/types';
 import ProjectSingleton from './ProjectSingleton.svelte';
 
 let { projects }: { projects: Project[] } = $props();

@@ -1,10 +1,10 @@
 <script lang="ts">
-import lifeData from '$content/life.json';
-import { life } from '$content/sections.json';
-import Button from '$lib/components/Button.svelte';
-import FilmStrip from '$lib/components/FilmStrip.svelte';
-import PhotoWall from '$lib/components/PhotoWall.svelte';
-import type { FilmFrame, LifePhoto } from '$lib/types';
+import lifeData from '$lib/bside/content/life.json';
+import { life } from '$lib/bside/content/sections.json';
+import Button from '$lib/bside/components/Button.svelte';
+import FilmStrip from '$lib/bside/components/FilmStrip.svelte';
+import PhotoWall from '$lib/bside/components/PhotoWall.svelte';
+import type { FilmFrame, LifePhoto } from '$lib/bside/types';
 
 const strip = lifeData.strip as FilmFrame[];
 const photos = lifeData.photos as LifePhoto[];

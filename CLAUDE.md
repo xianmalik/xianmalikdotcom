@@ -44,34 +44,38 @@ Always run `npm run format` before committing code.
 
 ## Architecture
 
+### Two sites, one repo
+- **New site** (xianmalik.com): `src/routes/(main)/`, styled by `src/app.css`. A fresh design, sharing nothing with the old site. Background `bg-canvas` (#1A1C1A), text `text-ivory` (#FAF9F6). Headings use `font-display` (PP Editorial Old: weights 200/400/800, each with an italic) and body text uses `font-sans` (PP Neue Montreal). Font files live in `static/site/fonts/`. Its code lives in `src/lib/site/`. The home page is one fullscreen section: the name in a box over `InfiniteGrid.svelte`, an endless wall of project tiles laid on the inside of a globe with CSS 3D (about 6 across on desktop, 4 on tablets, 2.5 on phones). It reuses a fixed set of tiles and wraps them around the edges. Tiles come from `src/lib/site/content/projects.json`; add an `image` to a project to replace its colored placeholder.
+- **B-side** (bside.xianmalik.com, also served at `/bside`): the old site. Its routes are in `src/routes/bside/`. Everything else it uses (blocks, components, content, fonts, its own `app.css`) is in `src/lib/bside/`. Don't import `$lib/bside` from the new site.
+- `src/hooks.ts` reroutes any `bside.*` host to `/bside`. To try it locally, open `http://bside.localhost:5173`.
+- Each stylesheet scans only its own site's files for Tailwind classes (`@source` rules), so utilities and theme tokens stay separate.
+
+The sections below describe the b-side.
+
 ### Content-Driven Design
-The site is built around a content-first architecture where all site content is stored in JSON files in `src/content/`:
+The site is built around a content-first architecture where all site content is stored in JSON files in `src/lib/bside/content/`:
 - `sections.json` - Section metadata (summary, portfolio, case_studies, about)
 - `projects.json` - Portfolio projects with name, excerpt, link, image, and stack
 - `ideas.json` - Case studies and creative ideas
 
 ### Component Structure
 The architecture follows a block-based layout pattern:
-- **Blocks** (`src/lib/blocks/`) - Full-width page sections (SummaryBlock, ProjectBlock, IdeaBlock, AboutBlock)
-- **Components** (`src/lib/components/`) - Reusable UI components (Button, ProjectGrid, IdeaGrid, etc.)
+- **Blocks** (`src/lib/bside/blocks/`) - Full-width page sections (SummaryBlock, ProjectBlock, IdeaBlock, AboutBlock)
+- **Components** (`src/lib/bside/components/`) - Reusable UI components (Button, ProjectGrid, IdeaGrid, etc.)
 - **Routes** - Single-page application with `+page.svelte` composing blocks
 
-The main page (`src/routes/+page.svelte`) imports and renders blocks in sequence.
+The b-side page (`src/routes/bside/+page.svelte`) imports and renders blocks in sequence.
 
 ### Path Aliases
-Two custom path aliases are configured in `svelte.config.js`:
-- `$content` → `src/content` (for JSON content files)
-- `$lib` → `src/lib` (for components and utilities)
-
-Use these aliases when importing:
+`$lib` → `src/lib` (SvelteKit default, also declared in `svelte.config.js`):
 ```typescript
-import { summary } from '$content/sections.json';
-import Button from '$lib/components/Button.svelte';
+import { summary } from '$lib/bside/content/sections.json';
+import Button from '$lib/bside/components/Button.svelte';
 ```
 
 ### Styling Architecture
 - **TailwindCSS v4** via Vite plugin (no separate config file needed)
-- **Global styles** in `src/app.css` with CSS custom properties
+- **Global styles** in `src/lib/bside/app.css` with CSS custom properties
 - **Custom fonts**: InstrumentSerif (display + serif), Karla (sans, variable), JetBrainsMono (mono), ArchitectsDaughter (handwriting)
 - **Custom colors**: `--color-surface: #212121` (site background, `bg-surface`), `--color-ink: #f5e1cd` (text and borders, `text-ink` / `border-ink`), `--color-shade: #80808D` (`text-shade` / `bg-shade`)
 - **Canvas layout**: Fixed background canvas with centered content area (842px max width with border guides)
@@ -104,7 +108,7 @@ Plugins in order:
 ## Adding Content
 
 ### Adding a New Project
-Edit `src/content/projects.json` and add an object with:
+Edit `src/lib/bside/content/projects.json` and add an object with:
 ```json
 {
   "name": "Project Name",
@@ -118,7 +122,7 @@ Edit `src/content/projects.json` and add an object with:
 Images should be placed in `static/projects/`.
 
 ### Modifying Section Content
-Edit `src/content/sections.json` to update section titles, subtitles, and CTAs for summary, portfolio, case_studies, and about sections.
+Edit `src/lib/bside/content/sections.json` to update section titles, subtitles, and CTAs for summary, portfolio, case_studies, and about sections.
 
 ## Deployment
 

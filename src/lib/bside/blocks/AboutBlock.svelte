@@ -1,7 +1,7 @@
 <script lang="ts">
-import { about } from '$content/sections.json';
-import Button from '$lib/components/Button.svelte';
-import Polaroid from '$lib/components/Polaroid.svelte';
+import { about } from '$lib/bside/content/sections.json';
+import Button from '$lib/bside/components/Button.svelte';
+import Polaroid from '$lib/bside/components/Polaroid.svelte';
 </script>
 
 <div id="about" class="py-8 mx-auto">

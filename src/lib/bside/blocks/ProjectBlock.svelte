@@ -1,9 +1,9 @@
 <script lang="ts">
-import { portfolio } from '$content/sections.json';
-import projectsData from '$content/projects.json';
-import Button from '$lib/components/Button.svelte';
-import ProjectGrid from '$lib/components/ProjectGrid.svelte';
-import type { Project } from '$lib/types';
+import { portfolio } from '$lib/bside/content/sections.json';
+import projectsData from '$lib/bside/content/projects.json';
+import Button from '$lib/bside/components/Button.svelte';
+import ProjectGrid from '$lib/bside/components/ProjectGrid.svelte';
+import type { Project } from '$lib/bside/types';
 
 // JSON imports widen the literal unions in Frame, so assert the shape once here
 const projects = projectsData as Project[];

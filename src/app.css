@@ -1,1099 +1,127 @@
-@import "tailwindcss";
-@import "./lib/assets/css/font.css";
-
-@plugin '@tailwindcss/typography';
+@import 'tailwindcss';
+/* The old site brings its own stylesheet; keep its classes out of this one. */
+@source not './lib/bside';
+@source not './routes/bside';
 
 @theme {
-	/* Paper is the page; ink is body copy and rules; marker is titles and display type. */
-	--color-paper: #f2f2ef;
-	--color-ink: #212121;
-	--color-marker: #be3a18;
-	--color-shade: #80808d;
-	/* Brighter signal red, for accents that need to pop */
-	--color-red: oklch(63.7% 0.237 25.331);
-	/* Off-white notepad paper the menu is written on */
-	--color-notepad: #fcfcfd;
-	/* Highlighter pen, behind black type */
-	--color-highlight: #fcd34d;
+	/* Near-black ground, warm off-white type */
+	--color-canvas: #1a1c1a;
+	--color-ivory: #faf9f6;
+
+	/* Editorial Old for display type, Neue Montreal for everything else */
+	--font-display: 'PP Editorial Old', Georgia, serif;
+	--font-serif: 'PP Editorial Old', Georgia, serif;
+	--font-sans: 'PP Neue Montreal', system-ui, -apple-system, sans-serif;
 }
 
-:root {
-	/* Cool pale ground the off-white page rests on, sketchbook-on-a-desk */
-	--canvas-backdrop: #e8ebf1;
+@layer base {
+	html {
+		color-scheme: dark;
+		background-color: var(--color-canvas);
+		color: var(--color-ivory);
+	}
 
-	/* Font Families */
-	--font-display: "InstrumentSerif", serif;
-	--font-serif: "InstrumentSerif", serif;
-	--font-sans: "Karla", system-ui, -apple-system, sans-serif;
-	--font-mono: "JetBrainsMono", monospace;
-	--font-handwriting: "ArchitectsDaughter", cursive;
-	--font-wordmark: "XianWordmark", var(--font-display);
+	body {
+		font-family: var(--font-sans);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		font-family: var(--font-display);
+		font-weight: 400;
+	}
 }
 
-.font-wordmark {
-	font-family: var(--font-wordmark);
+/* PP Editorial Old */
+@font-face {
+	font-family: 'PP Editorial Old';
+	src: url('/site/fonts/PPEditorialOld-Ultralight.otf') format('opentype');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PP Editorial Old';
+	src: url('/site/fonts/PPEditorialOld-UltralightItalic.otf') format('opentype');
+	font-weight: 200;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PP Editorial Old';
+	src: url('/site/fonts/PPEditorialOld-Regular.otf') format('opentype');
 	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 
-/* Font Utility Classes */
-.font-display {
-	font-family: var(--font-display);
-}
-
-.font-sans {
-	font-family: var(--font-sans);
-}
-
-.font-handwriting {
-	font-family: var(--font-handwriting);
+@font-face {
+	font-family: 'PP Editorial Old';
+	src: url('/site/fonts/PPEditorialOld-Italic.otf') format('opentype');
 	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
 }
 
-.font-mono {
-	font-family: var(--font-mono);
+@font-face {
+	font-family: 'PP Editorial Old';
+	src: url('/site/fonts/PPEditorialOld-Ultrabold.otf') format('opentype');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
 }
 
-.font-serif {
-	font-family: var(--font-serif);
+@font-face {
+	font-family: 'PP Editorial Old';
+	src: url('/site/fonts/PPEditorialOld-UltraboldItalic.otf') format('opentype');
+	font-weight: 800;
+	font-style: italic;
+	font-display: swap;
+}
+
+/* PP Neue Montreal: files still to be added to static/site/fonts/ */
+@font-face {
+	font-family: 'PP Neue Montreal';
+	src:
+		local('PP Neue Montreal'),
+		url('/site/fonts/PPNeueMontreal-Regular.otf') format('opentype');
 	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 
-/* BG Canvas Artboard */
-html,
-body {
-	background: var(--canvas-backdrop);
-	color: var(--color-ink);
+@font-face {
+	font-family: 'PP Neue Montreal';
+	src:
+		local('PP Neue Montreal Italic'),
+		url('/site/fonts/PPNeueMontreal-Italic.otf') format('opentype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
 }
 
-/* Film grain overlay */
-body::before {
-	content: "";
-	background-image: url("/noise.png");
-	background-repeat: repeat;
-	background-size: 256px 256px;
-	mix-blend-mode: soft-light;
-	opacity: 0.05;
-	position: fixed;
-	inset: 0;
-	pointer-events: none;
-	z-index: 1;
+@font-face {
+	font-family: 'PP Neue Montreal';
+	src:
+		local('PP Neue Montreal Medium'),
+		url('/site/fonts/PPNeueMontreal-Medium.otf') format('opentype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
 }
 
-main {
-	z-index: 5;
-	position: relative;
-	padding-inline: 24px;
-}
-
-.canvas--wrapper {
-	@apply flex content-center items-center flex-none flex-col justify-start inset-0 overflow-hidden p-6 pointer-events-none fixed z-0;
-}
-
-/* Hidden for now — restore by dropping the display line */
-.canvas--inner {
-	display: none;
-	@apply bg-paper rounded-xl size-full relative;
-	flex: 1 0 0px;
-	box-shadow: 0 0 0 1px --alpha(var(--color-ink) / 8%), 0 1px 0 0 rgb(255 255 255 / 70%) inset, 0
-		18px 45px -14px rgb(40 48 66 / 26%);
-}
-
-/* ── Open sketchbook spread (About) ──────────────────────────────────
-   Two page halves rather than one panel, so they meet at a hard fold and
-   the left page can lift toward the viewer the way an open book does. */
-.book-spread {
-	position: relative;
-	isolation: isolate;
-	/* closer viewpoint so the fold at the spine actually reads */
-	perspective: 1150px;
-	/* the whole book sits at a slight angle, left side lifted */
-	transform: rotate(-1.3deg);
-}
-
-.book-spread::before,
-.book-spread::after {
-	content: "";
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	width: 50%;
-	z-index: -1;
-	background-color: #fbfcfe;
-	backface-visibility: hidden;
-}
-
-/* Left page — hinged at the spine and tipped up slightly */
-.book-spread::before {
-	left: 0;
-	transform-origin: right center;
-	transform: rotateY(6deg);
-	/* rounded at the fore-edge, square where it meets the spine */
-	border-radius: 11px 2px 2px 11px;
-	/* crisp crease at the inner edge, faint shading at the outer one */
-	background-image: linear-gradient(
-		to right,
-		rgb(40 48 66 / 7%) 0%,
-		rgb(40 48 66 / 0%) 5%,
-		rgb(40 48 66 / 0%) 88%,
-		rgb(40 48 66 / 3.5%) 98.5%,
-		rgb(40 48 66 / 9%) 100%
-	);
-	/* the sheets underneath, showing past the fore-edge */
-	/* Three sheets underneath, each a hairline then its face. box-shadow paints
-	   front-to-back, so a layer only shows the gap to the previous offset:
-	   1px of edge line, then 2px of paper, repeating. */
-	box-shadow:
-		-1px 0.5px 0 #dbe1e9,
-		-3px 1px 0 #f6f7fa,
-		-4px 1.5px 0 #dbe1e9,
-		-6px 2px 0 #f4f6f9,
-		-7px 2.5px 0 #d5dbe4,
-		-9px 3px 0 #f1f4f8,
-		-11px 7px 5px -3px rgb(40 48 66 / 9%),
-		-15px 24px 36px -18px rgb(40 48 66 / 24%);
-}
-
-/* Right page — lying flatter */
-.book-spread::after {
-	left: 50%;
-	transform-origin: left center;
-	transform: rotateY(-1.6deg);
-	border-radius: 2px 11px 11px 2px;
-	background-image: linear-gradient(
-		to right,
-		rgb(40 48 66 / 7.5%) 0%,
-		rgb(40 48 66 / 3%) 1.5%,
-		rgb(40 48 66 / 0%) 11%,
-		rgb(40 48 66 / 0%) 95%,
-		rgb(40 48 66 / 6%) 100%
-	);
-	box-shadow:
-		1px 0.5px 0 #dbe1e9,
-		3px 1px 0 #f6f7fa,
-		4px 1.5px 0 #dbe1e9,
-		6px 2px 0 #f4f6f9,
-		7px 2.5px 0 #d5dbe4,
-		9px 3px 0 #f1f4f8,
-		10px 7px 5px -3px rgb(40 48 66 / 8%),
-		13px 22px 32px -18px rgb(40 48 66 / 20%);
-}
-
-/* One page, not a spread, once the columns collapse */
-@media (max-width: 767px) {
-	.book-spread {
-		perspective: none;
-		transform: none;
-	}
-
-	.book-spread::before {
-		width: 100%;
-		transform: none;
-		border-radius: 11px;
-		background-image: linear-gradient(
-			to right,
-			rgb(40 48 66 / 6%) 0%,
-			rgb(40 48 66 / 0%) 6%,
-			rgb(40 48 66 / 0%) 94%,
-			rgb(40 48 66 / 6%) 100%
-		);
-		box-shadow: -1px 1px 0 #dbe1e9, -3px 2px 0 #f6f7fa, -4px 3px 0 #dbe1e9, -6px 4px 0 #f4f6f9, -8px
-			16px 26px -16px rgb(40 48 66 / 24%);
-	}
-
-	.book-spread::after {
-		display: none;
-	}
-}
-
-.book-page {
-	position: relative;
-	z-index: 1;
-}
-
-/* Polaroid prints on the left-hand page */
-.polaroid {
-	position: relative;
-	background: #fdfefe;
-	padding: 7px 7px 22px;
-	border-radius: 2px;
-	width: var(--polaroid-w, 32%);
-	transform: rotate(var(--tilt, 0deg));
-	box-shadow: 0 0 0 1px rgb(60 45 25 / 7%), 0 2px 3px rgb(40 48 66 / 12%), 0 12px 22px -10px
-		rgb(40 48 66 / 38%);
-	transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), left 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-		top 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
-	cursor: grab;
-	touch-action: none;
-	-webkit-user-select: none;
-	user-select: none;
-}
-
-.polaroid.dragging {
-	cursor: grabbing;
-	transition: none;
-	transform: rotate(calc(var(--tilt, 0deg) * 0.4)) scale(1.03);
-	box-shadow: 0 0 0 1px rgb(60 45 25 / 7%), 0 3px 5px rgb(40 48 66 / 14%), 0 22px 34px -12px
-		rgb(40 48 66 / 45%);
-}
-
-.polaroid img {
-	display: block;
-	width: 100%;
-	aspect-ratio: 1;
-	object-fit: cover;
-	background: #e8edf2;
-}
-
-.polaroid figcaption {
-	margin-top: 7px;
-	text-align: center;
-	font-size: 13px;
-	line-height: 1;
-}
-
-/* Open-spread proportions (two portrait pages side by side) */
-@media (min-width: 768px) {
-	.book-spread {
-		aspect-ratio: 1.35;
-	}
-}
-
-/* Prints glued onto the left page — placed by hand, not on a grid */
-.photo-scatter {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-/* Below md the pages stack: prints stay in flow, loosely piled */
-@media (max-width: 767px) {
-	.photo-scatter .polaroid {
-		width: min(200px, 68%);
-		margin-top: calc(min(var(--i, 0), 1) * -20px);
-		margin-left: calc((var(--i, 0) - 1) * 14px);
-	}
-}
-
-@media (min-width: 768px) {
-	.photo-scatter .polaroid {
-		position: absolute;
-		top: var(--y, 0);
-		left: var(--x, 0);
-		margin: 0;
-	}
-}
-
-.photo-scatter .polaroid {
-	z-index: calc(var(--i, 0) + 1);
-}
-
-.photo-scatter .polaroid:hover,
-.photo-scatter .polaroid:focus-visible,
-.photo-scatter .polaroid.dragging {
-	z-index: 10;
-}
-
-/* A strip of tape holding the print down */
-.polaroid.taped::before {
-	content: "";
-	position: absolute;
-	top: -11px;
-	left: 50%;
-	width: 56px;
-	height: 21px;
-	transform: translateX(-50%) rotate(-6deg);
-	background: linear-gradient(
-		to bottom,
-		rgb(226 232 240 / 62%),
-		rgb(212 220 232 / 74%) 45%,
-		rgb(226 232 240 / 62%)
-	);
-	box-shadow: 0 1px 2px rgb(40 48 66 / 14%);
-	border-left: 1px solid rgb(255 255 255 / 22%);
-	border-right: 1px solid rgb(255 255 255 / 22%);
-}
-
-.polaroid.taped:nth-child(3)::before {
-	transform: translateX(-50%) rotate(5deg);
-	left: 32%;
-	width: 48px;
-}
-
-/* Stationary dashed marker showing where each print belongs */
-.photo-slot {
-	display: none;
-}
-
-@media (min-width: 768px) {
-	.photo-slot {
-		display: block;
-		position: absolute;
-		top: var(--y, 0);
-		left: var(--x, 0);
-		width: calc(var(--sw, 150px) + 18px);
-		height: calc(var(--sh, 185px) + 18px);
-		margin: -9px 0 0 -9px;
-		border: 1px dashed var(--color-marker);
-		border-radius: 9px;
-		transform: rotate(var(--tilt, 0deg));
-		pointer-events: none;
-		z-index: 0;
-		transition: background-color 0.2s ease;
-	}
-
-	/* release here and the print drops back into place */
-	.photo-slot.near {
-		background-color: --alpha(var(--color-marker) / 4%);
-	}
-}
-
-.polaroid:focus-visible {
-	outline: 2px solid var(--color-marker);
-	outline-offset: 5px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.polaroid {
-		transition: none;
-	}
-}
-
-.polaroid > figure {
-	margin: 0;
-}
-
-/* Text link underscored with a marker stroke */
-.marker-link {
-	position: relative;
-	display: inline-block;
-	padding: 0 1px 9px;
-	border: 0;
-	background: none;
-	cursor: pointer;
-	font-family: var(--font-mono);
-	font-size: 12px;
-	line-height: 1;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	color: var(--color-ink);
-	text-decoration: none;
-	transition: color 0.25s ease;
-}
-
-.marker-link:hover {
-	color: var(--color-marker);
-}
-
-.marker-link__stroke {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	height: 9px;
-	overflow: visible;
-}
-
-.marker-link__pass {
-	fill: none;
-	stroke: var(--color-marker);
-	stroke-width: 1.6;
-	stroke-linecap: round;
-	/* keeps the nib an even weight however far the label stretches the viewBox */
-	vector-effect: non-scaling-stroke;
-}
-
-/* second pass is drawn in on hover, like going over it again */
-.marker-link__pass--second {
-	stroke-width: 1.3;
-	opacity: 0.75;
-	stroke-dasharray: 1;
-	stroke-dashoffset: 1;
-	transition: stroke-dashoffset 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.2s ease;
-}
-
-.marker-link:hover .marker-link__pass--second,
-.marker-link:focus-visible .marker-link__pass--second {
-	stroke-dashoffset: 0;
-}
-
-.marker-link:focus-visible {
-	outline: 2px solid var(--color-marker);
-	outline-offset: 4px;
-	border-radius: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.marker-link__pass--second {
-		transition: none;
-	}
-}
-
-/* ── Portfolio: a visual archive ─────────────────────────────────────
-   Prints pinned across an empty sheet, placed by hand rather than on a
-   grid, each with a line of small print for a label. */
-.archive-sheet {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 44px;
-	padding-block: 8px 24px;
-}
-
-@media (min-width: 768px) {
-	.archive-sheet {
-		display: block;
-		aspect-ratio: 1.17;
-		padding: 0;
-	}
-}
-
-.archive-print {
-	display: block;
-	width: min(320px, 74%);
-	text-decoration: none;
-	color: inherit;
-	transform: rotate(var(--tilt, 0deg));
-	transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* Below md the prints drop into flow, nudged off-centre so the column
-   still reads as a scatter rather than a stack. Scoped to the stacked
-   layout — :nth-child outranks the absolute placement below, so left
-   unscoped these offsets shove the desktop scatter sideways. */
-@media (max-width: 767px) {
-	.archive-print:nth-child(even) {
-		align-self: flex-end;
-		margin-right: 4%;
-	}
-
-	.archive-print:nth-child(odd) {
-		align-self: flex-start;
-		margin-left: 4%;
-	}
-}
-
-@media (min-width: 768px) {
-	.archive-print {
-		position: absolute;
-		top: var(--y, 0);
-		left: var(--x, 0);
-		width: var(--print-w, 24%);
-		margin: 0;
-		z-index: calc(var(--i, 0) + 1);
-	}
-
-	/* A vertical label hangs off the side, outside the frame, so --print-w
-	   always describes the print itself rather than the print plus its label */
-	.archive-print--side > figure {
-		position: relative;
-	}
-}
-
-.archive-print > figure {
-	margin: 0;
-}
-
-.archive-print:hover,
-.archive-print:focus-visible {
-	transform: rotate(var(--tilt, 0deg)) translateY(-4px);
-	z-index: 20;
-}
-
-.archive-print:focus-visible {
-	outline: none;
-}
-
-/* The mat the print is mounted on — a hair wider than the image itself */
-.archive-print__mat {
-	display: block;
-	background: #fbfaf7;
-	padding: 9px;
-	box-shadow: 0 0 0 1px rgb(60 45 25 / 6%), 0 1px 2px rgb(40 48 66 / 10%), 0 10px 20px -12px
-		rgb(40 48 66 / 28%);
-	transition: box-shadow 0.35s ease;
-}
-
-.archive-print:hover .archive-print__mat,
-.archive-print:focus-visible .archive-print__mat {
-	box-shadow: 0 0 0 1px rgb(60 45 25 / 8%), 0 2px 4px rgb(40 48 66 / 12%), 0 20px 32px -14px
-		rgb(40 48 66 / 38%);
-}
-
-.archive-print:focus-visible .archive-print__mat {
-	outline: 1.5px solid var(--color-marker);
-	outline-offset: 5px;
-}
-
-.archive-print__mat img {
-	display: block;
-	width: 100%;
-	object-fit: cover;
-	background: #e8edf2;
-}
-
-/* Small print: the label under, or beside, each frame */
-.archive-print__label {
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
-	margin-top: 12px;
-	text-align: center;
-	font-size: 9.5px;
-	line-height: 1.45;
-	letter-spacing: 0.13em;
-	text-transform: uppercase;
-}
-
-.archive-print__name {
+@font-face {
+	font-family: 'PP Neue Montreal';
+	src:
+		local('PP Neue Montreal Bold'),
+		url('/site/fonts/PPNeueMontreal-Bold.otf') format('opentype');
 	font-weight: 700;
-	color: var(--color-ink);
-	transition: color 0.25s ease;
-}
-
-.archive-print__note {
-	color: var(--color-ink);
-	opacity: 0.45;
-	letter-spacing: 0.1em;
-}
-
-.archive-print:hover .archive-print__name,
-.archive-print:focus-visible .archive-print__name {
-	color: var(--color-marker);
-}
-
-/* Set on its side, reading bottom-to-top, alongside the frame */
-@media (min-width: 768px) {
-	.archive-print--side .archive-print__label {
-		position: absolute;
-		bottom: 2px;
-		left: 100%;
-		margin: 0 0 0 11px;
-		writing-mode: vertical-rl;
-		transform: rotate(180deg);
-		flex-direction: row;
-		gap: 8px;
-		text-align: left;
-	}
-
-	.archive-print--side-left .archive-print__label {
-		left: auto;
-		right: 100%;
-		margin: 0 11px 0 0;
-	}
-
-	.archive-print--side .archive-print__note {
-		display: none;
-	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.archive-print,
-	.archive-print__mat {
-		transition: none;
-	}
-}
-
-/* ── The reel: a wall of prints from a life ──────────────────────────
-   Dense and photo-led, the opposite of the portfolio's sparse archive.
-   Every photo runs at its own size and proportion — nothing is cropped to
-   a slot, so the wall's unevenness comes from the pictures themselves. */
-.photo-wall-wrap {
-	position: relative;
-}
-
-.photo-wall {
-	columns: 1;
-	column-gap: 30px;
-}
-
-@media (min-width: 640px) {
-	.photo-wall {
-		columns: 2;
-	}
-}
-
-@media (min-width: 1024px) {
-	.photo-wall {
-		columns: 3;
-		column-gap: 34px;
-	}
-}
-
-.vintage-print {
-	position: relative;
-	/* A print must not be split across two columns */
-	break-inside: avoid;
-	/* Prints run a little under the column, at their own sizes, and the even
-	   ones hang to the right, so no two edges line up down the wall */
-	width: calc(var(--size, 1) * 100%);
-	margin: 0 0 40px;
-	transform: rotate(var(--tilt, 0deg));
-	transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-@media (min-width: 640px) {
-	.vintage-print:nth-child(even) {
-		margin-left: auto;
-	}
-}
-
-.vintage-print:not(.vintage-print--open):hover {
-	z-index: 3;
-}
-
-/* The print itself — a warm border, the way a 70s drugstore print was cut */
-.vintage-print__frame {
-	position: relative;
-	display: block;
-	/* it is a button now — reset the chrome the UA gives it */
-	width: 100%;
-	border: 0;
-	margin: 0;
-	font: inherit;
-	color: inherit;
-	text-align: inherit;
-	appearance: none;
-	/* the picture is the thing you point at, not the label under it */
-	cursor: pointer;
-	transform: scale(1);
-	transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
-	/* Photo paper: warm stock under a fine grain, with the sheen of a
-	   semi-gloss print falling across it */
-	background-color: #fdfbf4;
-	background-image: url("/noise.png"),
-		linear-gradient(
-			152deg,
-			rgb(255 255 255 / 75%) 0%,
-			rgb(250 245 234 / 0%) 44%,
-			rgb(228 219 201 / 40%) 100%
-		);
-	background-size: 170px 170px, 100% 100%;
-	background-repeat: repeat, no-repeat;
-	/* the grain sits in the paper rather than on top of it */
-	background-blend-mode: soft-light, normal;
-	padding: 11px;
-	border-radius: 2px;
-	overflow: hidden;
-	box-shadow: 0 0 0 1px rgb(60 45 25 / 8%), 0 1px 2px rgb(40 48 66 / 10%), 0 10px 20px -14px
-		rgb(40 48 66 / 40%);
-}
-
-.vintage-print__frame img {
-	display: block;
-	width: 100%;
-	/* The photo sets its own height — nothing is cropped to fit a slot */
-	height: auto;
-	border-radius: 1px;
-	/* Faded dye and a warm cast — film that has sat in a drawer a while */
-	filter: sepia(0.3) saturate(0.8) contrast(1.06) brightness(1.03);
-}
-
-/* Lifted blacks and a soft vignette, painted over the photo but under the
-   caption. Two layers: warm haze, then darkened corners. */
-.vintage-print__frame::after {
-	content: "";
-	position: absolute;
-	inset: 11px;
-	pointer-events: none;
-	border-radius: 1px;
-	background: radial-gradient(
-			115% 95% at 50% 45%,
-			rgb(255 244 222 / 0%) 52%,
-			rgb(74 52 30 / 26%) 100%
-		),
-		linear-gradient(
-			200deg,
-			rgb(255 228 176 / 16%) 0%,
-			rgb(255 214 168 / 4%) 42%,
-			rgb(120 84 160 / 7%) 100%
-		);
-}
-
-/* Quartz date-back, burnt into the emulsion bottom-right */
-.vintage-print__date {
-	position: absolute;
-	right: 18px;
-	bottom: 16px;
-	z-index: 2;
-	font-size: 10px;
-	letter-spacing: 0.08em;
-	color: #ff8a3d;
-	text-shadow: 0 0 5px rgb(255 122 40 / 75%), 0 0 1px rgb(255 190 130 / 90%);
-	pointer-events: none;
-}
-
-/* Written under the print in ballpoint, the way you'd label one on the back */
-.vintage-print__caption {
-	margin-bottom: 9px;
-	text-align: center;
-	font-size: 14px;
-	line-height: 1.25;
-	letter-spacing: 0.01em;
-	color: --alpha(var(--color-ink) / 65%);
-	transition: color 0.3s ease;
-}
-
-.vintage-print:hover .vintage-print__caption {
-	color: var(--color-marker);
-}
-
-/* ── A pile of prints ────────────────────────────────────────────────
-   Each card is a stack: the labelled print on top, the rest underneath
-   with their corners showing. Click the top one and the pile spreads. */
-.vintage-stack {
-	position: relative;
-}
-
-.vintage-stack__top {
-	position: relative;
-	z-index: 20;
-	--lift: 0px;
-	--sc: 1;
-	transform: translateY(var(--lift)) scale(var(--sc));
-}
-
-/* Underneath: matched to the print on top, because prints from one batch
-   come back the same size. Only the top print keeps its own proportions —
-   these are backing, and left at their own heights a portrait under a
-   landscape hangs half out of the pile. */
-.vintage-stack__under {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	z-index: calc(10 - var(--depth, 1));
-	cursor: default;
-	--tx: var(--rx, 4px);
-	--ty: var(--ry, 6px);
-	--tr: var(--rr, 2deg);
-	--lift: 0px;
-	--sc: 1;
-	transform: translate(var(--tx), calc(var(--ty) + var(--lift))) rotate(var(--tr)) scale(var(--sc));
-	transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
-}
-
-.vintage-print--open {
-	z-index: 60;
-}
-
-.vintage-stack__under img {
-	height: 100%;
-	object-fit: cover;
-}
-
-.vintage-print--open .vintage-stack__under {
-	--tx: var(--ox, 50%);
-	--ty: var(--oy, 20%);
-	--tr: var(--or, 6deg);
-	cursor: pointer;
-	box-shadow: 0 0 0 1px rgb(60 45 25 / 10%), 0 3px 6px rgb(40 48 66 / 14%), 0 26px 40px -18px
-		rgb(40 48 66 / 55%);
-}
-
-/* On a phone there is no gutter to throw prints into, so the pile opens
-   mostly downward instead of sideways */
-@media (max-width: 639px) {
-	.vintage-print--open .vintage-stack__under {
-		--tx: calc(var(--ox, 30%) * 0.5);
-		--ty: calc(var(--oy, 20%) * 1.1);
-	}
-}
-
-/* the top print lifts a touch so the pile reads as opened, not just messy */
-.vintage-print--open .vintage-stack__top {
-	--sc: 1.03;
-}
-
-/* Once the pile is spread, hovering one print floats it clear of the
-   others: up, a shade larger, a deeper shadow, and above everything else
-   in the pile. A closed pile stays put — there is nothing to pick out of
-   it yet, and the whole thing is one click target. */
-.vintage-print--open .vintage-stack__top:hover,
-.vintage-print--open .vintage-stack__under:hover {
-	--lift: -13px;
-	--sc: 1.045;
-	z-index: 30;
-	box-shadow: 0 0 0 1px rgb(60 45 25 / 12%), 0 6px 10px -4px rgb(40 48 66 / 20%), 0 30px 44px -16px
-		rgb(40 48 66 / 55%);
-}
-
-.vintage-print--open .vintage-stack__top:hover {
-	--sc: 1.075;
-}
-
-.vintage-print--open .vintage-print__caption {
-	color: var(--color-marker);
-}
-
-/* ── "click the image" ───────────────────────────────────────────────
-   A note in the side margin: one pencil stroke that loops round on itself
-   and points in at the piles. It fades out for good the first time a pile
-   is opened. */
-.click-hint {
-	display: flex;
-	width: max-content;
-	flex-direction: column;
-	align-items: flex-start;
-	margin: 0 auto 4px 2%;
-	transform: rotate(-3deg);
-	transition: opacity 0.5s ease, transform 0.5s ease;
-	pointer-events: none;
-	/* graphite, not the marker the headings are drawn in */
-	color: #6f6f78;
-}
-
-/* Wide enough for a margin: the note moves out of the wall and into the
-   gutter beside it, and the wall keeps its full width */
-@media (min-width: 1280px) {
-	.click-hint {
-		position: absolute;
-		top: 34px;
-		right: 100%;
-		margin: 0 14px 0 0;
-	}
-}
-
-.click-hint--done {
-	opacity: 0;
-	transform: rotate(-3deg) translateY(-6px);
-}
-
-.click-hint__label {
-	max-width: 116px;
-	font-size: 16px;
-	line-height: 1.15;
-	color: inherit;
-}
-
-.click-hint__arrow {
-	width: 108px;
-	height: 130px;
-	margin-top: 2px;
-	margin-left: 6px;
-	overflow: visible;
-}
-
-.click-hint__stroke {
-	fill: none;
-	stroke: currentcolor;
-	stroke-width: 2;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	/* keeps the nib an even weight however the arrow is scaled */
-	vector-effect: non-scaling-stroke;
-}
-
-@media (max-width: 639px) {
-	.click-hint__arrow {
-		width: 84px;
-		height: 101px;
-	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.click-hint {
-		transition: opacity 0.5s ease;
-	}
-}
-
-/* Everything that is not the open pile goes soft behind it */
-.stack-scrim {
-	position: fixed;
-	inset: 0;
-	z-index: 40;
-	opacity: 0;
-	pointer-events: none;
-	/* a black wash dims the page while a heavier blur pushes it back */
-	background: rgb(0 0 0 / 60%);
-	backdrop-filter: blur(16px);
-	-webkit-backdrop-filter: blur(16px);
-	transition: opacity 0.4s ease;
-}
-
-.stack-scrim--lit {
-	opacity: 1;
-	pointer-events: auto;
-	cursor: zoom-out;
-}
-
-/* ── A cut of 35mm, running clear off both edges of the screen ───────
-   The wrapper cancels main's inline padding to reach the viewport edge and
-   clips the overscan, so the strip can be wider than the screen and sit at
-   an angle without ever opening a horizontal scrollbar. */
-.film-strip-bleed {
-	margin-inline: -24px;
-	padding-block: 16px;
-	/* clip, not hidden, and only on the one axis that needs it: this stops
-	   the overscan opening a horizontal scrollbar while leaving the vertical
-	   axis visible, so nothing that overhangs the strip gets sheared off */
-	overflow-x: clip;
-}
-
-.film-strip {
-	position: relative;
-	display: flex;
-	/* Wider than the screen at both ends: the film is cut, not centred */
-	margin-inline: -48px;
-	/* The gaps between frames are the film base showing through */
-	gap: 9px;
-	/* C-41 base: a deep red-brown, and slightly translucent so the page
-	   behind it reads through the way film does held up to the light */
-	background-color: rgb(124 52 30 / 78%);
-	/* Perforations: clear holes, the brightest thing on the strip */
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='9'%3E%3Crect x='4' y='0.5' width='11' height='8' rx='1.9' fill='%23fdf6ec'/%3E%3C/svg%3E"),
-		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='9'%3E%3Crect x='4' y='0.5' width='11' height='8' rx='1.9' fill='%23fdf6ec'/%3E%3C/svg%3E"),
-		/* base density — heavier along both edges, thinner through the middle */
-		linear-gradient(
-			to bottom,
-			rgb(38 12 4 / 34%) 0%,
-			rgb(38 12 4 / 6%) 16%,
-			rgb(255 150 96 / 9%) 50%,
-			rgb(38 12 4 / 6%) 84%,
-			rgb(38 12 4 / 30%) 100%
-		);
-	background-position: 6px 5px, 6px calc(100% - 5px), 0 0;
-	background-repeat: repeat-x, repeat-x, no-repeat;
-	transform: rotate(-0.45deg);
-}
-
-/* One frame plus the margins above and below it, so the edge print can sit
-   in the perforation rows the way it does on real stock */
-.film-strip__cell {
-	flex: 0 0 auto;
-	display: flex;
-	flex-direction: column;
-}
-
-/* Edge print: stock name along the top, frame number along the bottom,
-   clear against the dense base */
-.film-strip__edge {
-	display: flex;
-	height: 24px;
-	padding-inline: 4px;
-	font-size: 6.5px;
-	line-height: 1;
-	letter-spacing: 0.16em;
-	white-space: nowrap;
-	color: rgb(255 222 190 / 72%);
-	pointer-events: none;
-}
-
-/* Tucked against the frame so it clears the perforation row above it */
-.film-strip__edge--stock {
-	align-items: flex-end;
-	padding-bottom: 2px;
-}
-
-.film-strip__edge--num {
-	align-items: flex-start;
-	justify-content: flex-end;
-	padding-top: 2px;
-	font-size: 8px;
-	letter-spacing: 0.06em;
-	color: rgb(255 226 198 / 88%);
-}
-
-/* Every frame is the same standard size whatever shape the photo is —
-   35mm's 3:2 gate, with the picture covering it */
-.film-strip__frame {
-	position: relative;
-	flex: 0 0 auto;
-	height: 78px;
-	aspect-ratio: 3 / 2;
-	overflow: hidden;
-	/* Negatives carry a rounded corner where the gate masks the frame */
-	border-radius: 3.5px;
-	background: rgb(60 22 10 / 55%);
-}
-
-@media (max-width: 767px) {
-	.film-strip__frame {
-		height: 62px;
-	}
-
-	.film-strip__edge {
-		height: 20px;
-	}
-}
-
-.film-strip__frame img {
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	/* Undeveloped: inverted, and warmed into the red-brown of the base it
-	   is sitting on. Negatives are flatter than prints, hence the softened
-	   contrast. The loupe is what reads them back. */
-	filter: invert(1) grayscale(1) sepia(0.62) saturate(2.2) hue-rotate(-18deg) contrast(0.86)
-		brightness(1.02);
-	/* a little of the base showing through the emulsion */
-	opacity: 0.9;
-}
-
-/* ── The loupe ───────────────────────────────────────────────────────
-   Rides above the film, snapping frame to frame, showing the picture the
-   negative is holding. It sits inside the strip, so it picks up the same
-   rotation and stays square to the film. */
-.film-lens {
-	position: absolute;
-	left: var(--lx, 0);
-	top: var(--ly, 0);
-	width: var(--lw, 0);
-	height: var(--lh, 0);
-	z-index: 4;
-	overflow: hidden;
-	border-radius: 4px;
-	opacity: 0;
-	/* never steals the pointer from the cell underneath, or the loupe would
-	   chase itself across the strip */
-	pointer-events: none;
-	background: #2b1208;
-	box-shadow: 0 0 0 1px rgb(255 240 222 / 60%), 0 0 0 4px rgb(38 14 6 / 30%), 0 16px 30px -10px
-		rgb(30 10 4 / 70%);
-	transition:
-		left 0.3s cubic-bezier(0.23, 1, 0.32, 1), top 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-		width 0.3s cubic-bezier(0.23, 1, 0.32, 1), height 0.3s cubic-bezier(0.23, 1, 0.32, 1), opacity
-		0.22s ease;
-}
-
-.film-lens--lit {
-	opacity: 1;
-}
-
-.film-lens img {
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-/* A glint across the glass */
-.film-lens::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	pointer-events: none;
-	background: linear-gradient(
-		148deg,
-		rgb(255 255 255 / 24%) 0%,
-		rgb(255 255 255 / 5%) 32%,
-		rgb(255 255 255 / 0%) 56%
-	);
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.vintage-print,
-	.vintage-print__frame,
-	.vintage-print__caption,
-	.vintage-print__frame,
-	.vintage-stack__under,
-	.stack-scrim {
-		transition: none;
-	}
-
-	.film-lens {
-		transition: opacity 0.22s ease;
-	}
+	font-style: normal;
+	font-display: swap;
 }

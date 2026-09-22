@@ -3,9 +3,9 @@
 	open, a page hinged to the bar folds out below it with the handwritten links.
 -->
 <script lang="ts">
-import { menu } from '$content/sections.json';
-import HighlightSwipe from '$lib/components/HighlightSwipe.svelte';
-import { scroller } from '$lib/scroll';
+import { menu } from '$lib/bside/content/sections.json';
+import HighlightSwipe from '$lib/bside/components/HighlightSwipe.svelte';
+import { scroller } from '$lib/bside/scroll';
 import { tick } from 'svelte';
 
 let open = $state(false);
