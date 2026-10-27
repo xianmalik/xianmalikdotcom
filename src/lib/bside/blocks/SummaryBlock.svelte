@@ -24,7 +24,7 @@ import Button from '$lib/bside/components/Button.svelte';
 				<p class="font-handwriting text-2xl text-ink leading-snug rotate-1 whitespace-pre-line mb-8">
 					{summary.description}
 				</p>
-				<Button href="#">
+				<Button href="#contact">
 					Let's talk
 				</Button>
 			</div>

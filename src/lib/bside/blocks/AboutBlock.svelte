@@ -2,6 +2,14 @@
 import { about } from '$lib/bside/content/sections.json';
 import Button from '$lib/bside/components/Button.svelte';
 import Polaroid from '$lib/bside/components/Polaroid.svelte';
+import { sideA } from '$lib/bside/sideA';
+import { onMount } from 'svelte';
+
+// The CTA crosses over to side A, so resolve it against the host once we're in the browser
+let ctaHref = $state(about.cta.link);
+onMount(() => {
+	ctaHref = sideA(about.cta.link);
+});
 </script>
 
 <div id="about" class="py-8 mx-auto">
@@ -45,7 +53,7 @@ import Polaroid from '$lib/bside/components/Polaroid.svelte';
 				</div>
 
 				<div class="mt-6">
-					<Button href={about.cta.link}>
+					<Button href={ctaHref}>
 						{about.cta.text}
 					</Button>
 				</div>

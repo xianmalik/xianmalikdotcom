@@ -5,14 +5,24 @@
 <script lang="ts">
 import { menu } from '$lib/bside/content/sections.json';
 import HighlightSwipe from '$lib/bside/components/HighlightSwipe.svelte';
+import SideSwitch from '$lib/bside/components/SideSwitch.svelte';
 import { scroller } from '$lib/bside/scroll';
-import { tick } from 'svelte';
+import { sideA } from '$lib/bside/sideA';
+import { onMount, tick } from 'svelte';
 
 let open = $state(false);
 let toggle: HTMLButtonElement;
 let sheet: HTMLDivElement;
 
 const year = new Date().getFullYear();
+
+// Links that leave the page (side A) are resolved once we know the host; see sideA()
+let items = $state(menu.items);
+onMount(() => {
+	items = menu.items.map((item) =>
+		item.href.startsWith('#') ? item : { ...item, href: sideA(item.href) }
+	);
+});
 
 const show = async () => {
 	open = true;
@@ -33,6 +43,8 @@ const onKeydown = (event: KeyboardEvent) => {
 };
 
 const go = (event: MouseEvent, href: string) => {
+	// Only in-page anchors scroll; anything else is a real navigation
+	if (!href.startsWith('#')) return;
 	event.preventDefault();
 	if (open) hide(false);
 
@@ -67,6 +79,8 @@ const go = (event: MouseEvent, href: string) => {
 			<a href="#top" class="notepad__name font-wordmark" onclick={(event) => go(event, '#top')}>
 				{menu.name}
 			</a>
+			<div class="notepad__actions">
+			<SideSwitch />
 			<button
 				bind:this={toggle}
 				type="button"
@@ -77,6 +91,7 @@ const go = (event: MouseEvent, href: string) => {
 			>
 				{open ? 'close' : 'menu'}
 			</button>
+			</div>
 		</div>
 
 		<div bind:this={sheet} id="site-menu-sheet" class="notepad__sheet" inert={!open}>
@@ -84,7 +99,7 @@ const go = (event: MouseEvent, href: string) => {
 				<div class="notepad__page">
 					<nav aria-label="Main" class="notepad__nav">
 						<ol class="notepad__list">
-							{#each menu.items as item, i}
+							{#each items as item, i}
 								<li style="--i: {i}">
 									<a href={item.href} class="notepad__item" onclick={(event) => go(event, item.href)}>
 										<HighlightSwipe class="notepad__swipe" />
@@ -195,6 +210,12 @@ const go = (event: MouseEvent, href: string) => {
 		line-height: 1;
 		color: #000;
 		text-decoration: none;
+	}
+
+	.notepad__actions {
+		display: flex;
+		align-items: center;
+		gap: 16px;
 	}
 
 	.notepad__toggle {

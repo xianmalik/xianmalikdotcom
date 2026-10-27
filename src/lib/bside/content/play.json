@@ -1,0 +1,57 @@
+{
+	"title": "play.",
+	"subtitle": "the fun & games bit",
+	"tester": {
+		"title": "the switch tester",
+		"note": "type anything. pick a switch. sorry to the neighbours.",
+		"switches": [
+			{ "id": "linear", "name": "linear", "feel": "smooth, deep thock" },
+			{ "id": "tactile", "name": "tactile", "feel": "a bump, then a clack" },
+			{ "id": "clicky", "name": "clicky", "feel": "loud. very loud." }
+		]
+	},
+	"shelf": [
+		{
+			"label": "switches in the sale drawer",
+			"value": "866",
+			"note": "30 kinds, all leaving. 84 more on the wishlist, so nothing is really leaving.",
+			"tint": "#fde68a",
+			"tilt": -2.5
+		},
+		{
+			"label": "books on the shelf",
+			"value": "43",
+			"note": "Harry Potter next to Sun Tzu next to Masud Rana. 12 more on the TBR pile.",
+			"tint": "#bfdbfe",
+			"tilt": 1.8
+		},
+		{
+			"label": "films queued",
+			"value": "153",
+			"note": "39 of them are spy films. Watched so far, officially: zero.",
+			"tint": "#fecaca",
+			"tilt": -1.2
+		},
+		{
+			"label": "coins, five countries",
+			"value": "22",
+			"note": "Taka, rupees, Aussie dollars, Malaysian sen. Not one banknote, despite the name.",
+			"tint": "#d9f99d",
+			"tilt": 2.4
+		},
+		{
+			"label": "top lane, Sett main",
+			"value": "GG",
+			"note": "Lose level 1 to Fiora, stomp her late. Also in the Alchemist E-Sports camp.",
+			"tint": "#e9d5ff",
+			"tilt": -2
+		},
+		{
+			"label": "games in the oven",
+			"value": "2",
+			"note": "Oddkeep, a tiny studio for turn-based games: a dungeon crawler and a property game.",
+			"tint": "#fed7aa",
+			"tilt": 1.4
+		}
+	]
+}

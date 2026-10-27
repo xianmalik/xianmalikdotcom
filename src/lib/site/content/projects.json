@@ -1,18 +1,25 @@
 [
-	{ "title": "Project 01", "year": 2026, "href": "#" },
-	{ "title": "Project 02", "year": 2026, "href": "#" },
-	{ "title": "Project 03", "year": 2026, "href": "#" },
-	{ "title": "Project 04", "year": 2025, "href": "#" },
-	{ "title": "Project 05", "year": 2025, "href": "#" },
-	{ "title": "Project 06", "year": 2025, "href": "#" },
-	{ "title": "Project 07", "year": 2024, "href": "#" },
-	{ "title": "Project 08", "year": 2024, "href": "#" },
-	{ "title": "Project 09", "year": 2024, "href": "#" },
-	{ "title": "Project 10", "year": 2023, "href": "#" },
-	{ "title": "Project 11", "year": 2023, "href": "#" },
-	{ "title": "Project 12", "year": 2023, "href": "#" },
-	{ "title": "Project 13", "year": 2022, "href": "#" },
-	{ "title": "Project 14", "year": 2022, "href": "#" },
-	{ "title": "Project 15", "year": 2022, "href": "#" },
-	{ "title": "Project 16", "year": 2021, "href": "#" }
+	{ "title": "NetAI", "year": 2025, "href": "#work" },
+	{
+		"title": "Skipper Hospitality",
+		"year": "Platform",
+		"href": "https://platform.skipperhospitality.com/"
+	},
+	{
+		"title": "Hazard County Shuttle",
+		"year": "Shipped",
+		"href": "https://www.hazardcountyshuttle.com",
+		"image": "/projects/hazard-mockup.png"
+	},
+	{ "title": "Plume", "year": "Website", "href": "https://www.plume.com" },
+	{ "title": "Machine Controller", "year": 2025, "href": "#work" },
+	{
+		"title": "Keys & Quests",
+		"year": "Ongoing",
+		"href": "https://keysandquests.vercel.app",
+		"image": "/projects/knq-mockup.png"
+	},
+	{ "title": "myjourney", "year": 2022, "href": "#experience" },
+	{ "title": "BetterNotion", "year": "Data board", "href": "#work" },
+	{ "title": "Folia", "year": "Resume engine", "href": "#work" }
 ]

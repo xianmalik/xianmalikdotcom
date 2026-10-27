@@ -1,0 +1,175 @@
+{
+	"hero": {
+		"eyebrow": "Senior Software Engineer · Dhaka, BD",
+		"status": "Open to senior & architecture roles",
+		"headline": ["Fast, type-safe", "web platforms", "that move numbers."],
+		"lede": "Full-stack TypeScript engineer with 10+ years shipping React, Next.js and Node.js products — from real-time telecom dashboards to booking engines and headless CMSs.",
+		"stats": [
+			{
+				"value": "10+",
+				"label": "years shipping"
+			},
+			{
+				"value": "20+",
+				"label": "apps delivered"
+			},
+			{
+				"value": "−40%",
+				"label": "anomaly diagnosis time"
+			},
+			{
+				"value": "99.9%",
+				"label": "uptime sustained"
+			}
+		]
+	},
+	"work": [
+		{
+			"name": "NetAI",
+			"client": "Cloudly Infotech",
+			"year": "2025 —",
+			"kind": "ML telecom platform",
+			"summary": "Real-time dashboards that turn 10K+ network metrics and ML predictions into something an operator can act on.",
+			"problem": "Telecom operators were diagnosing network anomalies by hand across huge, noisy datasets.",
+			"approach": "Next.js dashboards over strictly typed API clients, with caching tuned for large telemetry pulls and WebSocket streams.",
+			"impact": [
+				{
+					"value": "−40%",
+					"label": "diagnosis time"
+				},
+				{
+					"value": "−60%",
+					"label": "redundant requests"
+				}
+			],
+			"stack": ["Next.js", "TypeScript", "WebSockets", "Docker", "AWS"],
+			"tone": "ink"
+		},
+		{
+			"name": "Skipper",
+			"client": "Skipper Hospitality",
+			"year": "Platform",
+			"kind": "Hospitality CMS & booking engine",
+			"summary": "A React CMS that lets hotels edit their own sites, rendering through custom Svelte templates.",
+			"problem": "Hotel teams needed to update content without a developer in the loop.",
+			"approach": "React admin built on JSON-schema forms, content pulled from a Django REST backend, rendered by swappable Svelte templates.",
+			"stack": ["React", "GraphQL", "Django", "Svelte", "Tailwind"],
+			"link": "https://platform.skipperhospitality.com/",
+			"tone": "signal"
+		},
+		{
+			"name": "Hazard County Shuttle",
+			"client": "Moab, Utah",
+			"year": "Shipped",
+			"kind": "Booking site",
+			"summary": "Trailhead-to-trailhead bike and river shuttles — trails, meeting points, galleries and a booking flow.",
+			"stack": ["Gatsby", "React"],
+			"link": "https://www.hazardcountyshuttle.com",
+			"image": "/projects/hazard-mockup.png",
+			"tone": "paper"
+		},
+		{
+			"name": "Plume",
+			"client": "Plume",
+			"year": "Website",
+			"kind": "Next.js + NetlifyCMS",
+			"summary": "Reusable view blocks and custom templates on a headless CMS, visually tested in Storybook across every breakpoint.",
+			"stack": ["Next.js", "NetlifyCMS", "Storybook"],
+			"link": "https://www.plume.com",
+			"tone": "ink"
+		},
+		{
+			"name": "Keys & Quests",
+			"client": "Personal",
+			"year": "Ongoing",
+			"kind": "Keyboard blog",
+			"summary": "A lightning-fast blog about mechanical keyboard switches, written by someone with too many of them.",
+			"stack": ["Next.js", "Sanity", "Tailwind"],
+			"link": "https://keysandquests.vercel.app",
+			"image": "/projects/knq-mockup.png",
+			"tone": "paper"
+		},
+		{
+			"name": "BetterNotion",
+			"client": "Client work",
+			"year": "In progress",
+			"kind": "Notion-style data board",
+			"summary": "One page's data rendered through Table, Kanban, Timeline and Calendar views, all driven by a single JSON contract from the backend.",
+			"stack": ["Next.js", "Hyper Express", "MongoDB", "Tailwind", "shadcn/ui"],
+			"tone": "ink"
+		},
+		{
+			"name": "Folia",
+			"client": "Open source",
+			"year": "In progress",
+			"kind": "ATS resume scorer",
+			"summary": "Scores a resume against a job description the way a real ATS does — stemmed keywords, a skills ontology for partial credit, title normalisation.",
+			"stack": ["Python", "spaCy", "pdfplumber", "MCP"],
+			"tone": "signal"
+		}
+	],
+	"experience": [
+		{
+			"dates": "2025 — Now",
+			"role": "Software Engineer",
+			"company": "Cloudly Infotech",
+			"note": "ML-powered telecom optimisation; real-time machine controller software over WebSockets."
+		},
+		{
+			"dates": "2022 — 2023",
+			"role": "Senior Front-End Engineer",
+			"company": "Curotec · USA",
+			"note": "5+ apps in TypeScript, React, Next.js and Laravel. +25% engagement, +20% performance scores."
+		},
+		{
+			"dates": "2021 — 2022",
+			"role": "Front-End Engineer",
+			"company": "Reformed Tech",
+			"note": "Custom CMSs that cut content update times by 30%. 99.9% uptime post-launch."
+		},
+		{
+			"dates": "2020 — 2021",
+			"role": "Front-End Engineer",
+			"company": "XpeedStudio",
+			"note": "Elementor plugins, admin dashboards and WordPress themes for community markets."
+		},
+		{
+			"dates": "2015 — Now",
+			"role": "Freelance Web Engineer",
+			"company": "Independent",
+			"note": "20+ full-stack TypeScript apps. NestJS backends, payments, auth — saving clients 15+ hrs a week."
+		}
+	],
+	"skills": [
+		{
+			"group": "Frontend",
+			"items": ["React", "Next.js", "Svelte", "Vue", "Zustand", "Tailwind"]
+		},
+		{
+			"group": "Backend",
+			"items": ["Node.js", "NestJS", "Express", "FastAPI", "GraphQL", "WebSockets"]
+		},
+		{
+			"group": "Data",
+			"items": ["PostgreSQL", "Prisma", "MongoDB", "Redis", "Supabase", "Sanity"]
+		},
+		{
+			"group": "AI & Ops",
+			"items": ["LLM integration", "MCP", "Agentic AI", "Docker", "AWS", "CI/CD"]
+		}
+	],
+	"contact": {
+		"headline": "Have something worth building?",
+		"email": "mzubayeruh@gmail.com",
+		"links": [
+			{
+				"label": "GitHub",
+				"href": "https://github.com/xianmalik"
+			},
+			{
+				"label": "LinkedIn",
+				"href": "https://www.linkedin.com/in/xianmalik"
+			}
+		]
+	}
+}

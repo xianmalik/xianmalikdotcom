@@ -1,8 +1,8 @@
 {
 	"summary": {
 		"name": "Malik Zubayer",
-		"tagline": "Impact driven Software Engineer\n turning ideas into action",
-		"description": "Software Engineer with 10+ years of experience in\n building scalable web products.\n Based in Dhaka.",
+		"tagline": "This is the B side —\n fun, games & everything off the clock",
+		"description": "Keyboards, books, League, coins from five countries,\n and a reel of a life mostly away from a screen.",
 		"avatar": "/headshot-circle.png"
 	},
 	"portfolio": {
@@ -33,8 +33,8 @@
 		"title": "about.",
 		"subtitle": "Who am I? or, What am I?",
 		"cta": {
-			"text": "More About Me",
-			"link": "/about"
+			"text": "The serious side",
+			"link": "/"
 		},
 		"photos": [
 			{
@@ -74,12 +74,8 @@
 				"href": "#top"
 			},
 			{
-				"label": "portfolio",
-				"href": "#portfolio"
-			},
-			{
-				"label": "case studies",
-				"href": "#case-studies"
+				"label": "play",
+				"href": "#play"
 			},
 			{
 				"label": "the reel",
@@ -92,6 +88,10 @@
 			{
 				"label": "say hello",
 				"href": "#contact"
+			},
+			{
+				"label": "flip to side A",
+				"href": "/"
 			}
 		]
 	},

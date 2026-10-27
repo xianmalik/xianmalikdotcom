@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 /* The old site brings its own stylesheet; keep its classes out of this one. */
 @source not './lib/bside';
 @source not './routes/bside';
@@ -7,16 +7,22 @@
 	/* Near-black ground, warm off-white type */
 	--color-canvas: #1a1c1a;
 	--color-ivory: #faf9f6;
+	/* A raised surface on the canvas, and the one hot accent */
+	--color-smoke: #242624;
+	--color-signal: #ff5a36;
+	/* Live / available */
+	--color-go: #4ade80;
 
 	/* Editorial Old for display type, Neue Montreal for everything else */
-	--font-display: 'PP Editorial Old', Georgia, serif;
-	--font-serif: 'PP Editorial Old', Georgia, serif;
-	--font-sans: 'PP Neue Montreal', system-ui, -apple-system, sans-serif;
+	--font-display: "PP Editorial Old", Georgia, serif;
+	--font-serif: "PP Editorial Old", Georgia, serif;
+	--font-sans: "PP Neue Montreal", system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
 	html {
 		color-scheme: dark;
+		scroll-behavior: smooth;
 		background-color: var(--color-canvas);
 		color: var(--color-ivory);
 	}
@@ -38,48 +44,48 @@
 
 /* PP Editorial Old */
 @font-face {
-	font-family: 'PP Editorial Old';
-	src: url('/site/fonts/PPEditorialOld-Ultralight.otf') format('opentype');
+	font-family: "PP Editorial Old";
+	src: url("/site/fonts/PPEditorialOld-Ultralight.otf") format("opentype");
 	font-weight: 200;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'PP Editorial Old';
-	src: url('/site/fonts/PPEditorialOld-UltralightItalic.otf') format('opentype');
+	font-family: "PP Editorial Old";
+	src: url("/site/fonts/PPEditorialOld-UltralightItalic.otf") format("opentype");
 	font-weight: 200;
 	font-style: italic;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'PP Editorial Old';
-	src: url('/site/fonts/PPEditorialOld-Regular.otf') format('opentype');
+	font-family: "PP Editorial Old";
+	src: url("/site/fonts/PPEditorialOld-Regular.otf") format("opentype");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'PP Editorial Old';
-	src: url('/site/fonts/PPEditorialOld-Italic.otf') format('opentype');
+	font-family: "PP Editorial Old";
+	src: url("/site/fonts/PPEditorialOld-Italic.otf") format("opentype");
 	font-weight: 400;
 	font-style: italic;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'PP Editorial Old';
-	src: url('/site/fonts/PPEditorialOld-Ultrabold.otf') format('opentype');
+	font-family: "PP Editorial Old";
+	src: url("/site/fonts/PPEditorialOld-Ultrabold.otf") format("opentype");
 	font-weight: 800;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'PP Editorial Old';
-	src: url('/site/fonts/PPEditorialOld-UltraboldItalic.otf') format('opentype');
+	font-family: "PP Editorial Old";
+	src: url("/site/fonts/PPEditorialOld-UltraboldItalic.otf") format("opentype");
 	font-weight: 800;
 	font-style: italic;
 	font-display: swap;
@@ -87,41 +93,48 @@
 
 /* PP Neue Montreal: files still to be added to static/site/fonts/ */
 @font-face {
-	font-family: 'PP Neue Montreal';
-	src:
-		local('PP Neue Montreal'),
-		url('/site/fonts/PPNeueMontreal-Regular.otf') format('opentype');
+	font-family: "PP Neue Montreal";
+	src: local("PP Neue Montreal"), url("/site/fonts/PPNeueMontreal-Regular.otf") format("opentype");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'PP Neue Montreal';
-	src:
-		local('PP Neue Montreal Italic'),
-		url('/site/fonts/PPNeueMontreal-Italic.otf') format('opentype');
+	font-family: "PP Neue Montreal";
+	src: local("PP Neue Montreal Italic"), url("/site/fonts/PPNeueMontreal-Italic.otf")
+		format("opentype");
 	font-weight: 400;
 	font-style: italic;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'PP Neue Montreal';
-	src:
-		local('PP Neue Montreal Medium'),
-		url('/site/fonts/PPNeueMontreal-Medium.otf') format('opentype');
+	font-family: "PP Neue Montreal";
+	src: local("PP Neue Montreal Medium"), url("/site/fonts/PPNeueMontreal-Medium.otf")
+		format("opentype");
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'PP Neue Montreal';
-	src:
-		local('PP Neue Montreal Bold'),
-		url('/site/fonts/PPNeueMontreal-Bold.otf') format('opentype');
+	font-family: "PP Neue Montreal";
+	src: local("PP Neue Montreal Bold"), url("/site/fonts/PPNeueMontreal-Bold.otf") format("opentype");
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
+}
+
+/* Fades an element up the first time it scrolls into view (see $lib/site/reveal.ts) */
+.reveal {
+	opacity: 0;
+	transform: translateY(28px);
+	transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1) var(--reveal-delay, 0ms), transform 0.9s
+		cubic-bezier(0.23, 1, 0.32, 1) var(--reveal-delay, 0ms);
+}
+
+.reveal--in {
+	opacity: 1;
+	transform: none;
 }
